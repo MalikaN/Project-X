@@ -9,9 +9,12 @@ class Layout extends Component{
         return(
             <div className="flex-container">
                <Head>
+               <title>Project X</title>
+                <link rel="shortcut icon" href="/Icon/favicon.ico" type="image/x-icon"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
-            </Head>
+              
+                </Head>
           
                 <Header/>
                 <div className="content"><ComposedComponent/></div>
@@ -29,10 +32,10 @@ class Layout extends Component{
                 `}</style>
                   <style jsx global>{`
             body { 
+                font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
                 background-color: #F9FAFB;
                 background:linear-gradient(to top, #F9FAFB 0%, #FFFFFF 100%);
-                margin:0;
-               font-family: 'Quicksand', sans-serif;
+                margin:0;           
             }
            
             `}</style>
