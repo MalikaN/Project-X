@@ -17,7 +17,9 @@ class Layout extends Component{
                 </Head>
           
                 <Header/>
-                <div className="content"><ComposedComponent/></div>
+                <div className="content">
+                    <ComposedComponent {...this.props}/>
+                </div>
                 <Footer/>
                 <style jsx>{`
                     .flex-container {

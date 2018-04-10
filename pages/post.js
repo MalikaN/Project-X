@@ -1,13 +1,15 @@
 import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
+import posts from '../components/Posts'
 
 const Post = (props) =>{
-    console.log(props.url)
+    let details = posts.filter(post => post.id === props.url.query.id)
+    console.log("DETAILS",details)
+    console.log("POST",posts)
     return(
         <div>
-            {/* //{props.router.pathname} */}
-            {/* {props.query.id} */}
-            fsdf
+            {details.id}
+            {details.body}
         </div>
  )
 }
