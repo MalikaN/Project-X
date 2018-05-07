@@ -4,25 +4,25 @@ import axios from 'axios'
 
 class Login extends Component{
 
-    handleInputChange(event){
-
+    handleInputChange=(event)=>{
         const target = event.target;
         
         const value = target.value;
         const name = target.name;
-        console.log('heelo');
         this.setState({
           [name]: value
         })
+        console.log(value)
+      
       }
 
-    handleSubmit(event) {
+    handleSubmit=(event)=> {
 
-        console.log( this.state);
+        console.log( 'fff');
         
   
       axios.post('http://localhost:5000/login', {
-        email: this.state.username ,
+        username: this.state.username ,
         password: this.state.password
         })
         .then(function (response) {
