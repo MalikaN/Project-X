@@ -9,7 +9,9 @@ const Header = () =>(
                 </Link>
             </div>
             <div className="submenu">
-                <a href="" className="addpost">Add Post</a>
+                <Link href="/add-post" >
+                    <a className="addpost">Add Post</a>
+                </Link>
                 <Link href="/login" >
                     <a className="login">Login</a>
                 </Link>
@@ -28,14 +30,13 @@ const Header = () =>(
                 height:40px;
                 background-color:#FFFFFF;
                 box-shadow: 0 2px 0 rgba(93, 96, 99, .1);
+                font-family: 'Century';
               
              }
              .submenu{
                display:flex;
                justify-content: space-around;
                width:250px;
-               font-family: "Helvetica Neue",Arial,sans-serif;
-  
             }
             .logo{
                 margin:10px;
@@ -44,6 +45,7 @@ const Header = () =>(
                 font-size:20px; 
                 text-decoration:none;
                 color:#000;  
+
             }
             .addpost{
                 margin: 13px 0 10px 30px;

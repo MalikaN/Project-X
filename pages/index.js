@@ -127,17 +127,18 @@ class Index extends Component{
                     }
                   }
                   .card__title {
-                    color: #696969;
-                    font-size: 1.25rem;
+                    color: #5a5454;
+                    font-size: 1.15rem;
                     font-weight: 300;
                     letter-spacing: 2px;
                     text-transform: uppercase;
                   }
                   .card__text {
                     flex: 1 1 auto;
-                    font-size: 0.875rem;
+                    font-size: 0.95rem;
                     line-height: 1.5;
                     margin-bottom: 1.25rem;
+                    color:#828384;
                   }
                   
             `}

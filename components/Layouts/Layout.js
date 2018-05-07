@@ -34,7 +34,7 @@ class Layout extends Component{
                 `}</style>
                   <style jsx global>{`
             body { 
-                font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-family: 'Century';
                 background-color: #F9FAFB;
                 background:linear-gradient(to top, #F9FAFB 0%, #FFFFFF 100%);
                 margin:0;           

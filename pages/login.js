@@ -1,16 +1,49 @@
 import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
+import axios from 'axios'
 
 class Login extends Component{
+
+    handleInputChange(event){
+
+        const target = event.target;
+        
+        const value = target.value;
+        const name = target.name;
+        console.log('heelo');
+        this.setState({
+          [name]: value
+        })
+      }
+
+    handleSubmit(event) {
+
+        console.log( this.state);
+        
+  
+      axios.post('http://localhost:5000/login', {
+        email: this.state.username ,
+        password: this.state.password
+        })
+        .then(function (response) {
+        console.log(response);
+        })
+        .catch(function (error) {
+        console.log(error);
+        
+      });
+    }
+
     render(){
+
         return(
         <div className="container">
             <form className="form">
                 <h1>Sign in</h1>
                 <div className="form-content">
-                    <input id="txtUserName" type="text" placeholder="User Name"/>
-                    <input id="txtpassword" type="password" placeholder="Password"/>
-                    <div className="button">sign in</div>
+                    <input id="txtUserName" type="text" name="username" placeholder="User Name" onChange={this.handleInputChange}/>
+                    <input id="txtpassword" type="password" name="password" placeholder="Password" onChange={this.handleInputChange}/>
+                    <div className="button" onClick ={this.handleSubmit}>sign in</div>
                 </div>
             </form>
 
