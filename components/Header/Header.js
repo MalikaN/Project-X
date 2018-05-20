@@ -1,70 +1,70 @@
 import Link from 'next/link'
+import React,{Component} from 'react'
+import jscookie from 'js-cookie'
+import styles from './HeaderStyle'
 
-const Header = () =>(
-    <div> 
-        <div className="menu">
-            <div className="logo">
-            <Link href="/" >
-                    <a className="title">Project X</a>
-                </Link>
-            </div>
-            <div className="submenu">
-                <Link href="/add-post" >
-                    <a className="addpost">Add Post</a>
-                </Link>
-                <Link href="/login" >
-                    <a className="login">Login</a>
-                </Link>
-                <Link href="/signup">
-                    <a  className="signup">Signup</a>
-                </Link>
-            </div>
-           
-        </div>
-       
-        <style jsx>{`
-             .menu{
-                display:flex;
-                justify-content:space-between;
-                width: 100%;
-                height:40px;
-                background-color:#FFFFFF;
-                box-shadow: 0 2px 0 rgba(93, 96, 99, .1);
-                font-family: 'Century';
-              
-             }
-             .submenu{
-               display:flex;
-               justify-content: space-around;
-               width:250px;
-            }
-            .logo{
-                margin:10px;
-            }
-            .title{
-                font-size:20px; 
-                text-decoration:none;
-                color:#000;  
+class Header extends Component{
 
-            }
-            .addpost{
-                margin: 13px 0 10px 30px;
-                text-decoration:none;
-                color:#000;  
-            }
-            .login{
+    handleClick(){
+        this.Greeting()
+    }
+    UserGreeting() {
+        return <Link href=""><a onClick={this.handleClick()}>Logout</a></Link>;
+      }
+      
+    GuestGreeting() {
+        jscookie.remove('token')
+        console.log('logout',this.cookie)  
+        return <Link href="/login" ><a>Login</a></Link>;
+      }
+    Greeting() {
+        const cookie = jscookie.get('token')
+        
+        if (cookie) {
+          return this.UserGreeting();
+        }
+  
+        return this.GuestGreeting();
+         
+      }
+    render(){
+        return(
+            <div> 
+            <div className="menu">
+                <div className="logo">
+                <Link href="/" >
+                        <a className="title">Project X</a>
+                    </Link>
+                </div>
+                <div className="submenu">
+                    <div className="addpost">
+                        <Link href="/add-post" >
+                            <a>Add Post</a>
+                        </Link>
+                    </div>
+                    <div className="auth">
+                        {this.Greeting()}
+                    </div>
+                    <div className="signup">
+                        <Link href="/signup">
+                            <a >Signup</a>
+                        </Link>
+                    </div>                 
+                </div>
+               
+            </div>
+
+        <style jsx>{styles}</style>
+        <style jsx global>{`
+            .auth >a{
                 margin: 13px 0 10px 20px;
                 text-decoration:none;
                 color:#407FC7;
-              
-            }
-            .signup{
-                margin:  13px 10px 10px 20px;
-                text-decoration:none;
-                color:#407FC7;
+                vertical-align:-webkit-baseline-middle;
             }
         `}</style>
     </div>
-   
-)
+        )
+    }
+}
 export default Header

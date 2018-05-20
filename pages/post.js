@@ -2,21 +2,27 @@ import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
 import posts from '../components/Posts'
 
-const Post = (props) =>{
-    let details = posts.filter(post => post.id == props.url.query.id)
+// const Post = (props) =>{
+class Post extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            details : posts.filter(post => post.id == props.url.query.id)
+        }
+    }
+    
+
+    render(){
     return(
         <div className="container">
             <div className="post-content">
-                <img src={details[0].display_src} alt="" className="post-img"/>
+                <img src={this.state.details[0].display_src} alt="" className="post-img"/>
                 <div className="post">
-                    <h3>{details[0].title}</h3>
+                    <h3>{this.state.details[0].title}</h3>
 
-                    <p>{details[0].body}</p>
+                    <p>{this.state.details[0].body}</p>
                 </div>
             </div>
-           {/* <p> {details[0].title}<br/>
-            {details[0].body}</p> */}
-
 
             <style jsx>{`
                 .container{
@@ -62,7 +68,7 @@ const Post = (props) =>{
             `}</style>
         </div>
        
- )
+ )}
 }
 
  export default withLayout(Post)

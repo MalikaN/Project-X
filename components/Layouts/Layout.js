@@ -2,6 +2,7 @@ import {Component} from 'react'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Head from 'next/head'
+import styles from './Layoutstyle'
 
 export default(ComposedComponent)=>(
 class Layout extends Component{
@@ -21,17 +22,7 @@ class Layout extends Component{
                     <ComposedComponent {...this.props}/>
                 </div>
                 <Footer/>
-                <style jsx>{`
-                    .flex-container {
-                        display: flex;
-                        flex-direction: column;
-                        height:100vh;
-                      }
-                    .content{
-                         flex: 1;
-                     }   
-                    
-                `}</style>
+                <style jsx>{styles}</style>
                   <style jsx global>{`
             body { 
                 font-family: 'Century';
