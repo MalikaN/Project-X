@@ -16,6 +16,7 @@ class Header extends Component{
     }
 
     logout=()=>{
+        console.log('logoot before',this.state.userToken)
         this.setState({
             userToken: ''
         })
@@ -44,17 +45,15 @@ class Header extends Component{
                                     <a>Add Post</a>
                                 </Link>
                             </div>
-                            <div className="auth">
-                                <Link href="">
-                                    <a onClick={this.logout()}>
-                                        Logout
-                                    </a>
-                                </Link>
+                            <div className="buttonLink">
+                                <a  onClick={() => this.logout()}>
+                                    Logout
+                                </a>
                             </div>
                         </React.Fragment>
                     :
                         <React.Fragment>
-                            <div className="login">
+                            <div className="auth">
                                 <Link href="/login" ><a>Login</a></Link>
                             </div>
                             <div className="signup">
