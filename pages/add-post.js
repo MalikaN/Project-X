@@ -1,20 +1,23 @@
 import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
-import jscookie from 'js-cookie'
-import Router from 'next/router'
 import styles from './AddPostStyle'
+import jscookie from 'js-cookie'
+import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants';
 
 class AddPost extends Component{
+    state={
+        loggedinUser :''
+    }
 
     componentDidMount(){
-        let cookie = jscookie.get('token')
+        this.setState({
+            loggedinUser : jscookie.get('loginuser')
+        })
 
-        if(!cookie){
-            Router.push('/login')
-        }
     }
 
     render(){
+        const { loggedinUser } = this.state;
         return(
             <div className="container">
                 <div className="status-bar">
@@ -24,7 +27,7 @@ class AddPost extends Component{
                 </div>
                 <div className="author-pane">
                     <div className="inner-author-pane">
-                        by Malika
+                         By {loggedinUser}
                     </div>
                 </div>
                 <div className="title">

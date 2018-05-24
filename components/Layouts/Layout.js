@@ -23,15 +23,14 @@ class Layout extends Component{
                 </div>
                 <Footer/>
                 <style jsx>{styles}</style>
-                  <style jsx global>{`
-            body { 
-                font-family: 'Century';
-                background-color: #F9FAFB;
-                background:linear-gradient(to top, #F9FAFB 0%, #FFFFFF 100%);
-                margin:0;           
-            }
-           
-            `}</style>
+                <style jsx global>{`
+                body { 
+                    font-family: 'Century';
+                    background-color: #F9FAFB;
+                    background:linear-gradient(to top, #F9FAFB 0%, #FFFFFF 100%);
+                    margin:0;           
+                }
+                `}</style>
             </div>
         )
     }

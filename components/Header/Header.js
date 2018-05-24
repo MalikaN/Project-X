@@ -2,9 +2,9 @@ import Link from 'next/link'
 import React,{Component} from 'react'
 import jscookie from 'js-cookie'
 import styles from './HeaderStyle'
+import Router from 'next/router'
 
 class Header extends Component{
-
     state = {
         userToken: ''
     }
@@ -16,18 +16,16 @@ class Header extends Component{
     }
 
     logout=()=>{
-        console.log('logoot before',this.state.userToken)
         this.setState({
             userToken: ''
         })
-        console.log('logoout',this.state.userToken)
         jscookie.remove('token')
+        Router.push('/')
     }
     
     render(){
 
         const { userToken } = this.state;
-        console.log('Token',userToken)
         return(
             <div> 
                 <div className="menu">

@@ -11,9 +11,7 @@ export default css`{
         padding-left: 20px;                     
         margin-right: auto;
         margin-left: auto;
-        height:100px;
-       
-       
+        height:100px;     
     }
     .inner-status-bar{
         padding-top:40px;

@@ -39,7 +39,6 @@ export default css`{
         vertical-align:-webkit-baseline-middle;
     }
     .auth >a{
-        margin: 13px 0 10px 20px;
         text-decoration:none;
         color:#407FC7;
         vertical-align:-webkit-baseline-middle;
@@ -50,7 +49,6 @@ export default css`{
         padding: 0!important;
         text-decoration: none;
         cursor: pointer;
-        margin: 13px 0 10px 20px;;
         color:#407FC7;
         vertical-align:-webkit-baseline-middle;
         font-family: 'Century';
