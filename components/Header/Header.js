@@ -6,18 +6,18 @@ import Router from 'next/router'
 
 class Header extends Component{
     state = {
-        userToken: ''
+        userToken: {}
     }
 
     componentDidMount() {
         this.setState({
-            userToken: jscookie.get('token')
+            userToken: JSON.parse(jscookie.get('token') || '{}')
         })
     }
 
     logout=()=>{
         this.setState({
-            userToken: ''
+            userToken: {}
         })
         jscookie.remove('token')
         Router.push('/')
@@ -36,7 +36,7 @@ class Header extends Component{
                 </div>
 
                 <div className="submenu">
-                    {userToken ?
+                    {userToken.access_token ?
                         <React.Fragment>
                             <div className="addpost">
                                 <Link href="/add-post" >

@@ -30,10 +30,12 @@ export default css`{
         margin-left: auto;
         width: 740px!important;
         color:#000000ad;
+        margin-bottom: 20px;
     }
     .inner-author-pane{
-        padding:20px 0;
+        padding:10px 0;
         color:#000;
+        position:absolute;
     }
     .title{
         padding-right: 20px;
@@ -66,6 +68,20 @@ export default css`{
         margin-right: auto;
         margin-left: auto;
         width: 740px;
+    }
+    .button{
+        border-radius: 4px;
+        background-color:#4bc970;
+        padding: 0.6em;
+        // margin-top: 1em;
+        border: none;
+        color: #FFF;
+        font-weight: 600;
+        text-align: center;
+        width: 4rem;
+        cursor: pointer;
+        overflow: hidden;
+        float:right;
     }
    .title-text{
     font-size: 30px;
