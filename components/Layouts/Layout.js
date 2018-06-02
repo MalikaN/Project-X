@@ -14,11 +14,11 @@ class Layout extends Component{
                 <link rel="shortcut icon" href="/Icon/favicon.ico" type="image/x-icon"/>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
-              
                 </Head>
           
                 <Header/>
                 <div className="content">
+                    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
                     <ComposedComponent {...this.props}/>
                 </div>
                 <Footer/>

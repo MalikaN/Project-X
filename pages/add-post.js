@@ -5,12 +5,16 @@ import Router from 'next/router'
 import jscookie from 'js-cookie'
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants'
 import axios from 'axios'
+import {Image, CloudinaryContext} from 'cloudinary-react'
 
+const CLOUDINARY_UPLOAD_PRESET = 'j2iqzuah';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/react-cloudinary/upload';
 class AddPost extends Component{
     state={
         loggedinUser :{},
         title:'',
-        post:''
+        post:'',
+        selectedFile: ''
     }
 
     componentDidMount(){
@@ -29,18 +33,21 @@ class AddPost extends Component{
     }
 
     handleSubmit = (event) =>{
-        // var that = this;
+        const formData = new FormData()
+        formData.append('myFile', this.state.selectedFile, this.state.selectedFile.name)
         axios.post('http://localhost:5000/add-post',{
-            userid: this.state.loggedinUser.userId ,
+            userid: this.state.loggedinUser.userId,
             postTitle: this.state.title,
-            post: this.state.post
+            post: this.state.post,
+            file:formData
         })
-        .then(function(response){
+        .then((response)=>{
             if(response.data.StatusCode == 201){
                 console.log('post created successfully')  
                 this.setState({
                     title: '',
-                    post: ''
+                    post: '',
+                    selectedFile:''
                 })
             }
            
@@ -49,7 +56,14 @@ class AddPost extends Component{
             console.log(error);
         });
     }
-     
+
+    fileChangedHandler = (event) => {
+        this.setState({
+            selectedFile: event.target.files[0]
+        })
+       
+    }
+
     render(){
         const { loggedinUser } = this.state;
         return(
@@ -74,6 +88,9 @@ class AddPost extends Component{
                     <div className="inner-post-details">
                         <input type="textarea" name="post" value={this.state.post} rows="10" cols="30" placeholder="your story..." className="post-text" onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
+                </div>
+                <div>
+                    <input type="file" onChange={this.fileChangedHandler}/>
                 </div>
                <style jsx>{styles}</style>
             </div>
