@@ -33,34 +33,76 @@ class AddPost extends Component{
     }
 
     handleSubmit = (event) =>{
-        const formData = new FormData()
-        formData.append('myFile', this.state.selectedFile, this.state.selectedFile.name)
-        axios.post('http://localhost:5000/add-post',{
-            userid: this.state.loggedinUser.userId,
-            postTitle: this.state.title,
-            post: this.state.post,
-            file:formData
-        })
-        .then((response)=>{
-            if(response.data.StatusCode == 201){
-                console.log('post created successfully')  
-                this.setState({
-                    title: '',
-                    post: '',
-                    selectedFile:''
-                })
-            }
+        console.log(this.state.selectedFile.name)
+        const uploaders = this.state.selectedFile.map(file => {
+            // Initial FormData
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", "j2iqzuah"); // Replace the preset name with your own
+            formData.append("api_key", "936153933364769"); // Replace API key with your own Cloudinary key
+            formData.append("timestamp", (Date.now() / 1000) | 0);
+            
+            // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
+            axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',{
+                        file:formData
+                    })
+                    .then((response)=>{
+                        console.log('image uploaded')
+                    
+                    })
+                    .catch(function(error){
+                        console.log(error);
+                    });
+          });
+    
+
+        // axios.post('http://localhost:5000/add-post',{
+        //     userid: this.state.loggedinUser.userId,
+        //     postTitle: this.state.title,
+        //     post: this.state.post,
+        //     file:formData
+        // })
+        // .then((response)=>{
+        //     if(response.data.StatusCode == 201){
+        //         console.log('post created successfully')  
+        //         this.setState({
+        //             title: '',
+        //             post: '',
+        //             selectedFile:''
+        //         })
+        //     }
            
-        })
-        .catch(function(error){
-            console.log(error);
-        });
+        // })
+        // .catch(function(error){
+        //     console.log(error);
+        // });
     }
 
     fileChangedHandler = (event) => {
         this.setState({
             selectedFile: event.target.files[0]
         })
+        // const uploaders = this.state.selectedFile.map(file => {
+        //     // Initial FormData
+        //     const formData = new FormData();
+        //     formData.append("file", file);
+        //     // formData.append("tags", `codeinfuse, medium, gist`);
+        //     formData.append("upload_preset", "j2iqzuah"); // Replace the preset name with your own
+        //     formData.append("api_key", "936153933364769"); // Replace API key with your own Cloudinary key
+        //     formData.append("timestamp", (Date.now() / 1000) | 0);
+            
+        //     // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
+        //     axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',{
+        //         file:formData
+        //     })
+        //     .then((response)=>{
+        //         console.log('image uploaded')
+               
+        //     })
+        //     .catch(function(error){
+        //         console.log(error);
+        //     });
+        //   });
        
     }
 
