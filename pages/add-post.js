@@ -33,19 +33,16 @@ class AddPost extends Component{
     }
 
     handleSubmit = (event) =>{
-        console.log(this.state.selectedFile.name)
-        const uploaders = this.state.selectedFile.map(file => {
-            // Initial FormData
+        
             const formData = new FormData();
-            formData.append("file", file);
-            formData.append("upload_preset", "j2iqzuah"); // Replace the preset name with your own
-            formData.append("api_key", "936153933364769"); // Replace API key with your own Cloudinary key
-            formData.append("timestamp", (Date.now() / 1000) | 0);
+            formData.append('file', this.state.selectedFile);
+            formData.append('upload_preset', "iv3w5ot5"); // Replace the preset name with your own
+            // formData.append("api_key", "936153933364769"); // Replace API key with your own Cloudinary key
+            // formData.append("timestamp", (Date.now() / 1000) | 0);
             
-            // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
             axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',{
-                        file:formData
-                    })
+                file:formData
+            })
                     .then((response)=>{
                         console.log('image uploaded')
                     
@@ -53,7 +50,7 @@ class AddPost extends Component{
                     .catch(function(error){
                         console.log(error);
                     });
-          });
+        //   });
     
 
         // axios.post('http://localhost:5000/add-post',{
