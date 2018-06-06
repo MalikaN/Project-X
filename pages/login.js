@@ -23,9 +23,18 @@ class Login extends Component{
         password: this.state.password
         })
         .then(function (response) {
-        jscookie.set('token',JSON.stringify(response.data.access_token));    
-        Router.push('/')
-        
+            if(response.data.status == 422){
+                let userInfo ={
+                    access_token : response.data.access_token,
+                    userId : response.data.userId,
+                    loginuser : response.data.username
+                }
+                jscookie.set('token',userInfo); 
+                Router.push('/')  
+            }
+            else{
+                console.log('Authentication Failure')
+            }
         })
         .catch(function (error) {
         console.log(error);

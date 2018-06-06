@@ -14,7 +14,7 @@ export default css`{
      .submenu{
        display:flex;
        justify-content: space-around;
-       width:250px;
+       width:175px;
     }
     .logo{
         margin:10px;
@@ -26,7 +26,7 @@ export default css`{
 
     }
     .addpost >a{
-        margin: 13px 0 10px 0px;
+        margin: 13px 10px 10px 20px;
         text-decoration:none;
         color:#000;  
         vertical-align:-webkit-baseline-middle;
@@ -37,5 +37,23 @@ export default css`{
         text-decoration:none;
         color:#407FC7;
         vertical-align:-webkit-baseline-middle;
+    }
+    .auth >a{
+        text-decoration:none;
+        color:#407FC7;
+        vertical-align:-webkit-baseline-middle;
+    }
+    .buttonLink> a{
+        background: none!important;
+        border: none;
+        padding: 0!important;
+        text-decoration: none;
+        cursor: pointer;
+        color:#407FC7;
+        vertical-align:-webkit-baseline-middle;
+        font-family: 'Century';
+    }
+    .buttonLink:focus {
+        outline:0;
     }
 }`

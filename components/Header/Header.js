@@ -2,31 +2,30 @@ import Link from 'next/link'
 import React,{Component} from 'react'
 import jscookie from 'js-cookie'
 import styles from './HeaderStyle'
+import Router from 'next/router'
 
 class Header extends Component{
-
     state = {
-        userToken: ''
+        userToken: {}
     }
 
     componentDidMount() {
         this.setState({
-            userToken: jscookie.get('token')
+            userToken: JSON.parse(jscookie.get('token') || '{}')
         })
     }
 
     logout=()=>{
         this.setState({
-            userToken: ''
+            userToken: {}
         })
-        console.log('logoout',this.state.userToken)
         jscookie.remove('token')
+        Router.push('/')
     }
     
     render(){
 
         const { userToken } = this.state;
-        console.log('Token',userToken)
         return(
             <div> 
                 <div className="menu">
@@ -37,24 +36,22 @@ class Header extends Component{
                 </div>
 
                 <div className="submenu">
-                    {userToken ?
+                    {userToken.access_token ?
                         <React.Fragment>
                             <div className="addpost">
                                 <Link href="/add-post" >
                                     <a>Add Post</a>
                                 </Link>
                             </div>
-                            <div className="auth">
-                                <Link href="">
-                                    <a onClick={this.logout()}>
-                                        Logout
-                                    </a>
-                                </Link>
+                            <div className="buttonLink">
+                                <a  onClick={() => this.logout()}>
+                                    Logout
+                                </a>
                             </div>
                         </React.Fragment>
                     :
                         <React.Fragment>
-                            <div className="login">
+                            <div className="auth">
                                 <Link href="/login" ><a>Login</a></Link>
                             </div>
                             <div className="signup">

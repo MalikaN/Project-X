@@ -11,9 +11,7 @@ export default css`{
         padding-left: 20px;                     
         margin-right: auto;
         margin-left: auto;
-        height:100px;
-       
-       
+        height:100px;     
     }
     .inner-status-bar{
         padding-top:40px;
@@ -32,10 +30,12 @@ export default css`{
         margin-left: auto;
         width: 740px!important;
         color:#000000ad;
+        margin-bottom: 20px;
     }
     .inner-author-pane{
-        padding:20px 0;
+        padding:10px 0;
         color:#000;
+        position:absolute;
     }
     .title{
         padding-right: 20px;
@@ -64,10 +64,33 @@ export default css`{
         margin-top:30px;
     }
     .inner-post-details{
-        padding-right: 20px;
+        // padding-right: 20px;
         margin-right: auto;
         margin-left: auto;
         width: 740px;
+    }
+    .button{
+        border-radius: 4px;
+        background-color:#4bc970;
+        padding: 0.6em;
+        // margin-top: 1em;
+        border: none;
+        color: #FFF;
+        font-weight: 600;
+        text-align: center;
+        width: 4rem;
+        cursor: pointer;
+        overflow: hidden;
+        float:right;
+    }
+    textarea{
+        width:100%;
+        border-style: none; 
+        border-color: Transparent; 
+        overflow: auto; 
+        resize:vertical;
+        max-height:300px; 
+        min-height:200px;
     }
    .title-text{
     font-size: 30px;
