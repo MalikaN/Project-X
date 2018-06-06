@@ -64,7 +64,7 @@ export default css`{
         margin-top:30px;
     }
     .inner-post-details{
-        padding-right: 20px;
+        // padding-right: 20px;
         margin-right: auto;
         margin-left: auto;
         width: 740px;
@@ -82,6 +82,15 @@ export default css`{
         cursor: pointer;
         overflow: hidden;
         float:right;
+    }
+    textarea{
+        width:100%;
+        border-style: none; 
+        border-color: Transparent; 
+        overflow: auto; 
+        resize:vertical;
+        max-height:300px; 
+        min-height:200px;
     }
    .title-text{
     font-size: 30px;

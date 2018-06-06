@@ -6,21 +6,25 @@ import jscookie from 'js-cookie'
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants'
 import axios from 'axios'
 import {Image, CloudinaryContext} from 'cloudinary-react'
+import autosize from 'autosize'
 
 const CLOUDINARY_UPLOAD_PRESET = 'j2iqzuah';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/react-cloudinary/upload';
 class AddPost extends Component{
     state={
-        loggedinUser :{},
+        loggedinUser :'',
         title:'',
         post:'',
-        img:''
+        selectedFile:''
     }
 
     componentDidMount(){
         this.setState({
-            loggedinUser : JSON.parse(jscookie.get('token') || '{}')
+            loggedinUser :jscookie.getJSON('token')
         })
+        if(!this.state.loggedinUser){
+            Router.push('/login')
+        }
     }
 
     handleInputChange = (event) =>{
@@ -54,10 +58,11 @@ class AddPost extends Component{
                                 console.log('post created successfully')  
                                 this.setState({
                                     title: '',
-                                    post: '', 
-                                    img:''                                  
+                                    post: '',
+                                    selectedFile:''
+                                                                 
                                 })
-            
+                                
                             }        
                         })
                         .catch(function(error){
@@ -71,30 +76,8 @@ class AddPost extends Component{
 
     fileChangedHandler = (event) => {
         this.setState({
-            img: event.target.files[0]
+            selectedFile: event.target.files[0]
         })
-        
-        // const uploaders = this.state.selectedFile.map(file => {
-        //     // Initial FormData
-        //     const formData = new FormData();
-        //     formData.append("file", file);
-        //     // formData.append("tags", `codeinfuse, medium, gist`);
-        //     formData.append("upload_preset", "j2iqzuah"); // Replace the preset name with your own
-        //     formData.append("api_key", "936153933364769"); // Replace API key with your own Cloudinary key
-        //     formData.append("timestamp", (Date.now() / 1000) | 0);
-            
-        //     // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
-        //     axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',{
-        //         file:formData
-        //     })
-        //     .then((response)=>{
-        //         console.log('image uploaded')
-               
-        //     })
-        //     .catch(function(error){
-        //         console.log(error);
-        //     });
-        //   });
        
     }
 
@@ -120,11 +103,11 @@ class AddPost extends Component{
                 </div>
                 <div className="post-details">
                     <div className="inner-post-details">
-                        <input type="textarea" name="post" value={this.state.post} rows="10" cols="30" placeholder="your story..." className="post-text" onChange={(event)=>this.handleInputChange(event)}/>
+                        <textarea name="post" value={this.state.post} placeholder="your story..."  className="post-text" onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
                 </div>
                 <div>
-                    <input name="img" type="file" value={this.state.img} onChange={(event)=>this.fileChangedHandler(event)}/>
+                    <input name="img" type="file" onChange={(event)=>this.fileChangedHandler(event)}/>
                 </div>
                <style jsx>{styles}</style>
             </div>
