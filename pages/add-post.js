@@ -6,10 +6,7 @@ import jscookie from 'js-cookie'
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants'
 import axios from 'axios'
 import {Image, CloudinaryContext} from 'cloudinary-react'
-import autosize from 'autosize'
 
-const CLOUDINARY_UPLOAD_PRESET = 'j2iqzuah';
-const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/react-cloudinary/upload';
 class AddPost extends Component{
     state={
         loggedinUser :'',
@@ -19,10 +16,13 @@ class AddPost extends Component{
     }
 
     componentDidMount(){
-        this.setState({
-            loggedinUser :jscookie.getJSON('token')
-        })
-        if(!this.state.loggedinUser){
+        let token = jscookie.getJSON('token')
+        
+        if(token){
+            this.setState({
+            loggedinUser : token
+            })
+        }else{
             Router.push('/login')
         }
     }

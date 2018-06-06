@@ -10,8 +10,9 @@ class Header extends Component{
     }
 
     componentDidMount() {
+        let token = JSON.parse(jscookie.get('token') || '{}')
         this.setState({
-            userToken: JSON.parse(jscookie.get('token') || '{}')
+            userToken:token
         })
     }
 

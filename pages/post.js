@@ -6,19 +6,13 @@ import Router from 'next/router'
 import jscookie from 'js-cookie'
 
 class Post extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
+    state = {
             details : posts.filter(post => post.id == this.props.url.query.id),
-            loggedinUser :''
         }
-    }
+    
     componentDidMount(){
-        this.setState({
-            loggedinUser :jscookie.getJSON('token')
-        })
-
-        if(!this.state.loggedinUser){
+        let token = jscookie.getJSON('token')
+        if(!token){
             Router.push('/login')
         }
     }
@@ -27,7 +21,7 @@ class Post extends Component{
         return(
             <div className="container">
                 <div className="post-content">
-                    {/* <img src={this.state.details[0].display_src} alt="" className="post-img"/> */}
+                    <img src={this.state.details[0].display_src} alt="" className="post-img"/>
                     <div className="post">
                         <h3>{this.state.details[0].title}</h3>
 
