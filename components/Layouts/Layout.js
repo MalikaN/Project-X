@@ -18,7 +18,6 @@ class Layout extends Component{
           
                 <Header/>
                 <div className="content">
-                    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
                     <ComposedComponent {...this.props}/>
                 </div>
                 <Footer/>
