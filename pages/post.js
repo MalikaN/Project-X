@@ -4,11 +4,26 @@ import posts from '../components/Posts'
 import styles from './postStyle'
 import Router from 'next/router'
 import jscookie from 'js-cookie'
+import axios from 'axios'
 
 class Post extends Component{
     state = {
-            details : posts.filter(post => post.id == this.props.url.query.id),
+            details : this.props.url.query.id
         }
+    
+    componentWillMount(){
+        console.log(this.state.details)
+        const params = {
+            id:this.state.details
+        }
+        axios.get(`http://localhost:5000/post/?id=${this.state.details}`)
+        .then((Response)=>{
+            console.log(Response);
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
     
     componentDidMount(){
         let token = jscookie.getJSON('token')
