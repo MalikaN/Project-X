@@ -8,17 +8,16 @@ import axios from 'axios'
 
 class Post extends Component{
     state = {
-            details : this.props.url.query.id
+            details : this.props.url.query.id,
+            post:[]
         }
     
     componentWillMount(){
-        console.log(this.state.details)
-        const params = {
-            id:this.state.details
-        }
-        axios.get(`http://localhost:5000/post/?id=${this.state.details}`)
+        axios.get(`http://localhost:5000/post/${this.state.details}`)
         .then((Response)=>{
-            console.log(Response);
+           this.setState({
+                post:Response.data.Items[0]
+           })
         })
         .catch((error)=>{
             console.log(error);
@@ -33,20 +32,20 @@ class Post extends Component{
     }
 
     render(){
+        const {post} = this.state;
         return(
             <div className="container">
-                <div className="post-content">
-                    <img src={this.state.details[0].display_src} alt="" className="post-img"/>
+                <div className="post-content" >
+                    <img src={post.PostSrc} alt="" className="post-img"/>
                     <div className="post">
-                        <h3>{this.state.details[0].title}</h3>
-
-                        <p>{this.state.details[0].body}</p>
+                        <h3>{post.postTitle}</h3>
+                            <p>{post.PostDesc}</p>
                     </div>
-                </div>
-
-                <style jsx>{styles}</style>
-            </div>      
- )}
+                    <style jsx>{styles}</style>
+                </div>               
+            </div> 
+        )
+    }
 }
 
  export default withLayout(Post)

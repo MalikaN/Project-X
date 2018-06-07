@@ -20,7 +20,7 @@ class AddPost extends Component{
         
         if(token){
             this.setState({
-            loggedinUser : token
+                loggedinUser : token
             })
         }else{
             Router.push('/login')
