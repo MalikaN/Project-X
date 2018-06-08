@@ -28,18 +28,21 @@ class Index extends Component{
             <ul className="cards">
             {posts.map(function(post,i){
                 return(
-                    <li className="cards__item" key={post.postId} key={i}>
-                        <div className="card">
-                            <img src={post.PostSrc} alt="" className="card__image"/>
-                            <div className="card__content">
-                                <div className="card__title">{post.postTitle}</div>
-                                <p className="card__text">{post.PostDesc}</p>
-                                <Link href={`/post?id=${post.postId}`}>
-                                    <div className="btn btn--block">Read More >></div>
-                                </Link>                             
-                            </div>
-                        </div>
-                    </li>
+                    <Link href={`/post?id=${post.postId}`} key={post.postId}>                       
+                        <li className="cards__item" >
+                            <a className="link" >
+                                <div className="card">
+                                    <div className="imgOuterDiv">
+                                        <img src={post.PostSrc} alt="" className="card__image"/>
+                                    </div>                             
+                                    <div className="card__content">
+                                        <div className="card__title">{post.postTitle}</div>
+                                        <p className="card__text">{post.PostDesc}</p>                  
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </Link> 
                 )
             })}       
             <style jsx>{styles}</style>

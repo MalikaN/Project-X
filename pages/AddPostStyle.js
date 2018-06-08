@@ -98,5 +98,4 @@ export default css`{
    .post-text{
     font-size: 24px;
    }
-
 }`
