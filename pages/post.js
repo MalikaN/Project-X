@@ -4,40 +4,48 @@ import posts from '../components/Posts'
 import styles from './postStyle'
 import Router from 'next/router'
 import jscookie from 'js-cookie'
+import axios from 'axios'
 
 class Post extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            details : posts.filter(post => post.id == this.props.url.query.id),
-            loggedinUser :''
+    state = {
+            details : this.props.url.query.id,
+            post:[]
         }
-    }
-    componentDidMount(){
-        this.setState({
-            loggedinUser :jscookie.getJSON('token')
+    
+    componentWillMount(){
+        axios.get(`http://localhost:5000/post/${this.state.details}`)
+        .then((Response)=>{
+           this.setState({
+                post:Response.data.Items[0]
+           })
         })
-
-        if(!this.state.loggedinUser){
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
+    
+    componentDidMount(){
+        let token = jscookie.getJSON('token')
+        if(!token){
             Router.push('/login')
         }
     }
 
     render(){
+        const {post} = this.state;
         return(
             <div className="container">
-                <div className="post-content">
-                    {/* <img src={this.state.details[0].display_src} alt="" className="post-img"/> */}
+                <div className="post-content" >
+                    <img src={post.PostSrc} alt="" className="post-img"/>
                     <div className="post">
-                        <h3>{this.state.details[0].title}</h3>
-
-                        <p>{this.state.details[0].body}</p>
+                        <h3>{post.postTitle}</h3>
+                            <p>{post.PostDesc}</p>
                     </div>
-                </div>
-
-                <style jsx>{styles}</style>
-            </div>      
- )}
+                    <style jsx>{styles}</style>
+                </div>               
+            </div> 
+        )
+    }
 }
 
  export default withLayout(Post)

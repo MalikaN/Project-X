@@ -56,17 +56,17 @@ export default css`{
       }
       @media (min-width: 56rem) {
         .cards__item {
-         // width: 33.3333%;
-          width: 30%;
+          width:22.6%;
         }
       }
       .card {
         background-color: white;
         border-radius: 0.25rem;
-        box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+        // box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         display: flex;
         flex-direction: column;
         overflow: hidden;
+        height: 450px;
       }
       .card:hover .card__image {
         -webkit-filter: contrast(100%);
@@ -76,14 +76,14 @@ export default css`{
         display: flex;
         flex: 1 1 auto;
         flex-direction: column;
-        padding: 1rem;
+        padding: 10px 2px 2px 2px;
+        text-transform:capitalize;  
       }
       .card__image {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
-        border-top-left-radius: 0.25rem;
-        border-top-right-radius: 0.25rem;
+        border-radius: 0.25rem;
         -webkit-filter: contrast(70%);
                 filter: contrast(70%);
         overflow: hidden;
@@ -91,6 +91,8 @@ export default css`{
         transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
         transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
         transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91), -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+        height:300px;
+        width:100%;
       }
       .card__image::before {
         content: "";
@@ -103,18 +105,25 @@ export default css`{
         }
       }
       .card__title {
-        color: #5a5454;
         font-size: 1.15rem;
-        font-weight: 300;
-        letter-spacing: 2px;
-        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        font-size: 16px !important;
+        line-height: 22px !important;
       }
       .card__text {
         flex: 1 1 auto;
-        font-size: 0.95rem;
+        font-size: 14px !important;
         line-height: 1.5;
         margin-bottom: 1.25rem;
-        color:#828384;
+        letter-spacing: 0.5px !important;
       }
-
+      .link{
+        cursor:pointer;
+      }
+      .imgOuterDiv{
+        height: 200px;
+        overflow: hidden;
+        padding: 10px 0 30px 0;
+      }
 }`

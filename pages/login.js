@@ -8,8 +8,7 @@ import styles from './LoginStyle'
 class Login extends Component{
 
     handleInputChange=(event)=>{
-        const target = event.target;
-        
+        const target = event.target;      
         const value = target.value;
         const name = target.name;
         this.setState({
