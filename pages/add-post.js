@@ -6,6 +6,7 @@ import jscookie from 'js-cookie'
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants'
 import axios from 'axios'
 import {Image, CloudinaryContext} from 'cloudinary-react'
+import { parse } from 'querystring';
 
 class AddPost extends Component{
     state={
@@ -54,6 +55,7 @@ class AddPost extends Component{
                             fileUrl:response.data.url
                         })
                         .then((response)=>{
+                            console.log(response)
                             if(response.data.StatusCode == 201){
                                 console.log('post created successfully')  
                                 this.setState({

@@ -40,6 +40,11 @@ class Header extends Component{
                     {userToken.access_token ?
                         <React.Fragment>
                             <div className="addpost">
+                                <Link href="/my-posts" >
+                                    <a>My Posts</a>
+                                </Link>
+                            </div>
+                            <div className="addpost">
                                 <Link href="/add-post" >
                                     <a>Add Post</a>
                                 </Link>
@@ -66,14 +71,14 @@ class Header extends Component{
             </div>
 
         <style jsx>{styles}</style>
-        <style jsx global>{`
+        {/* <style jsx global>{`
             .auth >a{
                 margin: 13px 0 10px 20px;
                 text-decoration:none;
                 color:#407FC7;
                 vertical-align:-webkit-baseline-middle;
             }
-        `}</style>
+        `}</style> */}
     </div>
         )
     }

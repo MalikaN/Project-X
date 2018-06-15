@@ -25,10 +25,9 @@ class Layout extends Component{
                 <style jsx global>{`
                 body { 
                     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-                    background-color: #F9FAFB;
-                    background:linear-gradient(to top, #F9FAFB 0%, #FFFFFF 100%);
+                    background-color: #FFF;
                     margin:0; 
-                    color : rgb(72, 72, 72) !important;        
+                    // color : rgb(72, 72, 72) !important;        
                 }
                 `}</style>
             </div>

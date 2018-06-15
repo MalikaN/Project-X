@@ -12,9 +12,12 @@ export default css`{
       
      }
      .submenu{
-       display:flex;
-       justify-content: space-around;
-       width:175px;
+    //    display:flex;
+    //    justify-content: space-around;
+    //    width:175px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     .logo{
         margin:10px;
@@ -29,19 +32,19 @@ export default css`{
         margin: 13px 10px 10px 20px;
         text-decoration:none;
         color:#000;  
-        vertical-align:-webkit-baseline-middle;
+        // vertical-align:-webkit-baseline-middle;
     }
 
     .signup >a{
         margin:  13px 10px 10px 20px;
         text-decoration:none;
         color:#407FC7;
-        vertical-align:-webkit-baseline-middle;
+        // vertical-align:-webkit-baseline-middle;
     }
     .auth >a{
         text-decoration:none;
         color:#407FC7;
-        vertical-align:-webkit-baseline-middle;
+        // vertical-align:-webkit-baseline-middle;
     }
     .buttonLink> a{
         background: none!important;
@@ -50,8 +53,9 @@ export default css`{
         text-decoration: none;
         cursor: pointer;
         color:#407FC7;
-        vertical-align:-webkit-baseline-middle;
+        // vertical-align:-webkit-baseline-middle;
         font-family: 'Century';
+        margin:  13px 10px 10px 20px;
     }
     .buttonLink:focus {
         outline:0;
