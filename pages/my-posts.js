@@ -4,7 +4,7 @@ import styles from './myPostStyle'
 import Link from 'next/link'
 import jscookie from 'js-cookie'
 import axios from 'axios'
-import 'font-awesome/css/font-awesome.css'
+import 'font-awesome/css/font-awesome.min.css'
 
 class myPost extends Component{
 
@@ -54,7 +54,7 @@ class myPost extends Component{
                                 <div className="card">
                                     <div className="imgOuterDiv">
                                         <img src={post.PostSrc} alt="" className="card__image"/>
-                                        <div className="edit"><a href="#"><i className="fa fa-pencil fa-lg"></i></a></div>
+                                        {/* <div className="edit"><a href="#"><i className="fa fa-pencil fa-lg"></i></a></div> */}
                                     </div>                             
                                     <div className="card__content">
                                         <div className="card__title">{post.postTitle}</div>

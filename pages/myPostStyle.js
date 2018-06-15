@@ -44,7 +44,7 @@ export default css`{
       }
       .cards__item {
         display: flex;
-        padding: 1rem;
+        padding: 0.85rem;
       }
       @media (min-width: 40rem) {
         .cards__item {
