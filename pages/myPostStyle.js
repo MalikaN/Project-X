@@ -12,8 +12,8 @@ export default css`{
         border: 1px solid #cccccc;
         color: #fff;
         padding: 0.5rem;
-        cursor:pointer;
-        border-radius:2px;
+        cursor: pointer;
+        border-radius: 2px;
         align-items: flex-start;
         text-align: center;
         box-sizing: border-box;
@@ -27,8 +27,8 @@ export default css`{
         margin: 0em;
       }
       .btn:hover{
-        background-color:white;
-        color:#696969;
+        background-color: white;
+        color: #696969;
         border: 1px solid #696969;
     }
       .btn--block {
@@ -64,24 +64,20 @@ export default css`{
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        // height: 450px;
-        width:344px;
+        width: 344px;
       }
       .card:hover .card__image {
         -webkit-filter: contrast(100%);
                 filter: contrast(100%);
       }
-    //   .card:hover .editimg{
-    //       display:block;
-    //   }
       .card__content {
         display: flex;
         flex: 1 1 auto;
         flex-direction: column;
         padding: 2px 2px 2px 2px;
-        text-transform:capitalize;  
-        height:110px;
-        margin-top:5px;
+        text-transform: capitalize;  
+        height: 110px;
+        margin-top: 5px;
 
       }
       .card__image {
@@ -117,7 +113,7 @@ export default css`{
         letter-spacing: 0.5px;
         font-size: 16px !important;
         line-height: 22px !important;
-        padding-bottom:5px;
+        padding-bottom: 5px;
       }    
       .card__text {
         flex: 1 1 auto;
@@ -125,27 +121,49 @@ export default css`{
         line-height: 1.5;
         margin-bottom: 1.25rem;
         letter-spacing: 0.5px !important;
-        overflow:hidden;
+        overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
-        max-height:4.5em;
+        max-height: 4.5em;
       }
       a{
-        cursor:pointer;
+        cursor: pointer;
         text-decoration: none;
-        color:inherit;
+        color: inherit;
       }
+
       .imgOuterDiv{
         height: 200px;
         overflow: hidden;
         padding: 10px 0 10px 0;
-        margin-bottom:10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        //edit button added to my-posts
+        position: relative;
+        display: inline-block;
+      }
+      //edit button added to my-posts
+      .imgOuterDiv:hover .edit {
+        display: block;
       }
       .editimg{
-        height:4%;
-        width:4%;
-        margin-left:2px; 
-        // display:none;
-    }
+        height: 4%;
+        width: 4%;
+        margin-left: 2px; 
+      }
+      //edit button added to my-posts
+      .edit {
+        padding-top: 14px;	
+        padding-right: 7px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+      }
+      //edit button added to my-posts
+      .edit a {
+        color: #000;
+      }
 }`

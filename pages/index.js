@@ -3,6 +3,7 @@ import withLayout from '../components/Layouts/Layout'
 import Link from 'next/link'
 import styles from './indexStyle'
 import axios from 'axios'
+import Card from './cards'
 
 class Index extends Component{
     state={
@@ -23,25 +24,12 @@ class Index extends Component{
 
     render(){
         const { posts } = this.state;
+        const indexPage = true
         return(
             <ul className="cards">
             {posts.map(function(post,i){
                 return(
-                    <Link href={`/post?id=${post.postId}`} key={post.postId}>                       
-                        <li className="cards__item" >
-                            <a className="link" >
-                                <div className="card">
-                                    <div className="imgOuterDiv">
-                                        <img src={post.PostSrc} alt="" className="card__image"/>
-                                    </div>                             
-                                    <div className="card__content">
-                                        <div className="card__title">{post.postTitle}</div>
-                                        <div className="card__text">{post.PostDesc}</div>                  
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </Link> 
+                    <Card key={post.postId} post={post} index={indexPage}/>
                 )
             })}       
             <style jsx>{styles}</style>

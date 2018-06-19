@@ -9,14 +9,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
+    "@fortawesome/fontawesome-free-regular": "^5.0.13",
+    "@fortawesome/fontawesome-free-solid": "^5.0.13",
+    "@fortawesome/react-fontawesome": "0.0.20",
     "axios": "^0.18.0",
     "cloudinary-react": "^1.0.6",
+    "draft-js": "^0.10.5",
     "font-awesome": "^4.7.0",
+    "html-to-draftjs": "^1.4.0",
+    "immutable": "^3.8.2",
     "js-cookie": "^2.2.0",
     "next": "^5.0.0",
     "next-routes": "^1.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-draft-wysiwyg": "^1.12.13",
+    "react-fontawesome": "^1.6.1",
     "styled-jsx": "^2.2.6"
   }
 }

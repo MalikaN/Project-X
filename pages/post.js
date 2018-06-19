@@ -22,13 +22,6 @@ class Post extends Component{
             console.log(error);
         })
     }
-    
-    // componentDidMount(){
-    //     let token = jscookie.getJSON('token')
-    //     if(!token){
-    //         Router.push('/login')
-    //     }
-    // }
 
     render(){
         const {post} = this.state;

@@ -6,37 +6,6 @@ export default css`{
         max-width: 100%;
         vertical-align: middle;
       }
-      .btn {
-        font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
-        background-color: #407FC7;
-        border: 1px solid #cccccc;
-        color: #fff;
-        padding: 0.5rem;
-        cursor:pointer;
-        border-radius:2px;
-        align-items: flex-start;
-        text-align: center;
-        box-sizing: border-box;
-        font: 400 13.3333px Arial;
-        text-rendering: auto;
-        letter-spacing: normal;
-        word-spacing: normal;
-        text-transform: none;
-        text-indent: 0px;
-        text-shadow: none;
-        margin: 0em;
-      }
-      .btn:hover{
-        background-color:white;
-        color:#696969;
-        border: 1px solid #696969;
-    }
-      .btn--block {
-        display: block;
-        width: 100%;
-      }
-    
- 
       .cards {
         display: flex;
         flex-wrap: wrap;
@@ -50,7 +19,6 @@ export default css`{
       }
       @media (min-width: 40rem) {
         .cards__item {
-        //   width: 50%;
             width: 30%;
         }
       }
@@ -60,13 +28,10 @@ export default css`{
         }
       }
       .card {
-        // background-color: white;
         border-radius: 0.25rem;
-        // box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        // height: 450px;
        
       }
       .card:hover .card__image {
@@ -115,7 +80,12 @@ export default css`{
         letter-spacing: 0.5px;
         font-size: 16px !important;
         line-height: 22px !important;
-        padding-bottom:5px;
+        padding-bottom: 5px;
+        //Readmore 3 dots for title
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 300px;
       }    
       .card__text {
         flex: 1 1 auto;
@@ -123,20 +93,20 @@ export default css`{
         line-height: 1.5;
         margin-bottom: 1.25rem;
         letter-spacing: 0.5px !important;
-        overflow:hidden;
+        overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         max-height:4.5em;
       }
       .link{
-        cursor:pointer;
+        cursor: pointer;
         text-decoration: none;
       }
       .imgOuterDiv{
         height: 200px;
         overflow: hidden;
         padding: 10px 0 10px 0;
-        margin-bottom:10px;
+        margin-bottom: 10px;
       }
 }`

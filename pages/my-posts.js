@@ -4,7 +4,8 @@ import styles from './myPostStyle'
 import Link from 'next/link'
 import jscookie from 'js-cookie'
 import axios from 'axios'
-import 'font-awesome/css/font-awesome.min.css'
+import Card from './cards'
+
 
 class myPost extends Component{
 
@@ -25,7 +26,6 @@ class myPost extends Component{
                 }
             })
         }
-
     }
 
     fetchAPI(){
@@ -44,28 +44,12 @@ class myPost extends Component{
 
     render(){
         const { posts } = this.state;
+        const indexPage = false;
         return(
             <ul className="cards">
             {posts.map(function(post,i){
                 return(                   
-                        <li className="cards__item" key={post.postId}>
-                            <Link href={`/post?id=${post.postId}`} >    
-                            <a className="link" >
-                                <div className="card">
-                                    <div className="imgOuterDiv">
-                                        <img src={post.PostSrc} alt="" className="card__image"/>
-                                        {/* <div className="edit"><a href="#"><i className="fa fa-pencil fa-lg"></i></a></div> */}
-                                    </div>                             
-                                    <div className="card__content">
-                                        <div className="card__title">{post.postTitle}</div>
-                                        <div className="card__text">{post.PostDesc}</div>                  
-                                    </div>
-                                </div>
-                            </a>
-                            </Link>
-                            {/* <Link href="/edit-post"><img src="https://image.flaticon.com/icons/svg/61/61456.svg" className="editimg"/></Link> */}
-                        </li>
-                                     
+                    <Card key={post.postId} post={post} index={indexPage}/>
                 )
             })}       
             <style jsx>{styles}</style>

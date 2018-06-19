@@ -6,7 +6,9 @@ import jscookie from 'js-cookie'
 import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants'
 import axios from 'axios'
 import {Image, CloudinaryContext} from 'cloudinary-react'
-import { parse } from 'querystring';
+import { parse } from 'querystring'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import faCamera from '@fortawesome/fontawesome-free-solid/faCamera'
 
 class AddPost extends Component{
     state={
@@ -38,6 +40,7 @@ class AddPost extends Component{
     }
 
     handleSubmit = (event) =>{
+        
             const formData = new FormData();
             formData.append('file', this.state.selectedFile);
             formData.append('upload_preset', "iv3w5ot5"); // Replace the preset name with your own
@@ -45,35 +48,33 @@ class AddPost extends Component{
             // // formData.append("timestamp", (Date.now() / 1000) | 0);
             const config = {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-              };
+            };
+
             axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
+                .then((response)=>{
+                    axios.post('http://localhost:5000/add-post',{
+                        userid: this.state.loggedinUser.userId,
+                        postTitle: this.state.title,
+                        post: this.state.post,
+                        fileUrl:response.data.url
+                    })
                     .then((response)=>{
-                        axios.post('http://localhost:5000/add-post',{
-                            userid: this.state.loggedinUser.userId,
-                            postTitle: this.state.title,
-                            post: this.state.post,
-                            fileUrl:response.data.url
-                        })
-                        .then((response)=>{
-                            console.log(response)
-                            if(response.data.StatusCode == 201){
-                                console.log('post created successfully')  
-                                this.setState({
-                                    title: '',
-                                    post: '',
-                                    selectedFile:''
-                                                                 
-                                })
-                                
-                            }        
-                        })
-                        .catch(function(error){
-                            console.log(error);
-                        });             
+                        if(response.data.StatusCode == 201){
+                            console.log('post created successfully')  
+                            this.setState({
+                                title: '',
+                                post: '',
+                                selectedFile:''                                                              
+                            })
+                        }        
                     })
                     .catch(function(error){
                         console.log(error);
-                    });
+                    });             
+                })
+                .catch(function(error){
+                    console.log(error);
+                });
     }
 
     fileChangedHandler = (event) => {
@@ -100,16 +101,22 @@ class AddPost extends Component{
                 </div>
                 <div className="title">
                     <div className="inner-title">
-                    <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" onChange={(event)=>this.handleInputChange(event)} />
+                    <input type="text" name="title" value={this.state.title} placeholder="Title" 
+                        className="title-text" onChange={(event)=>this.handleInputChange(event)} />
                     </div>                
                 </div>
                 <div className="post-details">
+                    <div className="buttonDiv">
+                        <button className="btn">
+                            <FontAwesomeIcon icon={ faCamera }/>
+                        </button>
+                        <input type="file" name="myfile" className="fileupload" title="Add an image" 
+                            onChange={(event)=>this.fileChangeHandler(event)}/>
+                    </div>  
                     <div className="inner-post-details">
-                        <textarea name="post" value={this.state.post} placeholder="your story..."  className="post-text" onChange={(event)=>this.handleInputChange(event)}/>
+                        <textarea name="post" value={this.state.post} placeholder="your story..."  className="post-text" 
+                            onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
-                </div>
-                <div>
-                    <input name="img" type="file" onChange={(event)=>this.fileChangedHandler(event)}/>
                 </div>
                <style jsx>{styles}</style>
             </div>

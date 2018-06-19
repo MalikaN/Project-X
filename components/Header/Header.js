@@ -32,7 +32,9 @@ class Header extends Component{
                 <div className="menu">
                 <div className="logo">
                 <Link href="/" >
-                        <a className="title">Project X</a>
+                        
+                           <img src="http://infoprut.ro/wp-content/uploads/2013/06/Intelegere.jpg" alt="" className="title"/>
+                        
                     </Link>
                 </div>
 
@@ -71,14 +73,6 @@ class Header extends Component{
             </div>
 
         <style jsx>{styles}</style>
-        {/* <style jsx global>{`
-            .auth >a{
-                margin: 13px 0 10px 20px;
-                text-decoration:none;
-                color:#407FC7;
-                vertical-align:-webkit-baseline-middle;
-            }
-        `}</style> */}
     </div>
         )
     }
