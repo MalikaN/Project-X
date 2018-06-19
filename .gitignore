@@ -4,6 +4,6 @@ node_modules
 # build output
 .next 
 
-#error log
+# error log
 yarn-error.log
 yarn.lock
