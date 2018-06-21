@@ -76,7 +76,7 @@ export default css`{
       }
       .card__title {
         font-size: 1.15rem;
-        font-weight: 600;
+        font-weight: 400;
         letter-spacing: 0.5px;
         font-size: 16px !important;
         line-height: 22px !important;
@@ -89,22 +89,22 @@ export default css`{
       }    
       .card__text {
         flex: 1 1 auto;
-        font-size: 14px !important;
+        font-size: 13px;
         line-height: 1.5;
         margin-bottom: 1.25rem;
         letter-spacing: 0.5px !important;
         overflow: hidden;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        max-height:4.5em;
+        max-height:1.5em;
       }
       .link{
         cursor: pointer;
         text-decoration: none;
       }
       .imgOuterDiv{
-        height: 200px;
+        height: 300px; //first value 200px
         overflow: hidden;
         padding: 10px 0 10px 0;
         margin-bottom: 10px;

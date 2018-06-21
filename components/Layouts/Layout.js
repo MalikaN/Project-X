@@ -36,8 +36,8 @@ class Layout extends Component{
                 body { 
                     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
                     background-color: #FFF;
-                    margin:0; 
-                    // color : rgb(72, 72, 72) !important;        
+                    margin: 0; 
+                    color: #484848;
                 }
                 `}</style>
             </div>
