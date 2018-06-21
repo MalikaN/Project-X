@@ -8,14 +8,24 @@ export default(ComposedComponent)=>(
 class Layout extends Component{
     render(){
         return(
-            <div className="flex-container">
-               <Head>
-               <title>Project X</title>
-                <link rel="shortcut icon" href="/Icon/favicon.ico" type="image/x-icon"/>
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta charSet="utf-8" />
-                </Head>
-          
+            <div className="flex-container">  
+            <Head>
+                    <title>Project X</title>
+                    <link
+                        rel="shortcut icon"
+                        href="/Icon/favicon.ico"
+                        type="image/x-icon"
+                    />
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1"
+                    />
+                    <meta charSet="utf-8" />
+                    <link
+                        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+                        rel="stylesheet"
+                    />
+            </Head>
                 <Header/>
                 <div className="content">
                     <ComposedComponent {...this.props}/>
@@ -24,11 +34,10 @@ class Layout extends Component{
                 <style jsx>{styles}</style>
                 <style jsx global>{`
                 body { 
-                    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-                    background-color: #F9FAFB;
-                    background:linear-gradient(to top, #F9FAFB 0%, #FFFFFF 100%);
-                    margin:0; 
-                    color : rgb(72, 72, 72) !important;        
+                    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                    background-color: #FFF;
+                    margin: 0; 
+                    color: #484848;
                 }
                 `}</style>
             </div>

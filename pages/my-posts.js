@@ -1,34 +1,54 @@
 import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
+import styles from './myPostStyle'
 import Link from 'next/link'
-import styles from './indexStyle'
+import jscookie from 'js-cookie'
 import axios from 'axios'
 import Card from './cards'
 
-class Index extends Component{
+
+class myPost extends Component{
+
     state={
+        LogginUser:'',
         posts:[]
     }
 
     componentWillMount(){
-        axios.get('http://localhost:5000/')
+        let token = jscookie.getJSON('token')
+
+        if(token){
+            this.setState({
+                LogginUser:token
+            },()=>{
+                if(this.state.LogginUser){
+                    this.fetchAPI()
+                }
+            })
+        }
+    }
+
+    fetchAPI(){
+        axios.post('http://localhost:5000/my-post',{
+            userid:this.state.LogginUser.userId
+        })
         .then((Response)=>{
             this.setState({
                 posts:Response.data.Items
             })
         })
-        .catch((error)=>{
+        .catch(function(error){
             console.log(error);
         })
     }
 
     render(){
         const { posts } = this.state;
-        const indexPage = true
+        const indexPage = false;
         return(
             <ul className="cards">
             {posts.map(function(post,i){
-                return(
+                return(                   
                     <Card key={post.postId} post={post} index={indexPage}/>
                 )
             })}       
@@ -38,4 +58,4 @@ class Index extends Component{
     }
 }
 
-export default withLayout(Index)
+export default withLayout(myPost)

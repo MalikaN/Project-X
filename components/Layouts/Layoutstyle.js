@@ -7,7 +7,10 @@ export default css`{
         height:100vh;
       }
     .content{
-         flex: 1;
+        flex: 1;
+        padding-top: 60px !important;
+        z-index: 5;
+        overflow: auto;
      } 
 
 }`;

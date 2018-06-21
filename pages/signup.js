@@ -26,8 +26,13 @@ class Signup extends Component{
             password:this.state.password
         })
         .then(function(response){
-            if(response.data.status == 201){
-                jscookie.set('token',JSON.stringify(response.data.access_token));
+            if(response.data.status == 422){
+                let userInfo ={
+                    access_token : response.data.access_token,
+                    userId : response.data.userId,
+                    loginuser : response.data.username
+                }
+                jscookie.set('token',userInfo);
                 Router.push('/')
             }
             else{

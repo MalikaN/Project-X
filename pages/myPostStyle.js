@@ -6,6 +6,35 @@ export default css`{
         max-width: 100%;
         vertical-align: middle;
       }
+      .btn {
+        font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #407FC7;
+        border: 1px solid #cccccc;
+        color: #fff;
+        padding: 0.5rem;
+        cursor: pointer;
+        border-radius: 2px;
+        align-items: flex-start;
+        text-align: center;
+        box-sizing: border-box;
+        font: 400 13.3333px Arial;
+        text-rendering: auto;
+        letter-spacing: normal;
+        word-spacing: normal;
+        text-transform: none;
+        text-indent: 0px;
+        text-shadow: none;
+        margin: 0em;
+      }
+      .btn:hover{
+        background-color: white;
+        color: #696969;
+        border: 1px solid #696969;
+    }
+      .btn--block {
+        display: block;
+        width: 100%;
+      }
       .cards {
         display: flex;
         flex-wrap: wrap;
@@ -19,20 +48,23 @@ export default css`{
       }
       @media (min-width: 40rem) {
         .cards__item {
+        //   width: 50%;
             width: 30%;
         }
       }
       @media (min-width: 56rem) {
         .cards__item {
-          width:23%;
+          width:25%;
         }
       }
       .card {
+        // background-color: white;
         border-radius: 0.25rem;
+        // box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
         display: flex;
         flex-direction: column;
         overflow: hidden;
-       
+        width: 344px;
       }
       .card:hover .card__image {
         -webkit-filter: contrast(100%);
@@ -43,9 +75,10 @@ export default css`{
         flex: 1 1 auto;
         flex-direction: column;
         padding: 2px 2px 2px 2px;
-        text-transform:capitalize;  
-        height:110px;
-        margin-top:5px;
+        text-transform: capitalize;  
+        height: 110px;
+        margin-top: 5px;
+
       }
       .card__image {
         background-position: center center;
@@ -76,37 +109,61 @@ export default css`{
       }
       .card__title {
         font-size: 1.15rem;
-        font-weight: 400;
+        font-weight: 600;
         letter-spacing: 0.5px;
         font-size: 16px !important;
         line-height: 22px !important;
         padding-bottom: 5px;
-        //Readmore 3 dots for title
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 300px;
       }    
       .card__text {
         flex: 1 1 auto;
-        font-size: 13px;
+        font-size: 14px !important;
         line-height: 1.5;
         margin-bottom: 1.25rem;
         letter-spacing: 0.5px !important;
         overflow: hidden;
         display: -webkit-box;
-        -webkit-line-clamp: 1;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
-        max-height:1.5em;
+        max-height: 4.5em;
       }
-      .link{
+      a{
         cursor: pointer;
         text-decoration: none;
+        color: inherit;
       }
+
       .imgOuterDiv{
-        height: 300px; //first value 200px
+        height: 200px;
         overflow: hidden;
         padding: 10px 0 10px 0;
         margin-bottom: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        //edit button added to my-posts
+        position: relative;
+        display: inline-block;
+      }
+      //edit button added to my-posts
+      .imgOuterDiv:hover .edit {
+        display: block;
+      }
+      .editimg{
+        height: 4%;
+        width: 4%;
+        margin-left: 2px; 
+      }
+      //edit button added to my-posts
+      .edit {
+        padding-top: 14px;	
+        padding-right: 7px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+      }
+      //edit button added to my-posts
+      .edit a {
+        color: #000;
       }
 }`
