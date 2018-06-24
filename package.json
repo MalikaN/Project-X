@@ -27,6 +27,8 @@
     "react-dom": "^16.2.0",
     "react-draft-wysiwyg": "^1.12.13",
     "react-fontawesome": "^1.6.1",
+    "react-slick": "^0.23.1",
+    "slick-carousel": "^1.8.1",
     "styled-jsx": "^2.2.6"
   }
 }

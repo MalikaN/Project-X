@@ -1,11 +1,12 @@
-import css from 'styled-jsx/css';
+import css  from 'styled-jsx/css';
 
 export default css`{
-    img {
-        height: auto;
-        max-width: 100%;
-        vertical-align: middle;
-      }
+  
+    // img {
+    //     height: auto;
+    //     max-width: 100%;
+    //     vertical-align: middle;
+    //   }
       .cards {
         display: flex;
         flex-wrap: wrap;
@@ -109,4 +110,104 @@ export default css`{
         padding: 10px 0 10px 0;
         margin-bottom: 10px;
       }
+      // .section {
+      //   // position: relative;
+      //   width: 100% !important;
+      //   position: absolute !important;
+      //   height: 100vh !important;
+      //   min-height: 550px !important;
+      //   /* overflow: hidden !important; */
+      //   contain: strict !important;
+      // }
+      
+      // .section img {
+      //   position: absolute;
+      // }
+      
+      // .topone {
+      //   animation-name: fade;
+      //   animation-timing-function: ease-in-out;
+      //   animation-iteration-count: infinite;
+      //   animation-duration: 2s;
+      //   animation-direction: alternate;
+      // }    
+      // @keyframes fade {
+      //   0% {
+      //     opacity: 1;
+      //   }
+      //   25% {
+      //     opacity: 1;
+      //   }
+      //   75% {
+      //     opacity: 0;
+      //   }
+      //   100% {
+      //     opacity: 0;
+      //   }
+      // }
+
+      .crossfade > img{
+        width: 100%;
+        height: 70%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        color: transparent;
+        opacity: 0;
+        z-index: 0;
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100%
+        // -webkit-animation: imageAnimation 14s linear infinite;
+        // -moz-animation:  imageAnimation 14s linear infinite;
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        animation-name: imageAnimation;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+        animation-duration: 15s;
+        // animation-direction: alternate;
+        animation-delay: 0s;
+        
+      }
+      .crossfade > img:nth-child(2)  {
+        animation-delay: 3s;
+       // -webkit-animation-delay: 4s; //6
+       // -moz-animation-delay: 4s;
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+   }
+   
+   .crossfade > img:nth-child(3) {
+    animation-delay: 6s;
+      //  -webkit-animation-delay: 8s;//12
+       // -moz-animation-delay: 8s;
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+   }
+   
+   .crossfade > img:nth-child(4) {
+    animation-delay: 9s;
+       // -webkit-animation-delay: 12s;
+       // -moz-animation-delay: 12s;//18
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+   }
+   
+   .crossfade > img:nth-child(5) {
+    animation-delay: 12s;
+       // -webkit-animation-delay: 16s;
+       // -moz-animation-delay: 16s;//24
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+   }
+
+  @keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in;}
+      8% { opacity: 1; animation-timing-function: ease-out; }
+      17% { opacity: 1; }
+      25% { opacity: 0; }
+      100% { opacity: 0; }
+}
+   
 }`
