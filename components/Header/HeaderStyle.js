@@ -5,7 +5,7 @@ export default css`{
         display: flex;
         justify-content: space-between;
         width: 100%;
-        height: 60px;
+        height: 80px;
         background-color: #FFFFFF;
         // box-shadow: 0 2px 0 rgba(93, 96, 99, .1);
         border-bottom: 1px solid rgb(228, 228, 228) !important;
@@ -16,8 +16,8 @@ export default css`{
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 15px;
-        margin-right: 10px;
+        font-size: 17px;
+        margin-right: 30px;
     }
     .logo{
         margin-left: 10px;

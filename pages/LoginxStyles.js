@@ -1,31 +1,19 @@
 import css from 'styled-jsx/css';
 
 export default css`{
-    .login-container{
+    .container{
         display: flex;
-        // flex-wrap: wrap;
-        justify-content: center;
-        align-content: center;
-        padding: 6%;
-        margin: 0;
-        
+        flex-direction: column;
     }
     .form{
         background-color: #FAFAFA;
-        display: flex;
-        // flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: center;
         padding: 4rem;
         border-radius: 8px;
         width: 400px;
         border: solid #f7f7f9;
         border-width: .2rem;
-    }
+    }   
     .form-content{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
         justify-content: center;
         align-items: center;   
     }
@@ -60,5 +48,4 @@ export default css`{
             box-shadow: 0px 6px 10px rgba(0,0,0,0.3);
             transform: translateY(-4px);
     }
-
-}`;
+}`

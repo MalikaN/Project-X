@@ -4,13 +4,14 @@ export default css`{
     .flex-container {
         display: flex;
         flex-direction: column;
-        height:100vh;
+        height:100%;
       }
     .content{
-        flex: 1;
+       flex: 1;
         padding-top: 60px !important;
         z-index: 5;
         overflow: auto;
-     } 
+      
+     }  
 
 }`;
