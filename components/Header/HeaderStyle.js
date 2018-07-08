@@ -5,9 +5,8 @@ export default css`{
         display: flex;
         justify-content: space-between;
         width: 100%;
-        height: 80px;
+        height: 70px;
         background-color: #FFFFFF;
-        // box-shadow: 0 2px 0 rgba(93, 96, 99, .1);
         border-bottom: 1px solid rgb(228, 228, 228) !important;
         position: fixed;
         z-index: 10;
@@ -16,8 +15,10 @@ export default css`{
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 17px;
+        font-size: 15px;
         margin-right: 30px;
+        font-weight: 500;
+        letter-spacing: 2px;
     }
     .logo{
         margin-left: 10px;
@@ -42,24 +43,12 @@ export default css`{
         margin: 13px 10px 10px 20px;
         text-decoration: none;
     }
-
-    // .signup >a{
-    //     margin: 13px 10px 10px 20px;
-    //     text-decoration: none;
-    //     // color:#407FC7;
-    //     // vertical-align:-webkit-baseline-middle;
-    // }
-    // .auth >a{
-    //     text-decoration:none;
-    //     // color:#407FC7;
-    // }
     .buttonLink> a{
         background: none!important;
         border: none;
         padding: 0!important;
         text-decoration: none;
         cursor: pointer;
-        // color:#407FC7;
         margin:  13px 10px 10px 20px;
     }
     .buttonLink:focus {

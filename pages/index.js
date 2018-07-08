@@ -4,14 +4,12 @@ import Link from 'next/link'
 import styles from './indexStyle'
 import axios from 'axios'
 import Card from './cards'
-// import SimpleSlider from '../components/Slider'
-// import sliderstyles from '../components/sliderStyle'
-// import 'slick-carousel/slick/slick.css'
-// import 'slick-carousel/slick/slick-theme.css'
+import FontAwesomeIcon from '@fortawesome/react-fontawesome'
+import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronCircleRight'
 
 class Index extends Component{
     state={
-        posts:[]
+        posts: []
     }
 
     componentWillMount(){
@@ -29,6 +27,10 @@ class Index extends Component{
     render(){
         const { posts } = this.state;
         const indexPage = true
+        const childFilter = posts.filter((child)=>child.CatId == 1)
+        const adultFilter = posts.filter((child)=>child.CatId == 2)
+        const otherFilter = posts.filter((child)=>child.CatId == 3)
+        console.log(childFilter)
         return(
             <div className="mainDiv">     
                 <div className="outerImagesDIv">
@@ -42,20 +44,53 @@ class Index extends Component{
                 </div>
                 <div className="button-bar-overflow">
                     <div className="button-bar">
-                        <a className="active button grey" href="/api/magazine/show/9987/1">Featured</a>
-                        <a className="button grey" href="/api/magazine/show/9987/1">Adults</a>
-                        <a className="button grey" href="/api/magazine/show/9987/1">Children</a>
-                        <a className="button grey" href="/api/magazine/show/9987/1">Other</a>
+                        <a className="active button grey" href="/posts/featured">Featured</a>
+                        <a className="button grey" href="/posts/children">Adults</a>
+                        <a className="button grey" href="/posts/adults">Children</a>
+                        <a className="button grey" href="/posts/others">Other</a>
                     </div>
                 </div>
-                <div >
+                <div className="cardOuterDiv">
+                    <div>
+                        <h3>Children</h3>
+                    </div>
+                    <div>
+                        <div className="cards">
+                            
+                                {childFilter.map(function(post,i){
+                                    return(
+                                        <Card key={post.postId} post={post} index={indexPage}/> 
+                                    )
+                                })}  
+                               
+                        </div>
+                       {/* fr<div> <FontAwesomeIcon icon={ faChevronCircleRight }/> </div> */}
+                    </div>  
+                    
+                    <div>
+                        <h3>Adults</h3>
+                    </div>
+                    <div>
                     <ul className="cards">
-                        {posts.map(function(post,i){
+                        {adultFilter.map(function(post,i){
                             return(
                                 <Card key={post.postId} post={post} index={indexPage}/>
                             )
                         })}       
                         </ul>
+                    </div>   
+                    <div>
+                        <h3>Other</h3>
+                    </div>
+                    <div>
+                    <ul className="cards">
+                        {otherFilter.map(function(post,i){
+                            return(
+                                <Card key={post.postId} post={post} index={indexPage}/>
+                            )
+                        })}       
+                        </ul>
+                    </div>             
                 </div> 
                 
                 <style jsx>{styles}</style>

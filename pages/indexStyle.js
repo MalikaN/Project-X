@@ -2,13 +2,17 @@ import css  from 'styled-jsx/css';
 
 export default css`{
   
-    // img {
-    //     height: auto;
-    //     max-width: 100%;
-    //     vertical-align: middle;
-    //   }
-      .cards {
+      .cardOuterDiv{
+        width: 90%;
         display: flex;
+        flex-direction: column;
+        align-self: center;
+      }
+      .cards {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
         flex-wrap: wrap;
         list-style: none;
         margin: 0;
@@ -16,16 +20,16 @@ export default css`{
       }
       .cards__item {
         display: flex;
-        padding: 0.85rem;
+        // padding: 2.5rem;//0.85rem
       }
       @media (min-width: 40rem) {
         .cards__item {
-            width: 30%;
+            width: 40%;
         }
       }
       @media (min-width: 56rem) {
         .cards__item {
-          width:23%;
+          width:33.33%;
         }
       }
       .card {
@@ -33,11 +37,16 @@ export default css`{
         display: flex;
         flex-direction: column;
         overflow: hidden;
-       
+        min-width: 100%;
       }
       .card:hover .card__image {
         -webkit-filter: contrast(100%);
                 filter: contrast(100%);
+      }
+      .outerCard{
+        display: flex;
+        justify-content: center;
+        width:96%;
       }
       .card__content {
         display: flex;
@@ -77,7 +86,7 @@ export default css`{
       }
       .card__title {
         font-size: 1.15rem;
-        font-weight: 400;
+        font-weight: 600;
         letter-spacing: 0.5px;
         font-size: 16px !important;
         line-height: 22px !important;
@@ -90,7 +99,8 @@ export default css`{
       }    
       .card__text {
         flex: 1 1 auto;
-        font-size: 13px;
+        font-size: 14px;
+        font-weight: 400;
         line-height: 1.5;
         margin-bottom: 1.25rem;
         letter-spacing: 0.5px !important;
@@ -100,9 +110,20 @@ export default css`{
         -webkit-box-orient: vertical;
         max-height:1.5em;
       }
+      h3{
+        font-weight: 800 !important;
+        margin-bottom: 20px !important;
+        font-size: 24px !important;
+        line-height: 30px !important;
+        letter-spacing: normal !important;
+        color: rgb(72, 72, 72) !important;
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
+      }
       .link{
         cursor: pointer;
         text-decoration: none;
+        min-width: 100%;
       }
       .imgOuterDiv{
         height: 300px; //first value 200px
@@ -183,7 +204,10 @@ export default css`{
     flex-direction: column;
   }
   .button-bar-overflow{
-    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 80%;
     margin-bottom: 40px;
   }
   .button-bar-overflow .button-bar{
