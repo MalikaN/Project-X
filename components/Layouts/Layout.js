@@ -20,11 +20,9 @@ class Layout extends Component{
                         name="viewport"
                         content="width=device-width, initial-scale=1"
                     />
-                    <meta charSet="utf-8" />
-                    <link
-                        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-                        rel="stylesheet"
-                    />
+                    {/* <meta charSet="utf-8" /> */}
+                    <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
             </Head>
                 <Header/>
                 <div className="content">
@@ -37,7 +35,7 @@ class Layout extends Component{
                     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
                     background-color: #FFF;
                     margin: 0; 
-                    color: #484848;
+                    color: #333;//#484848;
                 }
                 `}</style>
             </div>

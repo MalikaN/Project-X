@@ -1,18 +1,17 @@
 import css from 'styled-jsx/css';
 
 export default css`{
-    .container{
+    .login-container{
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         align-content: center;
         padding: 6%;
         margin: 0;
+        
     }
     .form{
         background-color: #FAFAFA;
         display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
         padding: 4rem;

@@ -6,25 +6,25 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 
 const Card =({post,index})=>{
-    console.log(index)
         return(
             <Link href={`/post?id=${post.postId}`} >                       
             {index ?           
-                
-                <li className="cards__item" >
-                    <a className="link" >
-                        <div className="card">
-                            <div className="imgOuterDiv">
-                                <img src={post.PostSrc} alt="" className="card__image"/>
-                            </div>                             
-                            <div className="card__content">
-                                <div className="card__title">{post.postTitle}</div>
-                                <div className="card__text">{post.PostDesc}</div>                  
+                    <div className="cards__item" >
+                        <a className="link">
+                            <div className="outerCard">
+                                <div className="card">
+                                    <div className="imgOuterDiv">
+                                        <img src={post.PostSrc} alt="" className="card__image"/>
+                                    </div>                             
+                                    <div className="card__content">
+                                        <div className="card__title">{post.postTitle}</div>
+                                        <div className="card__text">{post.PostDesc}</div>                  
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                    <style jsx>{ indexStyles }</style>
-                </li>
+                        </a>
+                        <style jsx>{ indexStyles }</style>             
+                    </div>
             
             :
            
