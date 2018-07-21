@@ -137,7 +137,8 @@ export default css`{
         margin-bottom:25px;
 
       }
-      .innerImagesDiv > img{
+
+      .innerImagesDiv{
         width: 100%;
         height: 100%;
         position: absolute;
@@ -146,12 +147,12 @@ export default css`{
         color: transparent;
         opacity: 0;
         z-index: 0;
-        // flex-shrink: 0;
-        // min-width: 100%;
-        // min-height: 100;
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100;
         -webkit-transform-style: preserve-3d;
         -webkit-backface-visibility: hidden;
-        animation-name: imageAnimation;
+        animation-name: imageAnimation !important;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-duration: 15s;//15
@@ -159,7 +160,7 @@ export default css`{
         animation-delay: 0s;
         
       }
-      .innerImagesDiv > img:nth-child(2)  {
+      .innerImagesDiv :nth-child(2)  {
         animation-delay: 3s;
        // -webkit-animation-delay: 4s; //6
        // -moz-animation-delay: 4s;
@@ -167,7 +168,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv > img:nth-child(3) {
+   .innerImagesDiv :nth-child(3) {
     animation-delay: 6s;
       //  -webkit-animation-delay: 8s;//12
        // -moz-animation-delay: 8s;
@@ -175,7 +176,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv > img:nth-child(4) {
+   .innerImagesDiv :nth-child(4) {
     animation-delay: 9s;
        // -webkit-animation-delay: 12s;
        // -moz-animation-delay: 12s;//18
@@ -183,7 +184,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv > img:nth-child(5) {
+   .innerImagesDiv :nth-child(5) {
     animation-delay: 12s;
        // -webkit-animation-delay: 16s;
        // -moz-animation-delay: 16s;//24
