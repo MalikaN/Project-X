@@ -145,7 +145,6 @@ export default css`{
         top: 0px;
         left: 0px;
         color: transparent;
-        opacity: 0;
         z-index: 0;
         flex-shrink: 0;
         min-width: 100%;
