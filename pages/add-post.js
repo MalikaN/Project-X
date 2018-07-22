@@ -52,7 +52,7 @@ class AddPost extends Component{
 
             axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                 .then((response)=>{
-                    axios.post('http://localhost:5000/add-post',{
+                    axios.post('http://api.pihitak.com/add-post',{
                         userid: this.state.loggedinUser.userId,
                         postTitle: this.state.title,
                         post: this.state.post,

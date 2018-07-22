@@ -12,7 +12,7 @@ class Post extends Component{
         }
     
     componentWillMount(){
-        axios.get(`http://localhost:5000/post/${this.state.details}`)
+        axios.get(`http://api.pihitak.com/post/${this.state.details}`)
         .then((Response)=>{
            this.setState({
                 post:Response.data.Items[0]
