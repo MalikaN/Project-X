@@ -138,7 +138,7 @@ export default css`{
 
       }
 
-      .innerImagesDiv{
+      .innerImagesDiv>img{
         width: 100%;
         height: 100%;
         position: absolute;
@@ -159,7 +159,7 @@ export default css`{
         animation-delay: 0s;
         
       }
-      .innerImagesDiv :nth-child(2)  {
+      .innerImagesDiv >img:nth-child(2)  {
         animation-delay: 3s;
        // -webkit-animation-delay: 4s; //6
        // -moz-animation-delay: 4s;
@@ -167,7 +167,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv :nth-child(3) {
+   .innerImagesDiv >img:nth-child(3) {
     animation-delay: 6s;
       //  -webkit-animation-delay: 8s;//12
        // -moz-animation-delay: 8s;
@@ -175,7 +175,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv :nth-child(4) {
+   .innerImagesDiv >img:nth-child(4) {
     animation-delay: 9s;
        // -webkit-animation-delay: 12s;
        // -moz-animation-delay: 12s;//18
@@ -183,7 +183,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv :nth-child(5) {
+   .innerImagesDiv >img:nth-child(5) {
     animation-delay: 12s;
        // -webkit-animation-delay: 16s;
        // -moz-animation-delay: 16s;//24
