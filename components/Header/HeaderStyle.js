@@ -6,7 +6,7 @@ export default css`{
         justify-content: space-between;
         width: 100%;
         height: 70px;
-        background-color: #FFFFFF;
+        background-color: #ce297d;
         border-bottom: 1px solid rgb(228, 228, 228) !important;
         position: fixed;
         z-index: 10;
