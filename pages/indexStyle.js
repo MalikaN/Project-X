@@ -26,12 +26,12 @@ export default css`{
         display: flex;
         // padding: 2.5rem;//0.85rem
       }
-      @media (min-width: 40rem) {
+      @media (min-width: 60rem) {
         .cards__item {
             width: 40%;
         }
       }
-      @media (min-width: 56rem) {
+      @media (min-width: 30rem) {
         .cards__item {
           width:33.33%;
         }
