@@ -46,7 +46,7 @@ export default css`{
           width: 100%;
         }
       }
-    @media only screen and (max-device-width: 480px) {
+      @media only screen and (max-device-width: 480px) {
       .cards__item {
         width:100%;
       }
