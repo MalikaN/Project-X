@@ -26,15 +26,30 @@ export default css`{
         display: flex;
         // padding: 2.5rem;//0.85rem
       }
-      @media (min-width: 1024px) {
+      // @media only screen and (max-width : 992px)  {
+      //   .cards__item {
+      //     width: 40%;
+      //   }
+      // }
+      // @media only screen and (max-width : 320px)  {
+      //   .cards__item {
+      //     width:100%;
+      //   }
+      // }
+      @media screen and (min-width: 769px) {
         .cards__item {
-          width: 40%;
+          width: 33.33%;
+        }
+      }  
+      @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+        .cards__item {
+          width: 100%;
         }
       }
-      @media (min-width: 320px) {
-        .cards__item {
-          width:33.33%;
-        }
+    @media only screen and (max-device-width: 480px) {
+      .cards__item {
+        width:100%;
+      }
       }
       .card {
         border-radius: 0.25rem;
