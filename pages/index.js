@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
 import Link from 'next/link'
-// import styles from './indexStyle'
+import styles from './indexStyle'
 import axios from 'axios'
 import Card from './cards'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
@@ -90,7 +90,7 @@ class Index extends Component{
                         </ul>
                     </div>             
                 </div>
-                {/* <style jsx>{styles}</style> */}
+                <style jsx>{styles}</style>
             </div>
         )
     }
