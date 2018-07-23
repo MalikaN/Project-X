@@ -12,40 +12,20 @@ export default css`{
         z-index: 10;
      }
      @media screen and (min-width: 769px) {
-        .menu{
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 70px;
-            background-color: #FFFFFF;
-            border-bottom: 1px solid rgb(228, 228, 228) !important;
-            position: fixed;
-            z-index: 10;
+        .menu{      
+            background-color: #29ce72;    
          }
       }  
       @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
         .menu{
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 70px;
             background-color: #00000;
-            border-bottom: 1px solid rgb(228, 228, 228) !important;
-            position: fixed;
-            z-index: 10;
          }
       }
       @media only screen and (max-device-width: 480px) {
         .menu{
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 70px;
             background-color: #822828;
-            border-bottom: 1px solid rgb(228, 228, 228) !important;
-            position: fixed;
-            z-index: 10;
          }
+        }
      .submenu{
         display: flex;
         justify-content: center;
