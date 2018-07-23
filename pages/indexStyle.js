@@ -18,6 +18,10 @@ export default css`{
         margin: 0;
         padding: 0;
       }
+      .mainDiv {
+        display: flex;
+        flex-direction: column;
+      }
       .cards__item {
         display: flex;
         // padding: 2.5rem;//0.85rem
@@ -198,10 +202,6 @@ export default css`{
       25% { opacity: 0; }
       100% { opacity: 0; }
 
-  }
-  .mainDiv{
-    display: flex;
-    flex-direction: column;
   }
   .button-bar-overflow{
     display: flex;
