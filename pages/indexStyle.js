@@ -49,7 +49,7 @@ export default css`{
       @media only screen and (max-device-width: 480px) {
       .cards__item {
         width:100%;
-      }
+        }
       }
       .card {
         border-radius: 0.25rem;
