@@ -11,21 +11,18 @@ export default css`{
         position: fixed;
         z-index: 10;
      }
-     @media screen and (min-width: 769px) {
+     @media screen and (min-width: 769px) 
         .menu{      
             background-color: #29ce72;    
-         }
-      }  
-      @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+         }   
+      @media screen and (min-device-width: 481px) and (max-device-width: 768px) 
         .menu{
             background-color: #00000;
-         }
-      }
-      @media only screen and (max-device-width: 480px) {
+         }   
+      @media only screen and (max-device-width: 480px) 
         .menu{
             background-color: #822828;
          }
-        }
      .submenu{
         display: flex;
         justify-content: center;
