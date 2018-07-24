@@ -1,37 +1,18 @@
 import css from 'styled-jsx/css';
 
-const size = {
-    mobileS: '480px',
-    tablet: '768px',
-    laptop: '769px'
-  }
+
 export default css`
    
-        .menu{
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 70px;
-            background-color: #ce297d;
-            border-bottom: 1px solid rgb(228, 228, 228) !important;
-            position: fixed;
-            z-index: 10;
-         }
-         @media (min-width: 769px) {
-            .menu{      
-                background-color: #29ce72;    
-             }
-          }  
-          @media (min-device-width: 481px) and (max-device-width: 768px) { 
-            .menu{
-                background-color: #00000;
-             }
-          }
-          @media (max-device-width: 480px) {
-            .menu{
-                background-color: #822828;
-             }
-            }
+    .menu{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 70px;
+        background-color: #FFFFFF;
+        border-bottom: 1px solid rgb(228, 228, 228) !important;
+        position: fixed;
+        z-index: 10;
+    }
      .submenu{
         display: flex;
         justify-content: center;
