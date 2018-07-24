@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 
-export default css`{
+export default css`
     .container{
         disply: flex;
         flex-direction: row;
@@ -42,4 +42,4 @@ export default css`{
         font-size: 16px;
     }
     
-}`
+`

@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 
-export default css`{
+export default css`
     .login-container{
         display: flex;
         justify-content: center;
@@ -59,4 +59,4 @@ export default css`{
             transform: translateY(-4px);
     }
 
-}`;
+`

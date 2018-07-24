@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'; 
 
-export default css`{
+export default css`
     .container{
         display: flex;
         flex-direction: column;
@@ -137,4 +137,4 @@ export default css`{
         cursor:pointer;
     }
 
-}`
+`

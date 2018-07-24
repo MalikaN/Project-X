@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 
-export default css`{
+export default css`
     .container{
         display: flex;
         flex-wrap: wrap;
@@ -68,4 +68,4 @@ export default css`{
         margin-left: 10px;
     }
 
-}`;
+`

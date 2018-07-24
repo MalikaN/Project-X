@@ -1,6 +1,6 @@
 import css  from 'styled-jsx/css';
 
-export default css`{
+export default css`
   
       .cardOuterDiv{
         width: 90%;
@@ -307,4 +307,4 @@ export default css`{
       margin: 0;
     }
 
-}`
+`
