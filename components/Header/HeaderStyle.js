@@ -5,7 +5,7 @@ const size = {
     tablet: '768px',
     laptop: '769px'
   }
-export default css`{
+export default css`
    
         .menu{
             display: flex;
@@ -75,4 +75,4 @@ export default css`{
     .buttonLink:focus {
         outline: 0;
     }
-}`
+`
