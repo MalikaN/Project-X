@@ -17,10 +17,10 @@ class AddPost extends Component{
         post: '',
         selectedFile: '',
         category: [],
-        checkedCat: true
+        checkedCat: ''
     }
     componentWillMount(){
-        axios.get('http://localhost:5000/get-post-category')
+        axios.get('http://api.pihitak.com/get-post-category')
         .then((Response)=>{
             this.setState({
                 category: Response.data.category
@@ -68,7 +68,8 @@ class AddPost extends Component{
                         userid: this.state.loggedinUser.userId,
                         postTitle: this.state.title,
                         post: this.state.post,
-                        fileUrl:response.data.url
+                        fileUrl:response.data.url,
+                        catId: this.state.checkedCat
                     })
                     .then((response)=>{
                         if(response.data.StatusCode == 201){
@@ -76,7 +77,8 @@ class AddPost extends Component{
                             this.setState({
                                 title: '',
                                 post: '',
-                                selectedFile:''                                                              
+                                selectedFile: '',
+                                checkedCat: ''                                                              
                             })
                         }        
                     })
@@ -97,7 +99,6 @@ class AddPost extends Component{
     }
 
     categoryChange = (event) =>{
-        console.log('this.state.checkedCat')
         this.setState({
             checkedCat: event.target.value
         })
@@ -120,10 +121,10 @@ class AddPost extends Component{
                     <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
                 </div>
                 <div className="post-category">
-                    {category.map(function(cat,i){
+                    {category.map((cat,i)=>{
                         return(
-                            <div key={cat.catId} onClick={(event)=>this.categoryChange}>
-                            <input type="radio" name="category" className="radioinput" checked={checkedCat} onChange={this.categoryChange}/>
+                            <div key={cat.catId}>
+                            <input type="radio" name="category" value={cat.catId} className="radioinput" checked={checkedCat==cat.catId} onChange={this.categoryChange}/>
                             <label className="post-label">
                             {cat.Category}
                             </label>
