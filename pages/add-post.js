@@ -12,12 +12,24 @@ import faCamera from '@fortawesome/fontawesome-free-solid/faCamera'
 
 class AddPost extends Component{
     state={
-        loggedinUser :'',
-        title:'',
-        post:'',
-        selectedFile:''
+        loggedinUser: '',
+        title: '',
+        post: '',
+        selectedFile: '',
+        category: [],
+        checkedCat: true
     }
-
+    componentWillMount(){
+        axios.get('http://localhost:5000/get-post-category')
+        .then((Response)=>{
+            this.setState({
+                category: Response.data.category
+            })
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
     componentDidMount(){
         let token = jscookie.getJSON('token')
         
@@ -77,15 +89,23 @@ class AddPost extends Component{
                 });
     }
 
-    fileChangedHandler = (event) => {
+    fileChangeHandler = (event) => {
         this.setState({
             selectedFile: event.target.files[0]
         })
        
     }
 
+    categoryChange = (event) =>{
+        console.log('this.state.checkedCat')
+        this.setState({
+            checkedCat: event.target.value
+        })
+       
+    }
+
     render(){
-        const { loggedinUser } = this.state;
+        const { loggedinUser , category, checkedCat } = this.state;
         return(
             <div className="container">
                 <div className="status-bar">
@@ -98,6 +118,18 @@ class AddPost extends Component{
                          By {loggedinUser.loginuser}
                     </div>
                     <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
+                </div>
+                <div className="post-category">
+                    {category.map(function(cat,i){
+                        return(
+                            <div key={cat.catId} onClick={(event)=>this.categoryChange}>
+                            <input type="radio" name="category" className="radioinput" checked={checkedCat} onChange={this.categoryChange}/>
+                            <label className="post-label">
+                            {cat.Category}
+                            </label>
+                            </div>
+                        )
+                    })}   
                 </div>
                 <div className="title">
                     <div className="inner-title">
