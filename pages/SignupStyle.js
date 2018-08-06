@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css';
 
 export default css`
-    .container{
+    .signup-container{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;

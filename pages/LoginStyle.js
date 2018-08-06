@@ -6,8 +6,7 @@ export default css`
         justify-content: center;
         align-content: center;
         padding: 6%;
-        margin: 0;
-        
+        margin: 0;     
     }
     .form{
         background-color: #FAFAFA;
