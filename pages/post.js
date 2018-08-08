@@ -6,13 +6,14 @@ import jscookie from 'js-cookie'
 import axios from 'axios'
 
 class Post extends Component{
+
     state = {
             details : this.props.url.query.id,
             post:[]
         }
     
     componentWillMount(){
-        axios.get(`http://api.pihitak.com/post/${this.state.details}`)
+        axios.get(`http://localhost:5000/post/${this.state.details}`)
         .then((Response)=>{
            this.setState({
                 post:Response.data.Items[0]

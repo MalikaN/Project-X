@@ -15,7 +15,7 @@ class Index extends Component{
     }
 
     componentWillMount(){
-        axios.get('http://api.pihitak.com/')
+        axios.get('http://localhost:5000')
         .then((Response)=>{
             this.setState({
                 posts:Response.data.Items
@@ -59,7 +59,7 @@ class Index extends Component{
                         <div className="cards">
                             {childFilter.map(function(post,i){
                                     return(
-                                        <Card key={post.postId} post={post} index={indexPage}/> 
+                                        <Card key={post.id} post={post} index={indexPage}/> 
                                     )
                                 })}  
                         </div>
@@ -72,7 +72,7 @@ class Index extends Component{
                         <ul className="cards">
                             {adultFilter.map(function(post,i){
                                 return(
-                                    <Card key={post.postId} post={post} index={indexPage}/>
+                                    <Card key={post.id} post={post} index={indexPage}/>
                                 )
                             })}       
                         </ul>
@@ -84,7 +84,7 @@ class Index extends Component{
                     <ul className="cards">
                         {otherFilter.map(function(post,i){
                             return(
-                                <Card key={post.postId} post={post} index={indexPage}/>
+                                <Card key={post.id} post={post} index={indexPage}/>
                             )
                         })}       
                         </ul>

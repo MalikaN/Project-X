@@ -7,7 +7,7 @@ import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 
 const Card =({post,index})=>{
         return(
-            <Link href={`/post?id=${post.postId}`} >                       
+            <Link as={`/p/${post.Slug}`} href={`/post?id=${post.id}`} >                       
             {index ?           
                 <div className="cards__item" >
                     <a className="link">
@@ -28,14 +28,14 @@ const Card =({post,index})=>{
             
             :
            
-                <li className="cards__item" key={post.postId}>
+                <li className="cards__item" key={post.id}>
                     <div className="card">
                         <div className="imgOuterDiv">
-                            <Link href={`/post?id=${post.postId}`}>    
+                            <Link href={`/post?id=${post.id}`}>    
                                 <img src={post.PostSrc} alt="" className="card__image"/>
                             </Link>
                             <div className="edit">
-                                <Link href={`/edit-post?id=${post.postId}`}>
+                                <Link href={`/edit-post?id=${post.id}`}>
                                     <a><FontAwesomeIcon icon={ faPencilAlt }/></a>
                                 </Link>
                             </div>                                       
