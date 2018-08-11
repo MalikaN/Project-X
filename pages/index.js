@@ -15,7 +15,7 @@ class Index extends Component{
     }
 
     componentWillMount(){
-        axios.get('http://localhost:5000')
+        axios.get('http://api.pihitak.com')
         .then((Response)=>{
             this.setState({
                 posts:Response.data.Items
