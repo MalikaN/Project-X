@@ -297,10 +297,12 @@ export default css`
       //background-color: #F9F9FA;
       background-color: #49c5b6;
       color: #fff;
+      border: 2px solid;
     }
     .button.grey:hover{
       background-color: #F9F9FA;
       color: #333;
+      border: 2px solid #49c5b6;
     }
     @media only screen and (max-width: 991px)
     .button-bar {
