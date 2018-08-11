@@ -19,7 +19,7 @@ class Signup extends Component{
     }
 
     handleButtonClick=(event)=>{
-        axios.post('http://localhost:5000/signup',{
+        axios.post('http://api.pihitak.com/signup',{
             firstname:this.state.firstname,
             lastname:this.state.lastname,
             email:this.state.email,
@@ -47,7 +47,7 @@ class Signup extends Component{
 
     render(){
         return(
-            <div className="container">
+            <div className="signup-container">
                 <form className="form">
                     <h1>Sign up</h1>
                     <div className="form-content">

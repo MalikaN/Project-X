@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css'; 
 
-export default css`{
+export default css`
     .container{
         display: flex;
         flex-direction: column;
@@ -136,5 +136,26 @@ export default css`{
         opacity: 0;
         cursor:pointer;
     }
+    .radioinput{
+        border: 0px;
+        border-radius: 2px;
+        padding-left: 10px;
+        width: 12px;
+        height: 13px;
+    }
+    .post-category{
+        display: flex;
+        flex-direction: row;
+        padding-right: 20px;
+        padding-left: 20px; 
+        margin-right: auto;
+        margin-left: auto;
+        width: 740px!important;
+        color: #000000ad;
+        margin-bottom: 20px;
+    }
+    .post-label{
+        padding:15px;
+    }
 
-}`
+`

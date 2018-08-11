@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css';
 
-export default css`{
-    .container{
+export default css`
+    .signup-container{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -40,7 +40,7 @@ export default css`{
     }
     .button{
         border-radius: 4px;
-        background-color: #4bc970;
+        background-color: #49c5b6;
         padding: 0.8em;
         margin-top: 1em;
         border: none;
@@ -63,9 +63,9 @@ export default css`{
         font-size: 18px;
     }
     .login{
-        color: #008489;
+        color: #49c5b6;
         text-decoration: none;
         margin-left: 10px;
     }
 
-}`;
+`

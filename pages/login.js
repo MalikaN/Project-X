@@ -17,7 +17,7 @@ class Login extends Component{
       }
 
     handleSubmit=(event)=> {
-      axios.post('http://localhost:5000/login', {
+      axios.post('http://api.pihitak.com/login', {
         email: this.state.email ,
         password: this.state.password
         })

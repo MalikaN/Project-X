@@ -32,8 +32,8 @@ class Header extends Component{
                 <div className="menu">
                 <div className="logo">
                 <Link href="/" >
-                        
-                           <img src="http://infoprut.ro/wp-content/uploads/2013/06/Intelegere.jpg" alt="" className="title"/>
+                            <a className="title">Pihitak</a>
+                           {/* <img src="http://infoprut.ro/wp-content/uploads/2013/06/Intelegere.jpg" alt="" className="title"/> */}
                         
                     </Link>
                 </div>
@@ -59,12 +59,12 @@ class Header extends Component{
                         </React.Fragment>
                     :
                         <React.Fragment>
-                            <div className="auth">
-                                <Link href="/login" ><a>Login</a></Link>
+                            <div>
+                                <Link href="/login" ><a className="auth">Login</a></Link>
                             </div>
-                            <div className="signup">
+                            <div>
                                 <Link href="/signup">
-                                    <a >Signup</a>
+                                    <a className="signup">Signup</a>
                                 </Link>
                             </div>   
                         </React.Fragment>

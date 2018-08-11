@@ -12,12 +12,24 @@ import faCamera from '@fortawesome/fontawesome-free-solid/faCamera'
 
 class AddPost extends Component{
     state={
-        loggedinUser :'',
-        title:'',
-        post:'',
-        selectedFile:''
+        loggedinUser: '',
+        title: '',
+        post: '',
+        selectedFile: '',
+        category: [],
+        checkedCat: ''
     }
-
+    componentWillMount(){
+        axios.get('http://api.pihitak.com/get-post-category')
+        .then((Response)=>{
+            this.setState({
+                category: Response.data.category
+            })
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }
     componentDidMount(){
         let token = jscookie.getJSON('token')
         
@@ -52,11 +64,12 @@ class AddPost extends Component{
 
             axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                 .then((response)=>{
-                    axios.post('http://localhost:5000/add-post',{
+                    axios.post('http://api.pihitak.com/add-post',{
                         userid: this.state.loggedinUser.userId,
                         postTitle: this.state.title,
                         post: this.state.post,
-                        fileUrl:response.data.url
+                        fileUrl:response.data.url,
+                        catId: this.state.checkedCat
                     })
                     .then((response)=>{
                         if(response.data.StatusCode == 201){
@@ -64,7 +77,8 @@ class AddPost extends Component{
                             this.setState({
                                 title: '',
                                 post: '',
-                                selectedFile:''                                                              
+                                selectedFile: '',
+                                checkedCat: ''                                                              
                             })
                         }        
                     })
@@ -77,15 +91,22 @@ class AddPost extends Component{
                 });
     }
 
-    fileChangedHandler = (event) => {
+    fileChangeHandler = (event) => {
         this.setState({
             selectedFile: event.target.files[0]
         })
        
     }
 
+    categoryChange = (event) =>{
+        this.setState({
+            checkedCat: event.target.value
+        })
+       
+    }
+
     render(){
-        const { loggedinUser } = this.state;
+        const { loggedinUser , category, checkedCat } = this.state;
         return(
             <div className="container">
                 <div className="status-bar">
@@ -98,6 +119,18 @@ class AddPost extends Component{
                          By {loggedinUser.loginuser}
                     </div>
                     <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
+                </div>
+                <div className="post-category">
+                    {category.map((cat,i)=>{
+                        return(
+                            <div key={cat.catId}>
+                            <input type="radio" name="category" value={cat.catId} className="radioinput" checked={checkedCat==cat.catId} onChange={this.categoryChange}/>
+                            <label className="post-label">
+                            {cat.Category}
+                            </label>
+                            </div>
+                        )
+                    })}   
                 </div>
                 <div className="title">
                     <div className="inner-title">

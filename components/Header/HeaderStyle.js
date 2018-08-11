@@ -1,6 +1,8 @@
 import css from 'styled-jsx/css';
 
-export default css`{
+
+export default css`
+   
     .menu{
         display: flex;
         justify-content: space-between;
@@ -10,7 +12,7 @@ export default css`{
         border-bottom: 1px solid rgb(228, 228, 228) !important;
         position: fixed;
         z-index: 10;
-     }
+    }
      .submenu{
         display: flex;
         justify-content: center;
@@ -29,7 +31,7 @@ export default css`{
         cursor: pointer;
     }
     .title{
-        font-size: 20px;   
+        font-size: 25px;   
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
@@ -42,6 +44,7 @@ export default css`{
     .addpost >a{
         margin: 13px 10px 10px 20px;
         text-decoration: none;
+        color: #49c5b6;
     }
     .buttonLink> a{
         background: none!important;
@@ -54,4 +57,16 @@ export default css`{
     .buttonLink:focus {
         outline: 0;
     }
-}`
+    .auth {
+        color: #49c5b6;
+    }
+    .signup{
+        color: #49c5b6;
+    }
+    .auth:hover{
+        color: #484848;
+    }
+    .signup:hover{
+        color: #484848;
+    }
+`

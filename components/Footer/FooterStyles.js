@@ -1,6 +1,6 @@
 import css from 'styled-jsx/css';
 
-export default css`{
+export default css`
     .footer{
     }
     .footer-container{
@@ -12,4 +12,4 @@ export default css`{
         background-color:#FFFFFF;
         border-top: 1px solid rgb(228, 228, 228) !important;
     }
-}`
+`

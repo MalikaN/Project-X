@@ -1,6 +1,6 @@
 import css  from 'styled-jsx/css';
 
-export default css`{
+export default css`
   
       .cardOuterDiv{
         width: 90%;
@@ -18,18 +18,37 @@ export default css`{
         margin: 0;
         padding: 0;
       }
+      .mainDiv {
+        display: flex;
+        flex-direction: column;
+      }
       .cards__item {
         display: flex;
         // padding: 2.5rem;//0.85rem
       }
-      @media (min-width: 40rem) {
+      // @media only screen and (max-width : 992px)  {
+      //   .cards__item {
+      //     width: 40%;
+      //   }
+      // }
+      // @media only screen and (max-width : 320px)  {
+      //   .cards__item {
+      //     width:100%;
+      //   }
+      // }
+      @media screen and (min-width: 769px) {
         .cards__item {
-            width: 40%;
+          width: 33.33%;
+        }
+      }  
+      @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+        .cards__item {
+          width: 100%;
         }
       }
-      @media (min-width: 56rem) {
-        .cards__item {
-          width:33.33%;
+      @media only screen and (max-device-width: 480px) {
+      .cards__item {
+        width:100%;
         }
       }
       .card {
@@ -134,24 +153,24 @@ export default css`{
       .outerImagesDIv{
         height: 75vh;   
         position: relative;
-        margin-bottom:25px;
+        margin: 0 10px 25px 10px;
 
       }
-      .innerImagesDiv > img{
+
+      .innerImagesDiv>img{
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0px;
         left: 0px;
         color: transparent;
-        opacity: 0;
         z-index: 0;
-        // flex-shrink: 0;
-        // min-width: 100%;
-        // min-height: 100;
+        flex-shrink: 0;
+        min-width: 100%;
+        min-height: 100;
         -webkit-transform-style: preserve-3d;
         -webkit-backface-visibility: hidden;
-        animation-name: imageAnimation;
+        animation-name: imageAnimation !important;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-duration: 15s;//15
@@ -159,7 +178,7 @@ export default css`{
         animation-delay: 0s;
         
       }
-      .innerImagesDiv > img:nth-child(2)  {
+      .innerImagesDiv >img:nth-child(2)  {
         animation-delay: 3s;
        // -webkit-animation-delay: 4s; //6
        // -moz-animation-delay: 4s;
@@ -167,7 +186,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv > img:nth-child(3) {
+   .innerImagesDiv >img:nth-child(3) {
     animation-delay: 6s;
       //  -webkit-animation-delay: 8s;//12
        // -moz-animation-delay: 8s;
@@ -175,7 +194,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv > img:nth-child(4) {
+   .innerImagesDiv >img:nth-child(4) {
     animation-delay: 9s;
        // -webkit-animation-delay: 12s;
        // -moz-animation-delay: 12s;//18
@@ -183,7 +202,7 @@ export default css`{
         -webkit-backface-visibility: hidden;
    }
    
-   .innerImagesDiv > img:nth-child(5) {
+   .innerImagesDiv >img:nth-child(5) {
     animation-delay: 12s;
        // -webkit-animation-delay: 16s;
        // -moz-animation-delay: 16s;//24
@@ -198,10 +217,6 @@ export default css`{
       25% { opacity: 0; }
       100% { opacity: 0; }
 
-  }
-  .mainDiv{
-    display: flex;
-    flex-direction: column;
   }
   .button-bar-overflow{
     display: flex;
@@ -279,6 +294,11 @@ export default css`{
       white-space: nowrap;
     }
     .button.grey {
+      //background-color: #F9F9FA;
+      background-color: #49c5b6;
+      color: #fff;
+    }
+    .button.grey:hover{
       background-color: #F9F9FA;
       color: #333;
     }
@@ -292,4 +312,4 @@ export default css`{
       margin: 0;
     }
 
-}`
+`

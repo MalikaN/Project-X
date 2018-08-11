@@ -1,13 +1,12 @@
 import css from 'styled-jsx/css';
 
-export default css`{
+export default css`
     .login-container{
         display: flex;
         justify-content: center;
         align-content: center;
         padding: 6%;
-        margin: 0;
-        
+        margin: 0;     
     }
     .form{
         background-color: #FAFAFA;
@@ -40,7 +39,7 @@ export default css`{
         
     .button{
         border-radius: 4px;
-        background-color: #4bc970;
+        background-color: #49c5b6; //#4bc970;
         padding: 0.8em;
         margin-top: 1em;
         border: none;
@@ -55,8 +54,8 @@ export default css`{
     }
        
     .button:hover{
-            box-shadow: 0px 6px 10px rgba(0,0,0,0.3);
-            transform: translateY(-4px);
+        box-shadow: 0px 6px 10px rgba(0,0,0,0.3);
+        transform: translateY(-4px);
     }
 
-}`;
+`
