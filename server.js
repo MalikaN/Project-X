@@ -1,9 +1,11 @@
 const express = require('express')
 const next = require('next')
+const Router = require('./routes') //next-routes
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
-const handle = app.getRequestHandler()
+const handle = Router.getRequestHandler(app) //next-routes
+// const handle = app.getRequestHandler()
 
 app.prepare()
 .then(() => {

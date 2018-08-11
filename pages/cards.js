@@ -1,13 +1,14 @@
 import React,{ Component } from 'react'
 import indexStyles from './indexStyle'
 import myPostStyles from './myPostStyle'
-import Link from 'next/link'
+// import Link from 'next/link'
+import { Link } from '../routes' //next-routes
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 
 const Card =({post,index})=>{
-        return(
-            <Link as={`/p/${post.Slug}`} href={`/post?id=${post.id}`} >                       
+        return( 
+            <Link route='post' params={{slug: post.Slug,id:post.id}} href={{query:{id:post.id}}}>                   
             {index ?           
                 <div className="cards__item" >
                     <a className="link">

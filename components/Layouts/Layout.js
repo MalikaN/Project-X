@@ -10,7 +10,7 @@ class Layout extends Component{
         return(
             <div className="flex-container">  
             <Head>
-                    <title>Project X</title>
+                    <title>Pihitak</title>
                     <meta
                         name="viewport"
                         content="width=device-width, initial-scale=1"

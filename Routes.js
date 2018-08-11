@@ -1,26 +1,5 @@
-import nextRoutes from 'next-routes'
-const routes = module.exports = nextRoutes();
+const routes = require('next-routes')
 
-// routes.add({
-//     name: '/', 
-//     pattern: '/',
-//     page: 'index'
-// });
-
-// routes.add({
-//     name: 'login',
-//     pattern: '/login',
-//     page: 'login',
-// });
-
-// routes.add({
-//     name: 'register', 
-//     pattern: '/signup',
-//     page: 'signup'
-// });
-
-// routes.add({
-//     name: 'event', 
-//     pattern: '/event/:id/:slug',
-//     page: 'event'
-// });
+                                                    // Name   Page      Pattern
+module.exports = routes()                           // ----   ----      -----
+.add('post', '/post/:slug', 'post')                   // user   profile   /user/:id

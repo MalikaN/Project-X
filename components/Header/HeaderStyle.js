@@ -31,7 +31,7 @@ export default css`
         cursor: pointer;
     }
     .title{
-        font-size: 20px;   
+        font-size: 25px;   
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
@@ -44,6 +44,7 @@ export default css`
     .addpost >a{
         margin: 13px 10px 10px 20px;
         text-decoration: none;
+        color: #49c5b6;
     }
     .buttonLink> a{
         background: none!important;
@@ -55,5 +56,17 @@ export default css`
     }
     .buttonLink:focus {
         outline: 0;
+    }
+    .auth {
+        color: #49c5b6;
+    }
+    .signup{
+        color: #49c5b6;
+    }
+    .auth:hover{
+        color: #484848;
+    }
+    .signup:hover{
+        color: #484848;
     }
 `

@@ -45,7 +45,7 @@ class Index extends Component{
                 </div>
                 <div className="button-bar-overflow">
                     <div className="button-bar">
-                        <a className="active button grey" href="/posts/featured">Featured</a>
+                        <a className="button grey" href="/posts/featured">Featured</a>
                         <a className="button grey" href="/posts/children">Adults</a>
                         <a className="button grey" href="/posts/adults">Children</a>
                         <a className="button grey" href="/posts/others">Other</a>
@@ -64,7 +64,11 @@ class Index extends Component{
                                 })}  
                         </div>
                        {/* fr<div> <FontAwesomeIcon icon={ faChevronCircleRight }/> </div> */}
-                    </div>                   
+                       <div>
+                          <Link href=""><a>show all</a></Link> 
+                        </div>  
+                    </div> 
+                                    
                     <div>
                         <h3>Adults</h3>
                     </div>

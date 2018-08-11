@@ -153,7 +153,7 @@ export default css`
       .outerImagesDIv{
         height: 75vh;   
         position: relative;
-        margin-bottom:25px;
+        margin: 0 10px 25px 10px;
 
       }
 
@@ -294,6 +294,11 @@ export default css`
       white-space: nowrap;
     }
     .button.grey {
+      //background-color: #F9F9FA;
+      background-color: #49c5b6;
+      color: #fff;
+    }
+    .button.grey:hover{
       background-color: #F9F9FA;
       color: #333;
     }
