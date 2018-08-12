@@ -26,6 +26,7 @@ class Post extends Component{
         .catch((error)=>{
             console.log(error);
         })
+        console.log(this.state.post)
     }
 
     render(){
