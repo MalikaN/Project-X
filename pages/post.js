@@ -13,8 +13,10 @@ class Post extends Component{
             post:[]
         }
     
-    componentWillMount(){
-        axios.get(`http://api.pihitak.com/${this.props.url.query.slug}/${this.props.url.query.customCode}`)
+    componentDidMount(){
+        axios.get('http://api.pihitak.com/post',{
+            customId: this.props.url.query.customCode
+        })
         .then((Response)=>{
            this.setState({
                 post:Response.data.Items[0]
