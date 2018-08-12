@@ -14,6 +14,7 @@ class Post extends Component{
         }
     
     componentDidMount(){
+        const val = this.props.url.query.customCode
         axios.get('http://localhost:5000/post',{
             customId: val
         })
