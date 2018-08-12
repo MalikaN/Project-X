@@ -14,8 +14,8 @@ class Post extends Component{
         }
     
     componentDidMount(){
-        axios.get('http://api.pihitak.com/post',{
-            customId: this.props.url.query.customCode
+        axios.get('http://localhost:5000/post',{
+            customId: val
         })
         .then((Response)=>{
            this.setState({
@@ -28,6 +28,7 @@ class Post extends Component{
     }
 
     render(){
+        
         const {post} = this.state;
         return(
             <div className="container">
