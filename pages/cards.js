@@ -8,7 +8,7 @@ import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 
 const Card =({post,index})=>{
         return( 
-            <Link route='post' params={{slug: post.Slug,id:post.id}} href={{query:{id:post.id}}}>                   
+            <Link route='post' params={{slug: post.Slug,id: post.CustomCode}}>                   
             {index ?           
                 <div className="cards__item" >
                     <a className="link">
