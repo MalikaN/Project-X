@@ -15,18 +15,19 @@ class Post extends Component{
     
     componentDidMount(){
         const val = this.props.url.query.customCode
-        axios.get('http://api.pihitak.com/post',{
-            customId: val
-        })
+        axios.get('http://localhost:5000/post',{
+            params: {
+                customId: val
+            }
+          })
         .then((Response)=>{
-           this.setState({
+            this.setState({
                 post:Response.data.Items[0]
-           })
+            })
         })
         .catch((error)=>{
             console.log(error);
         })
-        console.log(this.state.post)
     }
 
     render(){
