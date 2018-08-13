@@ -9,7 +9,9 @@ import {Image, CloudinaryContext} from 'cloudinary-react'
 import { parse } from 'querystring'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faCamera from '@fortawesome/fontawesome-free-solid/faCamera'
+import randomstring from 'randomstring'
 
+let rString=''
 class AddPost extends Component{
     state={
         loggedinUser: '',
@@ -50,9 +52,26 @@ class AddPost extends Component{
             [name]:value
         })
     }
-
+    createRandomString=()=>{
+       
+        const { checkedCat } =this.state
+        switch(checkedCat){
+            case "1":
+                rString = 'C'+ randomstring.generate(7)
+                break;
+            
+            case "2":
+                rString = 'A'+ randomstring.generate(7)
+                break;
+            
+            case "3":
+                rString = 'O'+ randomstring.generate(7)
+                break;
+            
+        }
+    }
     handleSubmit = (event) =>{
-        
+            const { title, loggedinUser, post, checkedCat } = this.state;
             const formData = new FormData();
             formData.append('file', this.state.selectedFile);
             formData.append('upload_preset', "iv3w5ot5"); // Replace the preset name with your own
@@ -61,15 +80,20 @@ class AddPost extends Component{
             const config = {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             };
+            this.createRandomString()
+            const slug = title.replace(/\s+/g, '-').toLowerCase();
 
             axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                 .then((response)=>{
                     axios.post('http://api.pihitak.com/add-post',{
-                        userid: this.state.loggedinUser.userId,
-                        postTitle: this.state.title,
-                        post: this.state.post,
+                        userid: loggedinUser.userId,
+                        postTitle: title,
+                        post: post,
                         fileUrl:response.data.url,
-                        catId: this.state.checkedCat
+                        catId: checkedCat,
+                        customId:rString,
+                        slug: slug
+
                     })
                     .then((response)=>{
                         if(response.data.StatusCode == 201){

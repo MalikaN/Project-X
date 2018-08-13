@@ -13,12 +13,17 @@ class Post extends Component{
             post:[]
         }
     
-    componentWillMount(){
-        axios.get(`http://api.pihitak.com/post/${this.props.url.query.id}`)
+    componentDidMount(){
+        const val = this.props.url.query.customCode
+        axios.get('http://api.pihitak.com/post',{
+            params: {
+                customId: val
+            }
+          })
         .then((Response)=>{
-           this.setState({
+            this.setState({
                 post:Response.data.Items[0]
-           })
+            })
         })
         .catch((error)=>{
             console.log(error);
@@ -26,6 +31,7 @@ class Post extends Component{
     }
 
     render(){
+        
         const {post} = this.state;
         return(
             <div className="container">
