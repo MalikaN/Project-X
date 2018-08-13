@@ -8,9 +8,10 @@ import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 
 const Card =({post,index})=>{
         return( 
-            <Link route='post' params={{slug: post.Slug,customCode: post.CustomCode}}>                   
-            {index ?           
-                <div className="cards__item" >
+        <div className="cards__item">                   
+            {index ?      
+            <Link route='post' params={{slug: post.Slug,customCode: post.CustomCode}}>     
+                <div className="inner_cards__item">
                     <a className="link">
                         <div className="outerCard">
                             <div className="card">
@@ -24,16 +25,16 @@ const Card =({post,index})=>{
                             </div>
                         </div>
                     </a>
-                    <style jsx>{ indexStyles }</style>             
+                                 
                 </div>
-            
+            </Link>
             :
-           
-                <li className="cards__item" key={post.id}>
-                    <div className="card">
-                        <div className="imgOuterDiv">
+            <Link route='my-posts'>     
+                <li className="mypost_cards__item" key={post.id}>
+                    <div className="mypost_card">
+                        <div className="mypost_imgOuterDiv">
                             <Link href={`/post?id=${post.id}`}>    
-                                <img src={post.PostSrc} alt="" className="card__image"/>
+                                <img src={post.PostSrc} alt="" className="mypost_card__image"/>
                             </Link>
                             <div className="edit">
                                 <Link href={`/edit-post?id=${post.id}`}>
@@ -41,15 +42,18 @@ const Card =({post,index})=>{
                                 </Link>
                             </div>                                       
                         </div>                             
-                        <div className="card__content">
-                            <div className="card__title">{post.postTitle}</div>
-                            <div className="card__text">{post.PostDesc}</div>                  
+                        <div className="mypost_card__content">
+                            <div className="mypost_card__title">{post.postTitle}</div>
+                            <div className="mypost_card__text">{post.PostDesc}</div>                  
                         </div>
                     </div>
-                    <style jsx>{ myPostStyles }</style>
-                </li>                                    
+                    {/* <style jsx>{ myPostStyles }</style> */}
+                </li> 
+                </Link>                                    
             }   
-            </Link>       
+            <style jsx>{ myPostStyles }</style>
+            <style jsx>{ indexStyles }</style>
+        </div>      
                 
         )
 }

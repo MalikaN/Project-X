@@ -29,10 +29,13 @@ class myPost extends Component{
     }
 
     fetchAPI(){
-        axios.post('http://api.pihitak.com/my-post',{
-            userid:this.state.LogginUser.userId
+        axios.get('http://localhost:5000/my-post',{
+            params:{
+                userid:this.state.LogginUser.userId
+            }
         })
         .then((Response)=>{
+            console.log(Response)
             this.setState({
                 posts:Response.data.Items
             })
@@ -46,7 +49,7 @@ class myPost extends Component{
         const { posts } = this.state;
         const indexPage = false;
         return(
-            <ul className="cards">
+            <ul className="mypostcards">
             {posts.map(function(post,i){
                 return(                   
                     <Card key={post.postId} post={post} index={indexPage}/>

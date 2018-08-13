@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css';
 
 export default css`
-    img {
+      img {
         height: auto;
         max-width: 100%;
         vertical-align: middle;
@@ -35,29 +35,29 @@ export default css`
         display: block;
         width: 100%;
       }
-      .cards {
+      .mypostcards {
         display: flex;
         flex-wrap: wrap;
         list-style: none;
         margin: 0;
         padding: 0;
       }
-      .cards__item {
+      .mypost_cards__item {
         display: flex;
         padding: 0.85rem;
       }
       @media (min-width: 40rem) {
-        .cards__item {
+        .mypost_cards__item {
         //   width: 50%;
-            width: 30%;
+            width: 100%;
         }
       }
       @media (min-width: 56rem) {
-        .cards__item {
-          width:25%;
+        .mypost_cards__item {
+          width: 100%;
         }
       }
-      .card {
+      .mypost_card {
         // background-color: white;
         border-radius: 0.25rem;
         // box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -66,11 +66,11 @@ export default css`
         overflow: hidden;
         width: 344px;
       }
-      .card:hover .card__image {
+      .mypost_card:hover .card__image {
         -webkit-filter: contrast(100%);
                 filter: contrast(100%);
       }
-      .card__content {
+      .mypost_card__content {
         display: flex;
         flex: 1 1 auto;
         flex-direction: column;
@@ -78,9 +78,8 @@ export default css`
         text-transform: capitalize;  
         height: 110px;
         margin-top: 5px;
-
       }
-      .card__image {
+      .mypost_card__image {
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -97,17 +96,17 @@ export default css`
         height: 100%;
         object-fit: fill;
       }
-      .card__image::before {
+      .mypost_card__image::before {
         content: "";
         display: block;
         padding-top: 56.25%;
       }
       @media (min-width: 40rem) {
-        .card__image::before {
+        .mypost_card__image::before {
           padding-top: 66.6%;
         }
       }
-      .card__title {
+      .mypost_card__title {
         font-size: 1.15rem;
         font-weight: 600;
         letter-spacing: 0.5px;
@@ -115,7 +114,7 @@ export default css`
         line-height: 22px !important;
         padding-bottom: 5px;
       }    
-      .card__text {
+      .mypost_card__text {
         flex: 1 1 auto;
         font-size: 14px !important;
         line-height: 1.5;
@@ -133,7 +132,7 @@ export default css`
         color: inherit;
       }
 
-      .imgOuterDiv{
+      .mypost_imgOuterDiv{
         height: 200px;
         overflow: hidden;
         padding: 10px 0 10px 0;
@@ -145,7 +144,7 @@ export default css`
         display: inline-block;
       }
       //edit button added to my-posts
-      .imgOuterDiv:hover .edit {
+      .mypost_imgOuterDiv:hover .edit {
         display: block;
       }
       .editimg{

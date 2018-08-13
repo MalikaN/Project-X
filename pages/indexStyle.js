@@ -51,6 +51,9 @@ export default css`
         width:100%;
         }
       }
+      .inner_cards__item{
+        width:100%;
+      }
       .card {
         border-radius: 0.25rem;
         display: flex;
