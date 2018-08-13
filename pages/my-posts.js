@@ -29,7 +29,7 @@ class myPost extends Component{
     }
 
     fetchAPI(){
-        axios.get('http://localhost:5000/my-post',{
+        axios.get('http://api.pihitak.com/my-post',{
             params:{
                 userid:this.state.LogginUser.userId
             }
