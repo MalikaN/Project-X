@@ -76,7 +76,7 @@ export default css`
         flex-direction: column;
         padding: 2px 2px 2px 2px;
         text-transform:capitalize;  
-        height:110px;
+        height:75px;
         margin-top:5px;
       }
       .card__image {
@@ -109,8 +109,8 @@ export default css`
       .card__title {
         font-size: 1.15rem;
         font-weight: 600;
-        letter-spacing: 0.5px;
-        font-size: 16px !important;
+        letter-spacing: 1px;
+        font-size: 17px !important;
         line-height: 22px !important;
         padding-bottom: 5px;
         //Readmore 3 dots for title
@@ -125,7 +125,7 @@ export default css`
         font-weight: 400;
         line-height: 1.5;
         margin-bottom: 1.25rem;
-        letter-spacing: 0.5px !important;
+        letter-spacing: 1px !important;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 1;
@@ -137,7 +137,7 @@ export default css`
         margin-bottom: 20px !important;
         font-size: 24px !important;
         line-height: 30px !important;
-        letter-spacing: normal !important;
+        letter-spacing: 2px !important;
         color: rgb(72, 72, 72) !important;
         padding-top: 2px !important;
         padding-bottom: 2px !important;
@@ -300,7 +300,8 @@ export default css`
       //background-color: #F9F9FA;
       background-color: #49c5b6;
       color: #fff;
-      border: 2px solid;
+      border: 2px solid #49c5b6;
+      letter-spacing: 1px !important;
     }
     .button.grey:hover{
       background-color: #F9F9FA;
@@ -316,5 +317,30 @@ export default css`
       padding-top: 2px;
       margin: 0;
     }
+    .category-heading{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 20px 0 0;
+    }
+    .show-all-children{
+      height: 40px !important;
+      display: flex;
+      margin-bottom: 15px;
+    }
+    .show-all{
+      font-weight: 500 !important;
+      font-size: 15px !important;
+      color: #49c5b6;
+      align-self: center;
+      letter-spacing: 1px !important;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .show-all:hover:after{
+      content: ">>";
+    }
+    
+    
 
 `

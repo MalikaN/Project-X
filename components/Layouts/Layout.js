@@ -26,10 +26,11 @@ class Layout extends Component{
                 <style jsx>{styles}</style>
                 <style jsx global>{`
                 body { 
-                    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-                    background-color: #FFF;
+                    // font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+                    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+                    background-color: #FEFEFE; //#FFF;
                     margin: 0; 
-                    color: #333;//#484848;
+                    color: rgb(72, 72, 72);//#333;//#484848;
                 }
                 `}</style>
             </div>
