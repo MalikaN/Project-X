@@ -42,12 +42,12 @@ class Header extends Component{
                     {userToken.access_token ?
                         <React.Fragment>
                             <div className="addpost">
-                                <Link href="/my-posts" >
+                                <Link route="my-posts" >
                                     <a>My Posts</a>
                                 </Link>
                             </div>
                             <div className="addpost">
-                                <Link href="/add-post" >
+                                <Link route="add-post" >
                                     <a>Add Post</a>
                                 </Link>
                             </div>
@@ -60,12 +60,12 @@ class Header extends Component{
                     :
                         <React.Fragment>
                             <div>
-                                <Link route='login' >
+                                <Link route="login" >
                                     <a className="auth">Login</a>
                                 </Link>
                             </div>
                             <div>
-                                <Link href="/signup">
+                                <Link route="signup">
                                     <a className="signup">Signup</a>
                                 </Link>
                             </div>   

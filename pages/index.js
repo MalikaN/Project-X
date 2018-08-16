@@ -37,7 +37,7 @@ class Index extends Component{
         const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
-        console.log(childrenPosts)
+        
         return(
             <div className="mainDiv">     
                 <div className="outerImagesDIv">
