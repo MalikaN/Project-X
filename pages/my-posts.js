@@ -35,7 +35,6 @@ class myPost extends Component{
             }
         })
         .then((Response)=>{
-            console.log(Response)
             this.setState({
                 posts:Response.data.Items
             })
