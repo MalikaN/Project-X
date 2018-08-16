@@ -145,7 +145,7 @@ class AddPost extends Component{
                     <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
                 </div>
                 <div className="post-category">
-                    {category.map((cat,i)=>{
+                    {category.slice(0,3).map((cat,i)=>{
                         return(
                             <div key={cat.catId}>
                             <input type="radio" name="category" value={cat.catId} className="radioinput" checked={checkedCat==cat.catId} onChange={this.categoryChange}/>

@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import React,{Component} from 'react'
 import jscookie from 'js-cookie'
 import styles from './HeaderStyle'
 import Router from 'next/router'
+import { Link } from '../../routes'
 
 class Header extends Component{
     state = {
@@ -42,12 +42,12 @@ class Header extends Component{
                     {userToken.access_token ?
                         <React.Fragment>
                             <div className="addpost">
-                                <Link href="/my-posts" >
+                                <Link route="my-posts" >
                                     <a>My Posts</a>
                                 </Link>
                             </div>
                             <div className="addpost">
-                                <Link href="/add-post" >
+                                <Link route="add-post" >
                                     <a>Add Post</a>
                                 </Link>
                             </div>
@@ -60,10 +60,12 @@ class Header extends Component{
                     :
                         <React.Fragment>
                             <div>
-                                <Link href="/login" ><a className="auth">Login</a></Link>
+                                <Link route="login" >
+                                    <a className="auth">Login</a>
+                                </Link>
                             </div>
                             <div>
-                                <Link href="/signup">
+                                <Link route="signup">
                                     <a className="signup">Signup</a>
                                 </Link>
                             </div>   

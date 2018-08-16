@@ -43,6 +43,7 @@ export default css`
         margin-left: auto;
         width: 740px;
         border-left: 1px solid #0000008a;
+        resize: vertical;
     }
     .inner-title{
         padding-right: 20px;
@@ -90,16 +91,23 @@ export default css`
         border-style: none; 
         border-color: Transparent; 
         overflow: auto; 
-        resize: vertical;
-        max-height: 300px; 
-        min-height: 200px;
-    }
+    //     resize: vertical;
+    //     max-height: 300px; 
+    //     min-height: 200px;
+     }
     .title-text{
         font-size: 30px;
         }
 
     .post-text{
         font-size: 24px;
+        width: 100%;
+        border-style: none; 
+        border-color: Transparent; 
+        overflow: auto; 
+        resize: vertical;
+        max-height: 300px; 
+        min-height: 200px;
     }
     .imgOuterDiv{
         height: 200px;

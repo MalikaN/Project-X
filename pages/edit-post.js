@@ -2,14 +2,16 @@ import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
 import axios from 'axios'
 import jscookie from 'js-cookie'
-import styles from './AddPostStyle'
+import styles from './editPostStyle'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faCamera from '@fortawesome/fontawesome-free-solid/faCamera'
 
 
 class editPost extends Component{
+    static async getInitialProps ({query}) {
+        return query
+      }
         state={
-            editPost : this.props.url.query.id,
             loggedinUser: '',
             title: '',
             post: '',
@@ -18,13 +20,14 @@ class editPost extends Component{
             selectedFile:''
         }
 
-        componentWillMount(){
-
-            axios.get(`http://localhost:5000/post/${this.state.editPost}`)
+        componentDidMount(){
+            const customCode = this.props.url.query.customCode;
+            axios.get('http://api.pihitak.com/post',{
+                params:{
+                    customId: customCode
+                }
+            })
             .then((Response)=>{
-                
-                // editablePosts = Response.data.Items[0]
-                // console.log(Response.data.Items[0].postTitle)
                 this.setState({
                     id: Response.data.Items[0].postId,
                     title: Response.data.Items[0].postTitle,
@@ -36,9 +39,7 @@ class editPost extends Component{
                 console.log(error)
             })
 
-        }
 
-        componentDidMount(){
             let token = jscookie.getJSON('token')
             
             if(token){
@@ -65,35 +66,61 @@ class editPost extends Component{
             const config = {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             };
-            axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
-            .then((Response)=>{
-                axios.post('http://localhost:5000/edit-post',{
-                postId: this.state.id,
-                postTitle : this.state.title,
-                post: this.state.post,
-                fileUrl: Response.data.url
-            })
-            .then((Response)=>{
-               if(Response.data.StatusCode==201){
-                   console.log('Post Updated Successfully')
-                   this.setState({
-                       title: '',
-                       post: '',
-                       selectedFile: '',
-                       id: ''
-                   })
-               }
-            })
-            .catch((error)=>{
-                console.log(error)
-            })
-            })
-            .catch((error)=>{
-                console.log(error)
-            })
-
-
-
+            if(this.state.selectedFile!=''){
+                console.log('1st way')
+                axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
+                .then((Response)=>{
+                    axios.post('http://api.pihitak.com/edit-post',{
+                    postId: this.state.id,
+                    postTitle : this.state.title,
+                    post: this.state.post,
+                    fileUrl: Response.data.url
+                })
+                    .then((Response)=>{
+                    if(Response.data.StatusCode==201){
+                        console.log('Post Updated Successfully')
+                        this.setState({
+                            title: '',
+                            post: '',
+                            selectedFile: '',
+                            id: '',
+                            imgSrc: ''
+                        })
+                    }
+                    })
+                    .catch((error)=>{
+                        console.log(error)
+                    })
+                })
+                .catch((error)=>{
+                    console.log(error)
+                })
+            }
+            else{
+                console.log('2nd way')
+                axios.post('http://api.pihitak.com/edit-post',{
+                    postId: this.state.id,
+                    postTitle : this.state.title,
+                    post: this.state.post,
+                    fileUrl: this.state.imgSrc
+                })
+                    .then((Response)=>{
+                    if(Response.data.StatusCode==201){
+                        console.log('Post Updated Successfully')
+                        this.setState({
+                            title: '',
+                            post: '',
+                            selectedFile: '',
+                            id: '',
+                            imgSrc: ''
+                        })
+                    }
+                    })
+                    .catch((error)=>{
+                        console.log(error)
+                    })
+            }
+            
             
         }
 
@@ -120,7 +147,7 @@ class editPost extends Component{
                 </div>
                 <div className="title">
                     <div className="inner-title">
-                    <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
+                    <textarea type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
                     onChange={(event)=>this.handleInputChange(event)} />
                     </div>                
                 </div>
@@ -136,9 +163,12 @@ class editPost extends Component{
                         <textarea name="post" value={this.state.post} placeholder="your story..."  className="post-text" onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
                 </div>
-                <div className="imgOuterDiv">
-                    <img src={imgSrc} alt="" className="card__image" />
-                </div> 
+                <div className="imgInnerDiv">
+                    <div className="imgOuterDiv">
+                        <img src={imgSrc} alt="" className="card__image" />
+                    </div> 
+                </div>
+                
                 <style jsx>{styles}</style>
             </div>
         )

@@ -1,9 +1,9 @@
 import {Component} from 'react'
 import withLayout from '../components/Layouts/Layout'
-import Link from 'next/link'
 import styles from './indexStyle'
 import axios from 'axios'
 import Card from './cards'
+import { Link } from '../routes'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronCircleRight'
 
@@ -28,10 +28,16 @@ class Index extends Component{
     render(){
         const { posts } = this.state;
         const indexPage = true
-        const childFilter = posts.filter((child)=>child.CatId == 1)
-        const adultFilter = posts.filter((child)=>child.CatId == 2)
-        const otherFilter = posts.filter((child)=>child.CatId == 3)
-
+        // Filter from Category
+        const CFilter = posts.filter((child)=>child.CatId == 1)
+        const AFilter = posts.filter((child)=>child.CatId == 2)
+        const OFilter = posts.filter((child)=>child.CatId == 3)
+        
+        //sort from id in decending order
+        const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        
         return(
             <div className="mainDiv">     
                 <div className="outerImagesDIv">
@@ -45,53 +51,64 @@ class Index extends Component{
                 </div>
                 <div className="button-bar-overflow">
                     <div className="button-bar">
-                        <a className="button grey" href="/posts/featured">Featured</a>
-                        <a className="button grey" href="/posts/children">Adults</a>
-                        <a className="button grey" href="/posts/adults">Children</a>
-                        <a className="button grey" href="/posts/others">Other</a>
+                        <Link route='show-allpost' params={{category:'featured'}}><a className="button grey">Featured</a></Link>
+                        <Link route='show-allpost' params={{category: 'adults'}}><a className="button grey" >Adults</a></Link>
+                        <Link route='show-allpost' params={{category: 'children'}}><a className="button grey" >Children</a></Link>
+                        <Link route='show-allpost' params={{category: 'others'}}><a className="button grey" >Other</a></Link>
                     </div>
                 </div>
                 <div className="cardOuterDiv">
-                    <div>
-                        <h3>Children</h3>
-                    </div>
+                        <div>
+                            <h3>Children</h3>
+                        </div>
+                       
                     <div>
                         <div className="cards">
-                            {childFilter.map(function(post,i){
+                            {childrenPosts.slice(0,3).map(function(post,i){
                                     return(
                                         <Card key={post.id} post={post} index={indexPage}/> 
                                     )
                                 })}  
-                        </div>
-                       {/* fr<div> <FontAwesomeIcon icon={ faChevronCircleRight }/> </div> */}
-                       <div>
-                          <Link href=""><a>show all</a></Link> 
                         </div>  
                     </div> 
-                                    
+                    <div className="show-all-children">
+                        <Link href="">
+                            <a className="show-all">Show all{" "}({childrenPosts.length}+)</a>
+                        </Link> 
+                    </div>                
                     <div>
                         <h3>Adults</h3>
                     </div>
                     <div>
                         <ul className="cards">
-                            {adultFilter.map(function(post,i){
+                            {adultPosts.map(function(post,i){
                                 return(
                                     <Card key={post.id} post={post} index={indexPage}/>
                                 )
                             })}       
                         </ul>
-                    </div>   
+                    </div>
+                    <div className="show-all-children">
+                        <Link href="">
+                            <a className="show-all">Show all{" "}({adultPosts.length}+)</a>
+                        </Link> 
+                    </div>    
                     <div>
                         <h3>Other</h3>
                     </div>
                     <div>
                     <ul className="cards">
-                        {otherFilter.map(function(post,i){
+                        {OFilter.map(function(post,i){
                             return(
                                 <Card key={post.id} post={post} index={indexPage}/>
                             )
                         })}       
                         </ul>
+                    </div> 
+                    <div className="show-all-children">
+                        <Link href="">
+                            <a className="show-all">Show all{" "}({otherPosts.length}+)</a>
+                        </Link> 
                     </div>             
                 </div>
                 <style jsx>{styles}</style>
