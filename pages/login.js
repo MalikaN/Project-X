@@ -36,19 +36,23 @@ class Login extends Component{
             }
         })
         .catch(function (error) {
-        console.log(error);
+            sconsole.log(error);
         
       });
     }
-
+    onKeyPress=(event)=>{
+        if(event.key === 'Enter'){
+            this.handleSubmit()
+        }    
+    }
     render(){
         return(
         <div className="login-container">
             <form className="form">
                 <h1>Sign in</h1>
                 <div className="form-content">
-                    <input id="txtUserName" type="text" name="email" placeholder="Email" onChange={this.handleInputChange}/>
-                    <input id="txtpassword" type="password" name="password" placeholder="Password" onChange={this.handleInputChange}/>
+                    <input id="txtUserName" type="text" name="email" placeholder="Email"  onChange={this.handleInputChange}/>
+                    <input id="txtpassword" type="password" name="password" placeholder="Password" onChange={this.handleInputChange} onKeyPress={this.onKeyPress}/>
                     <div className="button" onClick ={this.handleSubmit}>sign in</div>
                 </div>
             </form>

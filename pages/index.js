@@ -11,10 +11,11 @@ import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronC
 
 class Index extends Component{
     state={
-        posts: []
+        posts: [],
+        category: []
     }
 
-    componentWillMount(){
+    componentDidMount(){
         axios.get('http://api.pihitak.com')
         .then((Response)=>{
             this.setState({
@@ -24,21 +25,31 @@ class Index extends Component{
         .catch((error)=>{
             console.log(error);
         })
+
+        axios.get('http://api.pihitak.com/get-post-category')    
+        .then((Response)=>{
+            this.setState({
+                category: Response.data.category
+            })
+        })
+        .catch((error)=>{
+            console.log(error);
+        })
     }
     render(){
-        const { posts } = this.state;
+        const { posts , category } = this.state;
         const indexPage = true
         // Filter from Category
         const CFilter = posts.filter((child)=>child.CatId == 1)
         const AFilter = posts.filter((child)=>child.CatId == 2)
         const OFilter = posts.filter((child)=>child.CatId == 3)
-        
         //sort from id in decending order
         const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
         
         return(
+           
             <div className="mainDiv">     
                 <div className="outerImagesDIv">
                     <div className="innerImagesDiv">
@@ -51,10 +62,10 @@ class Index extends Component{
                 </div>
                 <div className="button-bar-overflow">
                     <div className="button-bar">
-                        <Link route='show-allpost' params={{category:'featured'}}><a className="button grey">Featured</a></Link>
-                        <Link route='show-allpost' params={{category: 'adults'}}><a className="button grey" >Adults</a></Link>
-                        <Link route='show-allpost' params={{category: 'children'}}><a className="button grey" >Children</a></Link>
-                        <Link route='show-allpost' params={{category: 'others'}}><a className="button grey" >Other</a></Link>
+                        <Link route='show-all' params={{category:'featured'}}><a className="button grey">Featured</a></Link>
+                        <Link route='show-all' params={{category: 'adults'}}><a className="button grey" >Adults</a></Link>
+                        <Link route='show-all' params={{category: 'children'}}><a className="button grey" >Children</a></Link>
+                        <Link route='show-all' params={{category: 'others'}}><a className="button grey" >Other</a></Link>
                     </div>
                 </div>
                 <div className="cardOuterDiv">
@@ -72,7 +83,7 @@ class Index extends Component{
                         </div>  
                     </div> 
                     <div className="show-all-children">
-                        <Link href="">
+                        <Link route='show-all' params={{category:'children'}}>
                             <a className="show-all">Show all{" "}({childrenPosts.length}+)</a>
                         </Link> 
                     </div>                
@@ -81,7 +92,7 @@ class Index extends Component{
                     </div>
                     <div>
                         <ul className="cards">
-                            {adultPosts.map(function(post,i){
+                            {adultPosts.slice(0,3).map(function(post,i){
                                 return(
                                     <Card key={post.id} post={post} index={indexPage}/>
                                 )
@@ -89,7 +100,7 @@ class Index extends Component{
                         </ul>
                     </div>
                     <div className="show-all-children">
-                        <Link href="">
+                        <Link route='show-all' params={{category: 'adults'}}>
                             <a className="show-all">Show all{" "}({adultPosts.length}+)</a>
                         </Link> 
                     </div>    
@@ -98,7 +109,7 @@ class Index extends Component{
                     </div>
                     <div>
                     <ul className="cards">
-                        {OFilter.map(function(post,i){
+                        {otherPosts.slice(0,3).map(function(post,i){
                             return(
                                 <Card key={post.id} post={post} index={indexPage}/>
                             )
@@ -106,7 +117,7 @@ class Index extends Component{
                         </ul>
                     </div> 
                     <div className="show-all-children">
-                        <Link href="">
+                        <Link route='show-all' params={{category: 'others'}}>
                             <a className="show-all">Show all{" "}({otherPosts.length}+)</a>
                         </Link> 
                     </div>             
