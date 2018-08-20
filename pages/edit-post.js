@@ -8,9 +8,7 @@ import faCamera from '@fortawesome/fontawesome-free-solid/faCamera'
 
 
 class editPost extends Component{
-    static async getInitialProps ({query}) {
-        return query
-      }
+    
         state={
             loggedinUser: '',
             title: '',
@@ -19,7 +17,9 @@ class editPost extends Component{
             id: '',
             selectedFile:''
         }
-
+        static async getInitialProps ({query}) {
+                return query
+            }
         componentDidMount(){
             const customCode = this.props.url.query.customCode;
             axios.get('http://api.pihitak.com/post',{
@@ -67,7 +67,6 @@ class editPost extends Component{
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             };
             if(this.state.selectedFile!=''){
-                console.log('1st way')
                 axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                 .then((Response)=>{
                     axios.post('http://api.pihitak.com/edit-post',{
@@ -97,7 +96,6 @@ class editPost extends Component{
                 })
             }
             else{
-                console.log('2nd way')
                 axios.post('http://api.pihitak.com/edit-post',{
                     postId: this.state.id,
                     postTitle : this.state.title,
@@ -119,9 +117,7 @@ class editPost extends Component{
                     .catch((error)=>{
                         console.log(error)
                     })
-            }
-            
-            
+            }      
         }
 
         fileChangeHandler = (event)=>{
