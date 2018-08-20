@@ -34,6 +34,7 @@ class Layout extends Component{
                 }
                 input{
                     font : 30px Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+                    color: rgb(72,72,72)
                 }
                 `}</style>
             </div>

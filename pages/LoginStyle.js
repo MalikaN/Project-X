@@ -27,7 +27,7 @@ export default css`
     align-items: center;   
 }
 input{
-    color: #384047;
+    // color: #384047;
     background-color: #e8eeef;
     border-radius: 4px;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
