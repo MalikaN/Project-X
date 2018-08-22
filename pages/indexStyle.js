@@ -271,15 +271,15 @@ h3{
     white-space: nowrap;
 }
 .button.grey {
-    background-color: #49c5b6;
+    background-color: #00BAF4;;
     color: #fff;
-    border: 2px solid #49c5b6;
+    border: 2px solid #00BAF4;
     letter-spacing: 1px !important;
 }
 .button.grey:hover{
     background-color: #F9F9FA;
     color: #333;
-    border: 2px solid #49c5b6;
+    border: 2px solid #00BAF4;
 }
 @media only screen and (max-width: 991px)
 .button-bar {
@@ -304,7 +304,6 @@ h3{
 .show-all{
     font-weight: 500 !important;
     font-size: 15px !important;
-    color: #49c5b6;
     align-self: center;
     letter-spacing: 1px !important;
     text-decoration: none;

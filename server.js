@@ -17,7 +17,6 @@ app.prepare()
     app.render(req, res, actualPage, queryParams)
   });
 
-  server.get('/.next/*', (req, res) => handle(req, res));
   server.get('*', (req, res) => {
     return handle(req, res)
   });

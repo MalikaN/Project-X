@@ -34,7 +34,29 @@ class Layout extends Component{
                 }
                 input{
                     font : 30px Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-                    color: rgb(72,72,72)
+                    color: rgb(72,72,72);
+                }
+                a{
+                    // background-color: #00BAF4;
+                    color: #9d567a;
+                    text-decoration: none;
+                }
+                button{
+                    background-color: #00BAF4;
+                }
+                textarea{
+                    width: 100%;
+                    border-style: none; 
+                    border-color: Transparent; 
+                    overflow: auto; 
+                    font-size: 24px;
+                    width: 100%;
+                    border-style: none; 
+                    border-color: Transparent; 
+                    overflow: auto; 
+                    resize: vertical;
+                    max-height: 300px; 
+                    min-height: 200px;
                 }
                 `}</style>
             </div>

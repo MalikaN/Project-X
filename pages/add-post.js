@@ -171,7 +171,7 @@ class AddPost extends Component{
                             onChange={(event)=>this.fileChangeHandler(event)}/>
                     </div>  
                     <div className="inner-post-details">
-                        <textarea name="post" value={this.state.post} placeholder="your story..."  className="post-text" 
+                        <textarea name="post" value={this.state.post} placeholder="your story..."
                             onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
                 </div>

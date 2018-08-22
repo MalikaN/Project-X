@@ -109,7 +109,7 @@ class Index extends Component{
                     </div>
                     <div>
                     <ul className="cards">
-                        {otherPosts.slice(0,3).map(function(post,i){
+                        {otherPosts.slice(0,4).map(function(post,i){
                             return(
                                 <Card key={post.id} post={post} index={indexPage}/>
                             )

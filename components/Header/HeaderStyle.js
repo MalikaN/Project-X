@@ -37,14 +37,12 @@ export default css`
     object-fit: contain;
 }
 a{
-    color: #484848;
     margin: 13px 10px 10px 20px;
-    text-decoration: none;
 }
-.addpost >a{
+.addpost{
     margin: 13px 10px 10px 20px;
-    text-decoration: none;
-    color: #49c5b6;
+    // text-decoration: none;
+    // color: #49c5b6;
 }
 .buttonLink> a{
     background: none!important;
@@ -53,16 +51,17 @@ a{
     text-decoration: none;
     cursor: pointer;
     margin:  13px 10px 10px 20px;
+    color: rgb(72, 72, 72);
 }
 .buttonLink:focus {
     outline: 0;
 }
-.auth {
-    color: #49c5b6;
-}
-.signup{
-    color: #49c5b6;
-}
+// .auth {
+//     color: #49c5b6;
+// }
+// .signup{
+//     color: #49c5b6;
+// }
 .auth:hover{
     color: #484848;
 }
