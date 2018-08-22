@@ -82,26 +82,21 @@ textarea:focus, input:focus{
     overflow: hidden;
     float: right;
 }
-textarea{
-    width: 100%;
-    border-style: none; 
-    border-color: Transparent; 
-    overflow: auto; 
-}
+
 .title-text{
     font-size: 30px;
 }
 
-.post-text{
-    font-size: 24px;
-    width: 100%;
-    border-style: none; 
-    border-color: Transparent; 
-    overflow: auto; 
-    resize: vertical;
-    max-height: 300px; 
-    min-height: 200px;
-}
+// .post-text{
+//     font-size: 24px;
+//     width: 100%;
+//     border-style: none; 
+//     border-color: Transparent; 
+//     overflow: auto; 
+//     resize: vertical;
+//     max-height: 300px; 
+//     min-height: 200px;
+// }
 .imgOuterDiv{
     height: 200px;
     overflow: hidden;
@@ -156,5 +151,4 @@ textarea{
 .post-label{
     padding:15px;
 }
-
 `

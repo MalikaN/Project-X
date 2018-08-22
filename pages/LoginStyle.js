@@ -27,7 +27,7 @@ export default css`
     align-items: center;   
 }
 input{
-    color: #384047;
+    // color: #384047;
     background-color: #e8eeef;
     border-radius: 4px;
     box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
@@ -40,7 +40,7 @@ input{
 
 .button{
     border-radius: 4px;
-    background-color: #49c5b6; //#4bc970;
+    background-color: #00BAF4; //#49c5b6; //#4bc970;
     padding: 0.8em;
     margin-top: 1em;
     border: none;
