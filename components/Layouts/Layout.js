@@ -38,7 +38,7 @@ class Layout extends Component{
                 }
                 a{
                     // background-color: #00BAF4;
-                    color: #9d567a;
+                    color: #2e86de;
                     text-decoration: none;
                 }
                 button{

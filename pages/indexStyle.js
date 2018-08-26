@@ -7,6 +7,7 @@ export default css`
     display: flex;
     flex-direction: column;
     align-self: center;
+    align-items: center;
 }
 .cards {
     width: 100%;
@@ -27,7 +28,7 @@ export default css`
 }
 @media screen and (min-width: 769px) {
   .cards__item {
-      width: 33.33%;
+      width: 29%; //33.33%;
   }
 }  
 @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
@@ -49,6 +50,7 @@ export default css`
     flex-direction: column;
     overflow: hidden;
     min-width: 100%;
+    box-shadow: 0 0.5rem 1.5rem 0 #f5f5f5;
 }
 .card:hover .card__image {
     -webkit-filter: contrast(100%);
@@ -65,8 +67,9 @@ export default css`
     flex-direction: column;
     padding: 2px 2px 2px 2px;
     text-transform:capitalize;  
-    height:75px;
-    margin-top:5px;
+    height:90px;
+    margin-top:15px;
+    padding-left: 10px;
 }
 .card__image {
     background-position: center center;
@@ -112,14 +115,24 @@ export default css`
     flex: 1 1 auto;
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.2em;
     margin-bottom: 1.25rem;
     letter-spacing: 1px !important;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    max-height:1.5em;
+    max-height: 2.4em;
+}
+.card_lastDate{
+    height: 40px;
+    padding: 2px 2px 2px 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+.heading{
+    width: 87%;
 }
 h3{
     font-weight: 800 !important;
@@ -137,15 +150,15 @@ h3{
     min-width: 100%;
 }
 .imgOuterDiv{
-    height: 300px; //first value 200px
+    height: 200px; //300px; //first value 200px
     overflow: hidden;
-    padding: 10px 0 10px 0;
-    margin-bottom: 10px;
+    // padding: 10px 0 10px 0;
+    margin-bottom: 30px;
 }
 .outerImagesDIv{
-    height: 75vh;   
+    height: 80vh;   
     position: relative;
-    margin: 0 10px 25px 10px;
+    margin: 0 0 25px 10;
 
 }
 .innerImagesDiv>img{
@@ -200,7 +213,7 @@ h3{
     flex-direction: column;
     align-self: center;
     width: 80%;
-    margin-bottom: 40px;
+    margin: 20px 0 20px 0;
 }
 .button-bar-overflow .button-bar{
     margin-top: 0px;
@@ -271,15 +284,15 @@ h3{
     white-space: nowrap;
 }
 .button.grey {
-    background-color: #00BAF4;;
+    background-color: #2e86de;
     color: #fff;
-    border: 2px solid #00BAF4;
+    border: 2px solid #2e86de;
     letter-spacing: 1px !important;
 }
 .button.grey:hover{
     background-color: #F9F9FA;
     color: #333;
-    border: 2px solid #00BAF4;
+    border: 2px solid #2e86de;
 }
 @media only screen and (max-width: 991px)
 .button-bar {
@@ -297,6 +310,7 @@ h3{
     padding: 0 20px 0 0;
 }
 .show-all-children{
+    width: 87%;
     height: 40px !important;
     display: flex;
     margin-bottom: 15px;
@@ -308,11 +322,28 @@ h3{
     letter-spacing: 1px !important;
     text-decoration: none;
     cursor: pointer;
+    margin-top: 10px;
 }
-.show-all:hover:after{
-    content: ">>";
+a.show-all:after {
+	content: '';
+    left: 0;
+    display: inherit;
+    // height: 1em;
+    width: 105px;
+    border-bottom: 1px solid;
+    margin-top: 5px;
+    opacity: 0;
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transform: scale(0,1);
+        transform: scale(0,1);
 }
-    
+
+a.show-all:hover:after {
+    opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
     
 
 `
