@@ -233,50 +233,50 @@ h3{
     align-items: center;
 }
 .button{
-    -webkit-appearance:none;
-    -moz-appearance:none;
-    appearance:none;
-    border:none;
-    cursor:pointer;
-    font-weight:900;
-    letter-spacing:0.9px;
-    font-size:13px;
-    line-height:100%;
-    box-shadow:0 0px 9px 0 rgba(0,0,0,0.11);
-    -webkit-backface-visibility:hidden;
-    -webkit-transform:translate3D(0, 0, 0);
-    -webkit-transition:-webkit-box-shadow 0.35s, -webkit-transform 0.35s;
-    transition:-webkit-box-shadow 0.35s, -webkit-transform 0.35s;
-    transition:box-shadow 0.35s, transform 0.35s;
-    transition:box-shadow 0.35s, transform 0.35s, -webkit-box-shadow 0.35s, -webkit-transform 0.35s;
-    -webkit-font-smoothing:subpixel-antialiased;
-    text-align:center;
-    border-radius:40px;
-    text-transform:uppercase;
-    padding:10px 17px 9px 17px;
-    text-decoration:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 900;
+    letter-spacing: 0.9px;
+    font-size: 13px;
+    line-height: 100%;
+    box-shadow: 0 0px 9px 0 rgba(0,0,0,0.11);
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3D(0, 0, 0);
+    -webkit-transition: -webkit-box-shadow 0.35s, -webkit-transform 0.35s;
+    transition: -webkit-box-shadow 0.35s, -webkit-transform 0.35s;
+    transition: box-shadow 0.35s, transform 0.35s;
+    transition: box-shadow 0.35s, transform 0.35s, -webkit-box-shadow 0.35s, -webkit-transform 0.35s;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    border-radius: 40px;
+    text-transform: uppercase;
+    padding: 10px 17px 9px 17px;
+    text-decoration: none;
 }
 .button:hover{
-    box-shadow:0 0px 18px 0 rgba(0,0,0,0.2);
-    -webkit-backface-visibility:hidden;
-    backface-visibility:hidden;
+    box-shadow: 0 0px 18px 0 rgba(0,0,0,0.2);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 .no-bs .button{
-    -webkit-box-shadow:none;
-    box-shadow:none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 .no-bs .button:hover{
-    -webkit-box-shadow:none;
-    box-shadow:none;
-    background-color:#E6E6E6;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #E6E6E6;
 }
 .button.active{
-    background-color:#333;
-    color:white;
+    background-color: #333;
+    color: white;
 }
 .button.active:hover{
-    background-color:#333;
-    color:white;
+    background-color: #333;
+    color: white;
 }
 .button-bar .button {
     display: inline-block;
@@ -329,7 +329,7 @@ a.show-all:after {
     left: 0;
     display: inherit;
     // height: 1em;
-    width: 105px;
+    width: 100px;
     border-bottom: 1px solid;
     margin-top: 5px;
     opacity: 0;

@@ -27,7 +27,9 @@ class Layout extends Component{
                 <style jsx global>{`
                 body { 
                     // font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-                    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+                   // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+                   font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+                   -webkit-font-smoothing: antialiased;
                     background-color: #FEFEFE; //#FFF;
                     margin: 0; 
                     color: rgb(72, 72, 72);//#333;//#484848;
