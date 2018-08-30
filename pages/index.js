@@ -71,7 +71,9 @@ class Index extends Component{
                 </div>
                 <div className="cardOuterDiv">
                         <div className="heading">
-                            <h3>Children</h3>
+                            <div className="inner-header">
+                                <h3>Children</h3>
+                            </div>
                         </div>
                        
                     <div>
@@ -85,11 +87,13 @@ class Index extends Component{
                     </div> 
                     <div className="show-all-children">
                         <Link route='show-all' params={{category:'children'}}>
-                            <a className="show-all">Show all{" "}({childrenPosts.length}+){" "}</a>
+                            <a className="show-all">See more{" "}({childrenPosts.length}+){" "}</a>
                         </Link> 
                     </div>                
                     <div className="heading">
-                        <h3>Adults</h3>
+                        <div className="inner-header">
+                            <h3>Adults</h3>
+                        </div>
                     </div>
                     <div>
                         <ul className="cards">
@@ -102,11 +106,13 @@ class Index extends Component{
                     </div>
                     <div className="show-all-children">
                         <Link route='show-all' params={{category: 'adults'}}>
-                            <a className="show-all">Show all{" "}({adultPosts.length}+){" "}</a>
+                            <a className="show-all">See more{" "}({adultPosts.length}+){" "}</a>
                         </Link> 
                     </div>    
                     <div className="heading">
-                        <h3>Other</h3>
+                        <div className="inner-header">
+                            <h3>Other</h3>
+                        </div>
                     </div>
                     <div>
                     <ul className="cards">
@@ -119,7 +125,7 @@ class Index extends Component{
                     </div> 
                     <div className="show-all-children">
                         <Link route='show-all' params={{category: 'others'}}>
-                            <a className="show-all">Show all{" "}({otherPosts.length}+){" "}</a>
+                            <a className="show-all">See more{" "}({otherPosts.length}+){" "}</a>
                         </Link> 
                     </div>             
                 </div>

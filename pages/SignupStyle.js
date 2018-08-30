@@ -41,7 +41,7 @@ input{
 }
 .button{
     border-radius: 4px;
-    background-color: #49c5b6;
+    background-color: #2e86de;
     padding: 0.8em;
     margin-top: 1em;
     border: none;
@@ -64,7 +64,7 @@ input{
     font-size: 18px;
 }
 .login{
-    color: #49c5b6;
+    color: #2e86de;
     text-decoration: none;
     margin-left: 10px;
 }

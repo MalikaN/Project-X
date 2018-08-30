@@ -132,17 +132,44 @@ export default css`
     font-weight: 400;
 }
 .heading{
+    display: flex;
+    flex-direction: column;
     width: 87%;
+    align-items: center;
+}
+.inner-header{
+    width: 120px;
 }
 h3{
     font-weight: 800 !important;
     margin-bottom: 20px !important;
-    font-size: 24px !important;
+    font-size: 26px !important;
     line-height: 30px !important;
     letter-spacing: 2px !important;
     color: rgb(72, 72, 72) !important;
     padding-top: 2px !important;
     padding-bottom: 2px !important;
+    text-align: center;
+}
+h3:after {
+	content: '';
+    left: 0;
+    display: inherit;
+    // height: 1em;
+    width: 120px;
+    border-bottom: 1px solid;
+    margin-top: 5px;
+    opacity: 0;
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+        transition: opacity 0.35s, transform 0.35s;
+        -webkit-transform: scale(0,1);
+        transform: scale(0,1);
+}
+
+h3:hover:after {
+    opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
 }
 .link{
     cursor: pointer;
