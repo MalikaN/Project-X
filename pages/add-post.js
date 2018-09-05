@@ -3,7 +3,6 @@ import withLayout from '../components/Layouts/Layout'
 import styles from './AddPostStyle'
 import Router from 'next/router'
 import jscookie from 'js-cookie'
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from 'constants'
 import axios from 'axios'
 import {Image, CloudinaryContext} from 'cloudinary-react'
 import { parse } from 'querystring'
@@ -22,6 +21,7 @@ class AddPost extends Component{
         checkedCat: ''
     }
     componentWillMount(){
+       
         axios.get('http://api.pihitak.com/get-post-category')
         .then((Response)=>{
             this.setState({
@@ -31,6 +31,7 @@ class AddPost extends Component{
         .catch((error)=>{
             console.log(error);
         })
+     
     }
     componentDidMount(){
         let token = jscookie.getJSON('token')
@@ -71,6 +72,7 @@ class AddPost extends Component{
         }
     }
     handleSubmit = (event) =>{
+        
             const { title, loggedinUser, post, checkedCat } = this.state;
             const formData = new FormData();
             formData.append('file', this.state.selectedFile);
@@ -82,9 +84,9 @@ class AddPost extends Component{
             };
             this.createRandomString()
             const slug = title.replace(/\s+/g, '-').toLowerCase();
-
             axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                 .then((response)=>{
+                   
                     axios.post('http://api.pihitak.com/add-post',{
                         userid: loggedinUser.userId,
                         postTitle: title,
@@ -131,6 +133,7 @@ class AddPost extends Component{
 
     render(){
         const { loggedinUser , category, checkedCat } = this.state;
+
         return(
             <div className="container">
                 <div className="status-bar">
