@@ -19,6 +19,7 @@ export default css`
     align-self: center;
     margin-top: 20px;
     text-align: center;
+    height: 140px;//18%;
 }
 .inner-upper-div{
     padding: 0.8rem;
@@ -61,8 +62,8 @@ h2:hover:after {
     flex-direction: row;
     width: 88%;
     align-self: center;
-    height: 46%;
-    margin-bottom: 3rem;
+    height: 372px; //height: 46%;
+    // margin-bottom: 3rem;
 }
 .img-container{
     width: 70%;
@@ -173,6 +174,7 @@ ul {
     height: 5%;
     border-top: 1px solid #DCDEDD;
     border-bottom: 1px solid #DCDEDD;
+    margin-top: 3rem;
 }
 .inner-middle-navbar{
     width: 75%;
@@ -186,7 +188,8 @@ ul {
 }
 .nav-item{
     position: relative;
-    padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+    // padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+    padding:0.95rem 0.5rem 0.95rem 0.5rem;
     color: #2e86de;
     text-decoration: none;
     color: #484848;

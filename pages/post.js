@@ -32,7 +32,6 @@ class Post extends Component{
     }
 
     render(){
-        console.log(this.state.activeLink)
         const {post,activeLink} = this.state;
         return(
             <div className="container">
