@@ -12,6 +12,7 @@ export default css`
     z-index: 5;
     overflow: auto;
     display: flex;
+    justify-content: center; //added new
 }  
 
 `;

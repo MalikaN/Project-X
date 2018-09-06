@@ -5,7 +5,7 @@ export default css`
     display: flex;
     justify-content: center;
     align-content: center;
-    padding: 6%;
+    padding: 11% 6%; //padding: 6%;
     margin: 0;   
 }
 .form{
