@@ -15,11 +15,11 @@ export default css`
     height: 100%;
 }
 .upper-div{
-    width: 60%;
+    width: 80%;
     align-self: center;
     margin-top: 20px;
     text-align: center;
-    height: 140px;//18%;
+   //height: 140px;//18%;
 }
 .inner-upper-div{
     padding: 0.8rem;

@@ -115,14 +115,14 @@ export default css`
     flex: 1 1 auto;
     font-size: 14px;
     font-weight: 400;
-    line-height: 1.2em;
+    line-height: 1.3em;//1.2em;
     margin-bottom: 1.25rem;
     letter-spacing: 1px !important;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    max-height: 2.4em;
+    max-height: 2.48em;
 }
 .card_lastDate{
     height: 40px;
