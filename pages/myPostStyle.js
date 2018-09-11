@@ -41,6 +41,7 @@ img {
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: center;
 }
 .mypost_cards__item {
     display: flex;

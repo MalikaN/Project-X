@@ -61,12 +61,12 @@ class Header extends Component{
                         <React.Fragment>
                             <div>
                                 <Link route="login" >
-                                    <a className="auth">Login</a>
+                                    <a className="auth">Sign in</a>
                                 </Link>
                             </div>
                             <div>
                                 <Link route="signup">
-                                    <a className="signup">Signup</a>
+                                    <a className="signup">Sign up</a>
                                 </Link>
                             </div>   
                         </React.Fragment>

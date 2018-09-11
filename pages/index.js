@@ -6,6 +6,7 @@ import Card from './cards'
 import { Link } from '../routes'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronCircleRight'
+import faGreaterThan from '@fortawesome/fontawesome-free-solid/faGreaterThan'
 
 
 
@@ -69,8 +70,10 @@ class Index extends Component{
                     </div>
                 </div>
                 <div className="cardOuterDiv">
-                        <div>
-                            <h3>Children</h3>
+                        <div className="heading">
+                            <div className="inner-header">
+                                <h3>Children</h3>
+                            </div>
                         </div>
                        
                     <div>
@@ -84,11 +87,13 @@ class Index extends Component{
                     </div> 
                     <div className="show-all-children">
                         <Link route='show-all' params={{category:'children'}}>
-                            <a className="show-all">Show all{" "}({childrenPosts.length}+)</a>
+                            <a className="show-all">See more{" "}({childrenPosts.length}+){" "}</a>
                         </Link> 
                     </div>                
-                    <div>
-                        <h3>Adults</h3>
+                    <div className="heading">
+                        <div className="inner-header">
+                            <h3>Adults</h3>
+                        </div>
                     </div>
                     <div>
                         <ul className="cards">
@@ -101,11 +106,13 @@ class Index extends Component{
                     </div>
                     <div className="show-all-children">
                         <Link route='show-all' params={{category: 'adults'}}>
-                            <a className="show-all">Show all{" "}({adultPosts.length}+)</a>
+                            <a className="show-all">See more{" "}({adultPosts.length}+){" "}</a>
                         </Link> 
                     </div>    
-                    <div>
-                        <h3>Other</h3>
+                    <div className="heading">
+                        <div className="inner-header">
+                            <h3>Other</h3>
+                        </div>
                     </div>
                     <div>
                     <ul className="cards">
@@ -118,7 +125,7 @@ class Index extends Component{
                     </div> 
                     <div className="show-all-children">
                         <Link route='show-all' params={{category: 'others'}}>
-                            <a className="show-all">Show all{" "}({otherPosts.length}+)</a>
+                            <a className="show-all">See more{" "}({otherPosts.length}+){" "}</a>
                         </Link> 
                     </div>             
                 </div>

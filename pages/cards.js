@@ -21,6 +21,8 @@ const Card =({post,index})=>{
                                     <div className="card__title">{post.postTitle}</div>
                                     <div className="card__text">{post.PostDesc}</div>                  
                                 </div>
+                                <div className="card_lastDate">last donation 1d ago
+                                </div>
                             </div>
                         </div>
                     </a>

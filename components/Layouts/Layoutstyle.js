@@ -11,7 +11,8 @@ export default css`
     padding-top: 60px !important;
     z-index: 5;
     overflow: auto;
-    margin-top: 20px;
+    display: flex;
+    justify-content: center; //added new
 }  
 
 `;

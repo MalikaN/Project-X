@@ -65,6 +65,7 @@ textarea:focus, input:focus{
     margin-top: 30px;
     display:flex;
     flex-direction:row;
+    width: 840px;
 }
 .inner-post-details{
     width: 740px;
@@ -107,8 +108,9 @@ textarea:focus, input:focus{
     position: relative;
     overflow: hidden;
     display: inline-block;
-    margin-left: 280px;
-    margin-right: 30px;
+    //margin-left: 280px;
+   // margin-right: 30px;
+    width: 61px;
 }
 }
 .btn{

@@ -27,7 +27,9 @@ class Layout extends Component{
                 <style jsx global>{`
                 body { 
                     // font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-                    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+                   // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+                   font-family: Camphor,Open Sans,Segoe UI,sans-serif;
+                   -webkit-font-smoothing: antialiased;
                     background-color: #FEFEFE; //#FFF;
                     margin: 0; 
                     color: rgb(72, 72, 72);//#333;//#484848;
@@ -38,7 +40,7 @@ class Layout extends Component{
                 }
                 a{
                     // background-color: #00BAF4;
-                    color: #9d567a;
+                    color: #2e86de;
                     text-decoration: none;
                 }
                 button{
