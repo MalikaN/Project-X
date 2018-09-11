@@ -55,14 +55,19 @@ class Login extends Component{
                 <div className="form-content">
                     <div className="inner-form-content">
                     {/* <FontAwesomeIcon icon={ faEnvelope } className="fa-envelope"/> */}
+                        
+                        <input id="txtUserName" type="text" name="email" placeholder="Email"  onChange={this.handleInputChange}/>
+                        <span className="outer-focus-symbol"></span>
                         <span className="focus-symbol" >
                             <i className="fa fa-envelope" aria-hidden="true"></i>
                         </span>
-                        <input id="txtUserName" type="text" name="email" placeholder="Email"  onChange={this.handleInputChange}/>
                     </div>
                     <div className="inner-form-content">
-                        <span className="fa fa-lock" aria-hidden="true"></span>
                         <input id="txtpassword" type="password" name="password" placeholder="Password" onChange={this.handleInputChange} onKeyPress={this.onKeyPress}/>
+                        <span className="outer-focus-symbol"></span>
+                        <span className="focus-symbol" >
+                        <i className="fa fa-lock fa-lg" aria-hidden="true"></i>
+                        </span>
                     </div>
                     <div className="button" onClick ={this.handleSubmit}>sign in</div>
                 </div>

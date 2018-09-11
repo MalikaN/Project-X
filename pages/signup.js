@@ -52,20 +52,32 @@ class Signup extends Component{
                     <h1>Sign up</h1>
                     <div className="form-content">
                     <div className="inner-form-content">
-                        <span className="fa fa-user" aria-hidden="true"></span>
                         <input id="txtFirstName" type="text" name="firstname" placeholder="First Name" onChange={this.handleInputChange}/>
+                        <span className="outer-focus-symbol"></span>
+                        <span className="focus-symbol" >
+                            <i className="fa fa-user" aria-hidden="true"></i>
+                        </span>
                     </div>  
                     <div className="inner-form-content">
-                        <span className="fa fa-user" aria-hidden="true"></span>
                         <input id="txtLastName" type="text" name="lastname" placeholder="Last Name" onChange={this.handleInputChange}/>
+                        <span className="outer-focus-symbol"></span>
+                        <span className="focus-symbol" >
+                            <i className="fa fa-user" aria-hidden="true"></i>
+                        </span>
                     </div>
                     <div className="inner-form-content">
-                        <span className="fa fa-envelope" aria-hidden="true"></span>
                         <input id="txtEmail" type="text" name="email" placeholder="Email" onChange={this.handleInputChange}/>
+                        <span className="outer-focus-symbol"></span>
+                        <span className="focus-symbol" >
+                            <i className="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
                     </div>
                     <div className="inner-form-content">
-                        <span className="fa fa-lock" aria-hidden="true"></span>
                         <input id="txtpassword" type="password" name="password" placeholder="Password" onChange={this.handleInputChange}/>
+                        <span className="outer-focus-symbol"></span>
+                        <span className="focus-symbol" >
+                            <i className="fa fa-lock fa-lg" aria-hidden="true"></i>
+                        </span>
                     </div>
                         <div className="button" onClick={this.handleButtonClick}>sign up</div>
                         <div className="loginpath">

@@ -41,6 +41,7 @@ export default css`
     /* font-weight: 500; */
     display: flex;
     align-items: center;
+    position: relative;
 }
 input{
     background-color: #e8eeef;
@@ -49,24 +50,29 @@ input{
     border: 1px;
     border-radius: 22px;
     font-weight: 500;
-    margin: 0.5em 0 0.5em 0;
+    margin: 0.5em 0 0.5em 1.5em;
+    width: 100%
+}
+.outer-focus-symbol{
+    position: absolute;
 }
 .focus-symbol {
-    top: 0;
-    right: 0;
-    z-index: 2;
-    display: block;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-left: 22px;
+    pointer-events: none;
     line-height: 34px;
     text-align: center;
     pointer-events: none;
 }
-// .focus-symbol{
-//     color: #2e86de;
-// }
-input:focus + .focus-symbol {
-    color: #57b846;
-    padding-left: 28px;
-  }
+input:focus + .outer-focus-symbol +.focus-symbol  {
+       color: #2e86de;
+       
+}
 input:focus {
     outline: none;
 }
