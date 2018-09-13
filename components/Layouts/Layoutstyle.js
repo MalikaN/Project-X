@@ -11,7 +11,7 @@ export default css`
     padding-top: 60px !important;
     z-index: 5;
     overflow: auto;
-    display: flex;
+    // display: flex;
     justify-content: center; //added new
 }  
 
