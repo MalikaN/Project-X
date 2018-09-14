@@ -4,10 +4,10 @@ import styles from './indexStyle'
 import axios from 'axios'
 import Card from './cards'
 import { Link } from '../routes'
+
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronCircleRight'
 import faGreaterThan from '@fortawesome/fontawesome-free-solid/faGreaterThan'
-
 
 
 class Index extends Component{
@@ -37,6 +37,8 @@ class Index extends Component{
             console.log(error);
         })
     }
+ 
+    
     render(){
         const { posts , category } = this.state;
         const indexPage = true
@@ -50,8 +52,8 @@ class Index extends Component{
         const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
         
         return(
-           
-            <div className="mainDiv">     
+            
+            <div className="mainDiv">   
                 <div className="outerImagesDIv">
                     <div className="innerImagesDiv">
                             <img src="http://farm6.staticflickr.com/5145/5576437826_940f2db110.jpg" alt="Image 1" />
@@ -116,7 +118,7 @@ class Index extends Component{
                     </div>
                     <div>
                     <ul className="cards">
-                        {otherPosts.slice(0,4).map(function(post,i){
+                        {otherPosts.slice(0,3).map(function(post,i){
                             return(
                                 <Card key={post.id} post={post} index={indexPage}/>
                             )

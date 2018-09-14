@@ -6,7 +6,8 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 
 const Card =({post,index})=>{
-        return( 
+    console.log(post)
+        return(       
         <div className="cards__item">                   
             {index ?      
             <Link route='post' params={{slug: post.Slug,customCode: post.CustomCode}}>     
@@ -21,7 +22,7 @@ const Card =({post,index})=>{
                                     <div className="card__title">{post.postTitle}</div>
                                     <div className="card__text">{post.PostDesc}</div>                  
                                 </div>
-                                <div className="card_lastDate">last donation 1d ago
+                                <div className="card_lastDate">{post.CreatedBy}
                                 </div>
                             </div>
                         </div>

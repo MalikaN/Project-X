@@ -143,7 +143,7 @@ class editPost extends Component{
                 </div>
                 <div className="title">
                     <div className="inner-title">
-                    <textarea type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
+                    <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
                     onChange={(event)=>this.handleInputChange(event)} />
                     </div>                
                 </div>
@@ -156,7 +156,7 @@ class editPost extends Component{
                         onChange={(event)=>this.fileChangeHandler(event)}/>
                     </div>
                     <div className="inner-post-details">
-                        <textarea name="post" value={this.state.post} placeholder="your story..."  className="post-text" onChange={(event)=>this.handleInputChange(event)}/>
+                        <textarea name="post" value={this.state.post} placeholder="your story..." onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
                 </div>
                 <div className="imgInnerDiv">

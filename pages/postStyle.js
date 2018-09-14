@@ -60,13 +60,13 @@ h2:hover:after {
 .middle-div{
     display: flex;
     flex-direction: row;
-    width: 88%;
+    width: 70%;
     align-self: center;
     height: 372px; //height: 46%;
     // margin-bottom: 3rem;
 }
 .img-container{
-    width: 70%;
+    width: 60%;
     margin-right: 20px;
 }
 .inner-img-container{
@@ -171,7 +171,7 @@ ul {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 5%;
+    // height: 5%;
     border-top: 1px solid #DCDEDD;
     border-bottom: 1px solid #DCDEDD;
     margin-top: 3rem;
@@ -204,6 +204,7 @@ ul {
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    height: -webkit-fill-available;
 }
 .inner-lower-div{
     width: 87%;

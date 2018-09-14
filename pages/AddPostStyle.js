@@ -64,11 +64,26 @@ textarea:focus, input:focus{
 .post-details{
     margin-top: 30px;
     display:flex;
+    align-self: center;
     flex-direction:row;
     width: 840px;
 }
 .inner-post-details{
     width: 740px;
+}
+.extradet{
+    display: flex;
+    flex-direction: column;
+    width: 740px;
+    align-self: center;
+    margin-bottom: 100px;
+}
+.inner-extradet{
+    width: 400px;
+    margin: 20px 0 20px 0;
+}
+.input-extradet{
+    font-size: 23px;
 }
 .button{
     border-radius: 4px;
@@ -110,7 +125,7 @@ textarea:focus, input:focus{
     display: inline-block;
     //margin-left: 280px;
    // margin-right: 30px;
-    width: 61px;
+    width: 52px;
 }
 }
 .btn{

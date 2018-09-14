@@ -56,7 +56,7 @@ class Post extends Component{
                                 <span className="rbp-title">Account number</span>
                             </div>
                             <div className="rbp">
-                                <div className="rbp-details"><span>0779996323</span></div>
+                                <div className="rbp-details"><span>0772224556</span></div>
                                 <span className="rbp-title">Mobile</span>
                             </div>
                             <div className="rbp">

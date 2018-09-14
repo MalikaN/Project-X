@@ -51,15 +51,15 @@ export default css`
     overflow: hidden;
     float: right;
 }
-textarea{
-    width: 100%;
-    border-style: none; 
-    border-color: Transparent; 
-    overflow: auto; 
+// textarea{
+//     width: 100%;
+//     border-style: none; 
+//     border-color: Transparent; 
+//     overflow: auto; 
 //     resize: vertical;
 //     max-height: 300px; 
 //     min-height: 200px;
- }
+//  }
 .title{
     padding-right: 20px;
     margin-right: auto;
@@ -74,6 +74,16 @@ textarea{
     width: 100%;
     margin: 0 auto;
 }
+input{
+    border: 0px;
+    border-radius: 2px;
+    width: 100%;
+    height: 44.5px;
+    padding-left: 10px;
+}
+input:focus{
+    outline: none;
+}
 .title-text{
     font-size: 30px;
 }
@@ -81,13 +91,16 @@ textarea{
     margin-top: 30px;
     display:flex;
     flex-direction:row;
+    align-self: center;
+    width: 840px;
 }
 .buttonDiv{
     position: relative;
     overflow: hidden;
     display: inline-block;
-    margin-left: 280px;
-    margin-right: 30px;
+    width: 61px;
+    // margin-left: 280px;
+    // margin-right: 30px;
     }
 }
 .btn{

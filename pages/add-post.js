@@ -18,7 +18,11 @@ class AddPost extends Component{
         post: '',
         selectedFile: '',
         category: [],
-        checkedCat: ''
+        checkedCat: '',
+        accno: '',
+        mobile: '',
+        city:''
+
     }
     componentWillMount(){
        
@@ -73,7 +77,7 @@ class AddPost extends Component{
     }
     handleSubmit = (event) =>{
         
-            const { title, loggedinUser, post, checkedCat } = this.state;
+            const { title, loggedinUser, post, checkedCat, accno, mobile, city } = this.state;
             const formData = new FormData();
             formData.append('file', this.state.selectedFile);
             formData.append('upload_preset', "iv3w5ot5"); // Replace the preset name with your own
@@ -94,17 +98,24 @@ class AddPost extends Component{
                         fileUrl:response.data.url,
                         catId: checkedCat,
                         customId:rString,
-                        slug: slug
+                        slug: slug,
+                        accno: accno,
+                        tele: mobile,
+                        city: city
 
                     })
                     .then((response)=>{
+                        console.log(response)
                         if(response.data.StatusCode == 201){
                             console.log('post created successfully')  
                             this.setState({
                                 title: '',
                                 post: '',
                                 selectedFile: '',
-                                checkedCat: ''                                                              
+                                checkedCat: '',
+                                accno: '',
+                                mobile: '',
+                                city: ''                                                              
                             })
                         }        
                     })
@@ -177,6 +188,20 @@ class AddPost extends Component{
                         <textarea name="post" value={this.state.post} placeholder="your story..."
                             onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
+                </div>
+                <div className="extradet">
+                    <div className="inner-extradet">
+                    <input type="text" name="accno" value={this.state.accno} placeholder="Account Number" 
+                          className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                    </div>
+                    <div className="inner-extradet">
+                    <input type="text" name="mobile" value={this.state.mobile} placeholder="Telephone Number" 
+                         className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                    </div>
+                    <div className="inner-extradet">
+                    <input type="text" name="city" value={this.state.city} placeholder="City" 
+                         className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                    </div>                
                 </div>
                <style jsx>{styles}</style>
             </div>
