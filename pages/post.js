@@ -52,15 +52,15 @@ class Post extends Component{
                         </div>
                         <div className="right-box-pane">
                             <div className="rbp">
-                                <div className="rbp-details"><span>11112234</span></div>
+                                <div className="rbp-details"><span>{post.AccountNo}</span></div>
                                 <span className="rbp-title">Account number</span>
                             </div>
                             <div className="rbp">
-                                <div className="rbp-details"><span>0772224556</span></div>
+                                <div className="rbp-details"><span>{post.mobile}</span></div>
                                 <span className="rbp-title">Mobile</span>
                             </div>
                             <div className="rbp">
-                                <div className="rbp-details"><span>Matara,Sri Lanka</span></div>
+                                <div className="rbp-details"><span>{post.city}</span></div>
                                 <span className="rbp-title">Town</span>
                             </div>
                             <div className="social-media-icons">
