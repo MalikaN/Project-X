@@ -6,7 +6,6 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
 
 const Card =({post,index})=>{
-    console.log(post)
         return(       
         <div className="cards__item">                   
             {index ?      

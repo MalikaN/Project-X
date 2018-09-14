@@ -112,6 +112,10 @@ img {
     font-size: 16px !important;
     line-height: 22px !important;
     padding-bottom: 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 300px;
 }
 .mypost_card__text {
     flex: 1 1 auto;
