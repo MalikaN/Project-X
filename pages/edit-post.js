@@ -15,7 +15,10 @@ class editPost extends Component{
             post: '',
             imgSrc: '',
             id: '',
-            selectedFile:''
+            selectedFile:'',
+            accno: '',
+            mobile: '',
+            city:''
         }
         static async getInitialProps ({query}) {
                 return query
@@ -32,7 +35,11 @@ class editPost extends Component{
                     id: Response.data.Items[0].postId,
                     title: Response.data.Items[0].postTitle,
                     post: Response.data.Items[0].PostDesc,
-                    imgSrc: Response.data.Items[0].PostSrc
+                    imgSrc: Response.data.Items[0].PostSrc,
+                    accno: Response.data.Items[0].AccountNo,
+                    mobile: Response.data.Items[0].mobile,
+                    city: Response.data.Items[0].city
+
                 })
             })
             .catch((error)=>{
@@ -48,7 +55,6 @@ class editPost extends Component{
                 })
             }
         }
-
         handleInputChange =(event) =>{
             const target = event.target;
             const value = target.value;
@@ -83,7 +89,10 @@ class editPost extends Component{
                             post: '',
                             selectedFile: '',
                             id: '',
-                            imgSrc: ''
+                            imgSrc: '',
+                            accno: '',
+                            mobile:'',
+                            city:''
                         })
                     }
                     })
@@ -100,7 +109,10 @@ class editPost extends Component{
                     postId: this.state.id,
                     postTitle : this.state.title,
                     post: this.state.post,
-                    fileUrl: this.state.imgSrc
+                    fileUrl: this.state.imgSrc,
+                    accno: this.state.accno,
+                    tele: this.state.mobile,
+                    city: this.state.city
                 })
                     .then((Response)=>{
                     if(Response.data.StatusCode==201){
@@ -110,7 +122,10 @@ class editPost extends Component{
                             post: '',
                             selectedFile: '',
                             id: '',
-                            imgSrc: ''
+                            imgSrc: '',
+                            accno: '',
+                            mobile:'',
+                            city:''
                         })
                     }
                     })
@@ -158,6 +173,20 @@ class editPost extends Component{
                     <div className="inner-post-details">
                         <textarea name="post" value={this.state.post} placeholder="your story..." onChange={(event)=>this.handleInputChange(event)}/>
                     </div>
+                </div>
+                <div className="extradet">
+                    <div className="inner-extradet">
+                    <input type="text" name="accno" value={this.state.accno} placeholder="Account Number" 
+                          className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                    </div>
+                    <div className="inner-extradet">
+                    <input type="text" name="mobile" value={this.state.mobile} placeholder="Telephone Number" 
+                         className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                    </div>
+                    <div className="inner-extradet">
+                    <input type="text" name="city" value={this.state.city} placeholder="City" 
+                         className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                    </div>                
                 </div>
                 <div className="imgInnerDiv">
                     <div className="imgOuterDiv">
