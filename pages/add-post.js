@@ -105,7 +105,6 @@ class AddPost extends Component{
 
                     })
                     .then((response)=>{
-                        console.log(response)
                         if(response.data.StatusCode == 201){
                             console.log('post created successfully')  
                             this.setState({
