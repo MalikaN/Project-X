@@ -19,7 +19,6 @@ export default css`
     align-self: center;
     margin-top: 20px;
     text-align: center;
-   //height: 140px;//18%;
 }
 .inner-upper-div{
     padding: 0.8rem;
@@ -62,8 +61,7 @@ h2:hover:after {
     flex-direction: row;
     width: 70%;
     align-self: center;
-    height: 372px; //height: 46%;
-    // margin-bottom: 3rem;
+    height: 372px;
 }
 .img-container{
     width: 60%;
@@ -135,11 +133,8 @@ ul {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
-    border-radius: 4px;
-}
-.fa-facebook:hover {
     background-color: #3d5b99;
+    border-radius: 4px;
 }
 .fa-twitter {
     padding:13px 14px;
@@ -148,11 +143,8 @@ ul {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
-    border-radius: 4px;
-}
-.fa-twitter:hover {
     background-color: #00aced;
+    border-radius: 4px;
 }
 .fa-instagram {
     padding:13px 16px;
@@ -161,17 +153,13 @@ ul {
     -moz-transition:.5s;
     -webkit-transition:.5s;
     transition: .5s;
-    background-color: #322f30;
-    border-radius: 4px;
-}
-.fa-instagram:hover {
     background-color: #eb8231;
+    border-radius: 4px;
 }
 .middle-navbar{
     display: flex;
     flex-direction: row;
     width: 100%;
-    // height: 5%;
     border-top: 1px solid #DCDEDD;
     border-bottom: 1px solid #DCDEDD;
     margin-top: 3rem;
@@ -188,7 +176,6 @@ ul {
 }
 .nav-item{
     position: relative;
-    // padding: 1.5rem 0.5rem 1.5rem 0.5rem;
     padding:0.95rem 0.5rem 0.95rem 0.5rem;
     color: #2e86de;
     text-decoration: none;
@@ -209,28 +196,5 @@ ul {
 .inner-lower-div{
     width: 87%;
     padding-top: 2rem;
-}
-
-
-
-// .nav-item:after {
-//     content: '';
-//     display: block;
-//     position: absolute;
-//     bottom: 6px;
-//     left: 0;
-//     height: 3px;
-//     width: 100%;
-//     background-color: #000;
-//     transform-origin: right top;
-//     transform: scale(0, 1);
-//     transition: color 0.1s,transform 0.2s ease-out;
-// }
-// .nav-item:active:before {
-//     background-color: #000;
-// }
-// .nav-item:hover:before, .nav-item:focus:before {
-//     transform-origin: left top;
-//     transform: scale(1, 1);
 }
 `

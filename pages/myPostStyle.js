@@ -166,6 +166,6 @@ a{
 }
 //edit button added to my-posts
 .edit a {
-    color: #000;
+    color: #2e86de;
 }
 `
