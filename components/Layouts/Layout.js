@@ -3,7 +3,6 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import Head from 'next/head'
 import styles from './Layoutstyle'
-import ContentLoader from 'react-content-loader'
 
 export default(ComposedComponent)=>(
 class Layout extends Component{
