@@ -71,7 +71,7 @@ class Post extends Component{
                                 </ul>
                             </div>
                             <div className="rbp">
-                                <span className="rbp-title">created on 3rd sep 2018</span>
+                                <span className="rbp-title">created on {post.createdDate}</span>
                             </div>
                             
                         </div>

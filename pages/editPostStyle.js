@@ -127,6 +127,20 @@ input:focus{
 .inner-post-details{
     width: 740px;
 }
+.extradet{
+    display: flex;
+    flex-direction: column;
+    width: 740px;
+    align-self: center;
+    margin-bottom: 50px;
+}
+.inner-extradet{
+    width: 400px;
+    margin: 20px 0 20px 0;
+}
+.input-extradet{
+    font-size: 23px;
+}
 .post-text{
     font-size: 24px;
     width: 100%;
