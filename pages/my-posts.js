@@ -11,10 +11,11 @@ class myPost extends Component{
 
     state={
         LogginUser:'',
-        posts:[]
+        posts:[],
+        isLoading: true
     }
 
-    componentWillMount(){
+    componentDidMount(){
         let token = jscookie.getJSON('token')
 
         if(token){
@@ -36,7 +37,8 @@ class myPost extends Component{
         })
         .then((Response)=>{
             this.setState({
-                posts:Response.data.Items
+                posts:Response.data.Items,
+                isLoading: false
             })
         })
         .catch(function(error){
@@ -45,13 +47,15 @@ class myPost extends Component{
     }
 
     render(){
-        const { posts } = this.state;
+        const { posts,isLoading } = this.state;
         const indexPage = false;
+        const myPosts= isLoading ? [1,2,3,4,5,6] : posts
+        
         return(
             <ul className="mypostcards">
-            {posts.map(function(post,i){
+            {myPosts.map(function(post,i){
                 return(                   
-                    <Card key={post.postId} post={post} index={indexPage}/>
+                    <Card key={post.postId} post={post} index={indexPage} isLoading={isLoading}/>
                 )
             })}       
             <style jsx>{styles}</style>
