@@ -8,7 +8,8 @@ import Card from './cards'
 let postFilter=[]
 class ShowAllPost extends Component{
     state={
-        post: []
+        post: [],
+        isLoading: true
     }
     static async getInitialProps ({query}) {
         return query
@@ -17,7 +18,8 @@ class ShowAllPost extends Component{
         axios.get('http://api.pihitak.com')
         .then((Response)=>{
             this.setState({
-                post: Response.data.Items
+                post: Response.data.Items,
+                isLoading: false
             })
         })
         .catch((error)=>{
@@ -26,22 +28,21 @@ class ShowAllPost extends Component{
     }
     render(){
         const { query } = this.props.url
-        const { post } = this.state
+        const { post, isLoading } = this.state
         const indexPage = true
         switch(query.category){
             case "children":
-                postFilter = post.filter((child)=>child.CatId == 1) 
+                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((child)=>child.CatId == 1) 
                 break;
             case "adults":
-                postFilter = post.filter((child)=>child.CatId == 2)
+                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((child)=>child.CatId == 2)
                 break;
             case "others":
-                postFilter = post.filter((child)=>child.CatId == 3)
+                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((child)=>child.CatId == 3)
                 break;
             case "featured":
-                postFilter = post
+                postFilter = isLoading ? [1,2,3,4,5,6] : post
                 break;
-            
         }
         return(
             <div className="mainDiv">
@@ -58,7 +59,7 @@ class ShowAllPost extends Component{
                         <ul className="cards">
                             {postFilter.map(function(post,i){
                                 return(
-                                    <Card key={post.id} post={post} index={indexPage}/>
+                                    <Card key={post.id} post={post} index={indexPage} isLoading={isLoading}/>
                                 )
                             })}       
                         </ul>

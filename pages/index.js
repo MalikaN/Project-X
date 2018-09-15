@@ -4,10 +4,10 @@ import styles from './indexStyle'
 import axios from 'axios'
 import Card from './cards'
 import { Link } from '../routes'
+import Slider from '../components/slider'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronCircleRight'
 import faGreaterThan from '@fortawesome/fontawesome-free-solid/faGreaterThan'
-
 
 class Index extends Component{
     state={
@@ -52,26 +52,28 @@ class Index extends Component{
         // const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
         // const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const childrenPosts = isLoading
-            ? [1, 2, 3]
+            ? [1,2,3]
             : CFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const adultPosts = isLoading
-            ? [1, 2, 3]
+            ? [1,2,3]
             : AFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const otherPosts = isLoading
-            ? [1, 2, 3]
+            ? [1,2,3]
             : OFilter.sort((a, b) => Number(b.id) - Number(a.id));
         
         return(
             
-            <div className="mainDiv">   
+            <div className="mainDiv">
+            
                 <div className="outerImagesDIv">
-                    <div className="innerImagesDiv">
+                    <Slider isLoading={isLoading}/>
+                    {/* <div className="innerImagesDiv">
                             <img src="http://farm6.staticflickr.com/5145/5576437826_940f2db110.jpg" alt="Image 1" />
                             <img src="https://www.ybca.org/cms/2018/04/arch_des_series_2400-1440x960.jpg" alt="Image 2" />
                             <img src="https://placeimg.com/640/480/nature" alt="Image 3" />
                             <img src="http://farm2.staticflickr.com/1415/983021323_8eb2f92c01.jpg" alt="Image 4" />
                             <img src="https://i.pinimg.com/originals/11/b3/cc/11b3ccbc57526e3c6978920ef697efc5.jpg" alt="Image 5" />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="button-bar-overflow">
                     <div className="button-bar">

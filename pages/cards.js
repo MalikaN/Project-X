@@ -4,16 +4,29 @@ import myPostStyles from './myPostStyle'
 import { Link } from '../routes' //next-routes
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
-import ContentLoader, { Facebook } from 'react-content-loader'
+import ContentLoader,{Facebook} from 'react-content-loader'
 
 const Card =({post,index,isLoading})=>{
         if (isLoading) {
-            return <div><ContentLoader>
-            {/* Pure SVG */}
-            <rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
-            <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
-            <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
-          </ContentLoader></div>
+            return ( 
+            <div> 
+             <div className="placeholder-content">
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+            <div className="placeholder-content_item"></div>
+        </div>
+        
+            <style jsx>{ indexStyles }</style>
+            </div>
+            )
         }
         return(       
         <div className="cards__item"> 
