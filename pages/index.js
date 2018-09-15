@@ -13,7 +13,8 @@ import faGreaterThan from '@fortawesome/fontawesome-free-solid/faGreaterThan'
 class Index extends Component{
     state={
         posts: [],
-        category: []
+        category: [],
+        isLoading: true
     }
 
     componentDidMount(){
@@ -21,6 +22,7 @@ class Index extends Component{
         .then((Response)=>{
             this.setState({
                 posts:Response.data.Items
+                // isLoading: false
             })
         })
         .catch((error)=>{
@@ -40,7 +42,7 @@ class Index extends Component{
  
     
     render(){
-        const { posts , category } = this.state;
+        const { posts , category, isLoading} = this.state;
         const indexPage = true
         // Filter from Category
         const CFilter = posts.filter((child)=>child.CatId == 1)
@@ -82,7 +84,7 @@ class Index extends Component{
                         <div className="cards">
                             {childrenPosts.slice(0,3).map(function(post,i){
                                     return(
-                                        <Card key={post.id} post={post} index={indexPage}/> 
+                                        <Card key={post.id} post={post} index={indexPage} isloaded={isLoading}/> 
                                     )
                                 })}  
                         </div>  
@@ -101,7 +103,7 @@ class Index extends Component{
                         <ul className="cards">
                             {adultPosts.slice(0,3).map(function(post,i){
                                 return(
-                                    <Card key={post.id} post={post} index={indexPage}/>
+                                    <Card key={post.id} post={post} index={indexPage} isloaded={isLoading}/>
                                 )
                             })}       
                         </ul>
@@ -120,7 +122,7 @@ class Index extends Component{
                     <ul className="cards">
                         {otherPosts.slice(0,3).map(function(post,i){
                             return(
-                                <Card key={post.id} post={post} index={indexPage}/>
+                                <Card key={post.id} post={post} index={indexPage} isloaded={isLoading}/>
                             )
                         })}       
                         </ul>

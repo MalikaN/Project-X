@@ -4,12 +4,17 @@ import myPostStyles from './myPostStyle'
 import { Link } from '../routes' //next-routes
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
+import ContentLoader, { Facebook } from 'react-content-loader'
 
-const Card =({post,index})=>{
+const Card =({post,index,isloaded})=>{
         return(       
-        <div className="cards__item">                   
-            {index ?      
-            <Link route='post' params={{slug: post.Slug,customCode: post.CustomCode}}>     
+        <div className="cards__item"> 
+        {isloaded ?
+            <ContentLoader type="facebook"/>
+        :
+         index ?      
+            <Link route='post' params={{slug: post.Slug,customCode: post.CustomCode}}>  
+            
                 <div className="inner_cards__item">
                     <a className="link">
                         <div className="outerCard">
@@ -49,8 +54,9 @@ const Card =({post,index})=>{
                         </div>
                     </div>
                 </li> 
-            </div>
-            }   
+            </div> 
+        }                  
+            
             <style jsx>{ myPostStyles }</style>
             <style jsx>{ indexStyles }</style>
         </div>      
