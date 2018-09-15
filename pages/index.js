@@ -4,7 +4,6 @@ import styles from './indexStyle'
 import axios from 'axios'
 import Card from './cards'
 import { Link } from '../routes'
-
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronCircleRight'
 import faGreaterThan from '@fortawesome/fontawesome-free-solid/faGreaterThan'
@@ -21,8 +20,8 @@ class Index extends Component{
         axios.get('http://api.pihitak.com')
         .then((Response)=>{
             this.setState({
-                posts:Response.data.Items
-                // isLoading: false
+                posts:Response.data.Items,
+                isLoading: false
             })
         })
         .catch((error)=>{
@@ -49,9 +48,18 @@ class Index extends Component{
         const AFilter = posts.filter((child)=>child.CatId == 2)
         const OFilter = posts.filter((child)=>child.CatId == 3)
         //sort from id in decending order
-        const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
-        const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
-        const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        // const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        // const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        // const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        const childrenPosts = isLoading
+            ? [1, 2, 3]
+            : CFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        const adultPosts = isLoading
+            ? [1, 2, 3]
+            : AFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        const otherPosts = isLoading
+            ? [1, 2, 3]
+            : OFilter.sort((a, b) => Number(b.id) - Number(a.id));
         
         return(
             
@@ -84,7 +92,7 @@ class Index extends Component{
                         <div className="cards">
                             {childrenPosts.slice(0,3).map(function(post,i){
                                     return(
-                                        <Card key={post.id} post={post} index={indexPage} isloaded={isLoading}/> 
+                                        <Card key={post.id} post={post} index={indexPage} isLoading={isLoading}/> 
                                     )
                                 })}  
                         </div>  
@@ -103,7 +111,7 @@ class Index extends Component{
                         <ul className="cards">
                             {adultPosts.slice(0,3).map(function(post,i){
                                 return(
-                                    <Card key={post.id} post={post} index={indexPage} isloaded={isLoading}/>
+                                    <Card key={post.id} post={post} index={indexPage} isLoading={isLoading}/>
                                 )
                             })}       
                         </ul>
@@ -122,7 +130,7 @@ class Index extends Component{
                     <ul className="cards">
                         {otherPosts.slice(0,3).map(function(post,i){
                             return(
-                                <Card key={post.id} post={post} index={indexPage} isloaded={isLoading}/>
+                                <Card key={post.id} post={post} index={indexPage} isLoading={isLoading}/>
                             )
                         })}       
                         </ul>
