@@ -23,7 +23,6 @@ class Admin extends Component{
            console.log(error)
        })
     }
-
     render(){
         const { post,isLoading,posts } =this.state;
         const indexPage = true
