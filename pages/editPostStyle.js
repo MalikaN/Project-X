@@ -87,6 +87,22 @@ input:focus{
 .title-text{
     font-size: 30px;
 }
+.slugdiv{
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    // width: 740px;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    padding-top: 25px;
+    align-items: center;
+}
+.inner-slugDiv{
+    width: 740px;
+    margin: 20px 0 20px 0;
+}
 .post-details{
     margin-top: 30px;
     display:flex;
