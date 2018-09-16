@@ -19,16 +19,18 @@ class Login extends Component{
       }
 
     handleSubmit=(event)=> {
-      axios.post('http://api.pihitak.com/login', {
+      axios.post('http://localhost:5000/login', {
         email: this.state.email ,
         password: this.state.password
         })
         .then(function (response) {
+            console.log(response)
             if(response.data.status == 422){
                 let userInfo ={
                     access_token : response.data.access_token,
                     userId : response.data.userId,
-                    loginuser : response.data.username
+                    loginuser : response.data.username,
+                    roleId: response.data.roleId
                 }
                 jscookie.set('token',userInfo); 
                 Router.push('/')  
