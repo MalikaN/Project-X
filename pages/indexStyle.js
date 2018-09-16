@@ -29,7 +29,7 @@ export default css`
 @media screen and (min-width: 769px) {
   .cards__item {
       width: 29%; //33.33%;
-      margin-right: 50px;
+      margin: 50px;
   }
 }  
 @media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
