@@ -47,10 +47,10 @@ class Index extends Component{
         const CFilter = posts.filter((child)=>child.CatId == 1)
         const AFilter = posts.filter((child)=>child.CatId == 2)
         const OFilter = posts.filter((child)=>child.CatId == 3)
-        //sort from id in decending order
-        // const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
-        // const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
-        // const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));
+       // sort from id in decending order
+        /*const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
+        const otherPosts = OFilter.sort((a, b) => Number(b.id) - Number(a.id));*/
         const childrenPosts = isLoading
             ? [1,2,3]
             : CFilter.sort((a, b) => Number(b.id) - Number(a.id));
@@ -67,13 +67,6 @@ class Index extends Component{
             
                 <div className="outerImagesDIv">
                     <Slider isLoading={isLoading}/>
-                    {/* <div className="innerImagesDiv">
-                            <img src="http://farm6.staticflickr.com/5145/5576437826_940f2db110.jpg" alt="Image 1" />
-                            <img src="https://www.ybca.org/cms/2018/04/arch_des_series_2400-1440x960.jpg" alt="Image 2" />
-                            <img src="https://placeimg.com/640/480/nature" alt="Image 3" />
-                            <img src="http://farm2.staticflickr.com/1415/983021323_8eb2f92c01.jpg" alt="Image 4" />
-                            <img src="https://i.pinimg.com/originals/11/b3/cc/11b3ccbc57526e3c6978920ef697efc5.jpg" alt="Image 5" />
-                    </div> */}
                 </div>
                 <div className="button-bar-overflow">
                     <div className="button-bar">

@@ -27,6 +27,7 @@ class Header extends Component{
     render(){
 
         const { userToken } = this.state;
+        console.log(userToken)
         return(
             <div> 
                 <div className="menu">
@@ -40,6 +41,31 @@ class Header extends Component{
 
                 <div className="submenu">
                     {userToken.access_token ?
+                        (userToken.roleId == "1") ?
+
+                        <React.Fragment>
+                            <div className="addpost">
+                                <Link route="my-posts" >
+                                    <a>Approve Posts</a>
+                                </Link>
+                            </div>
+                            <div className="addpost">
+                                <Link route="my-posts" >
+                                    <a>My Posts</a>
+                                </Link>
+                            </div>
+                            <div className="addpost">
+                                <Link route="add-post" >
+                                    <a>Add Post</a>
+                                </Link>
+                            </div>
+                            <div className="buttonLink">
+                                <a  onClick={() => this.logout()}>
+                                    Logout
+                                </a>
+                            </div>
+                        </React.Fragment>
+                        :
                         <React.Fragment>
                             <div className="addpost">
                                 <Link route="my-posts" >

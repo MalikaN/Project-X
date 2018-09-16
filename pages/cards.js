@@ -4,7 +4,6 @@ import myPostStyles from './myPostStyle'
 import { Link } from '../routes' //next-routes
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faPencilAlt from '@fortawesome/fontawesome-free-solid/faPencilAlt'
-import ContentLoader,{Facebook} from 'react-content-loader'
 
 const Card =({post,index,isLoading})=>{
         if (isLoading) {

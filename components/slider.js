@@ -2,7 +2,6 @@ import styles from '../pages/indexStyle'
 
 
 const Slider =({isLoading})=>{
-    console.log(isLoading)
     if (isLoading) {
         return(
             <div className="loader">
@@ -15,8 +14,6 @@ const Slider =({isLoading})=>{
             </ul>
             <style jsx>{styles}</style> 
             </div>
-          
-
       )
     }
     return(
