@@ -372,6 +372,8 @@ a.show-all:hover:after {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
+
+//PLACEHOLDER CONTENT LOADER
 .placeholder-content {
     height: 260px;
     overflow: hidden;
@@ -477,7 +479,7 @@ a.show-all:hover:after {
     0%{ background-position: -650px 0; }
     100%{ background-position: 650px 0; }
 }
-
+//SLIDER LOADER
 .loader {
     display: flex;
     justify-content: center;
@@ -486,17 +488,17 @@ a.show-all:hover:after {
     overflow: hidden;
   }
   
-  ul {
+  .ul-loader {
     display: flex;
   }
-  ul li {
+  .ul-loader .li-loader {
     width: 20px;
     height: 20px;
     margin: 10px;
     list-style-type: none;
     transition: 0.5s all ease;
   }
-  ul li:nth-child(1) {
+  .ul-loader .li-loader:nth-child(1) {
     animation: right-1 1s infinite alternate;
     background-color: #2e86de;
     animation-delay: 100ms;
@@ -510,7 +512,7 @@ a.show-all:hover:after {
       transform: translateY(60px);
     }
   }
-  ul li:nth-child(2) {
+  .ul-loader .li-loader:nth-child(2) {
     animation: right-2 1s infinite alternate;
     background-color: #2e86de;
     animation-delay: 200ms;
@@ -524,7 +526,7 @@ a.show-all:hover:after {
       transform: translateY(70px);
     }
   }
-  ul li:nth-child(3) {
+  .ul-loader .li-loader:nth-child(3) {
     animation: right-3 1s infinite alternate;
     background-color: #2e86de;
     animation-delay: 300ms;
@@ -538,7 +540,7 @@ a.show-all:hover:after {
       transform: translateY(80px);
     }
   }
-  ul li:nth-child(4) {
+  .ul-loader .li-loader:nth-child(4) {
     animation: right-4 1s infinite alternate;
     background-color: #2e86de;
     animation-delay: 400ms;
@@ -552,7 +554,7 @@ a.show-all:hover:after {
       transform: translateY(90px);
     }
   }
-  ul li:nth-child(5) {
+  .ul-loader .li-loader:nth-child(5) {
     animation: right-5 1s infinite alternate;
     background-color: #2e86de;
     animation-delay: 500ms;
@@ -565,6 +567,203 @@ a.show-all:hover:after {
     100% {
       transform: translateY(100px);
     }
+  }
+  //ADMIN TABLE
+  .quiz-window {
+    position: absolute;
+    left:0; right:0;
+    top: 90px;
+    margin: auto;
+    width: 99%;
+    border-radius: 4px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .quiz-window-header {
+    padding: 20px 15px;
+    text-align:center;
+    position: relative;
+  }
+  .quiz-window-title {
+    font-size: 26px;
+  }
+  .quiz-window-body {
+    background-color: #f9f9f9;
+  }
+  .guiz-awards-row-header {
+    margin:0;
+    // padding: 10px 20px;
+    list-style: none;
+  }
+  .guiz-awards-row-header:after {
+    content: '';
+    display: table;
+    clear:both;
+  }
+  .guiz-awards-row-header li {
+    // display:inline-block;
+    vertical-align: top;
+    float: left;
+  }
+  .guiz-awards-row {
+    margin:0;
+    padding: 10px 20px;
+    list-style: none;
+    height: 60px;
+  }
+  .guiz-awards-row:after {
+    content: '';
+    display: table;
+    clear:both;
+  }
+  .guiz-awards-row-even {
+    margin:0;
+    padding: 10px 20px;
+    list-style: none;
+  }
+  .guiz-awards-row-even:after {
+    content: '';
+    display: table;
+    clear:both;
+  }
+  .quiz-window .quiz-window-body .guiz-awards-row:nth-child(even) {
+    background-color: #fff;
+    }
+  .guiz-awards-row li {
+    // display:inline-block;
+    vertical-align: top;
+    float: left;
+  }
+  .guiz-awards-header {
+    text-align: center;
+    padding: 20px 10px;
+  }
+  .guiz-awards-star, .guiz-awards-track, .guiz-awards-time,
+  .guiz-awards-header-star, .guiz-awards-header-track, .guiz-awards-header-time{
+    min-width: 54px;
+    // text-align: center;
+    width: 100px;
+  }
+  .guiz-awards-title {
+    width: 330px;
+    min-width: 160px;
+    font-size: 14px;
+    font-weight: normal;
+    padding-top: 3px;
+  }
+  .guiz-awards-header-title {
+    width: 330px;
+    min-width: 160px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .guiz-awards-subtitle {
+    color: #858585;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .guiz-awards-track, .guiz-awards-time {
+    width: 778px;
+    min-width: 80px;
+    font-size: 14px;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .guiz-awards-time {
+    width: 150px;
+    min-width: 80px;
+    font-size: 14px;
+    line-height: 1.4em;
+    letter-spacing: 1px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .guiz-awards-header-track, .guiz-awards-header-time {
+    width: 778px;
+    min-width: 80px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  .guiz-awards-header-time {
+    width: 150px;
+    min-width: 80px;
+  }
+  .guiz-awards-track .null, .guiz-awards-time .null {
+    color:#bababa;
+  }
+  .star {
+    display:block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #bdc2c1;
+    background: #d6d6d6;  
+  }
+  .goldstar {
+    border-color: #4c8193;
+    background: #14b0bf;  
+  }
+  .silverstar {
+    border-color: #557e3a;
+    background: #66931f;  
+  }
+  .bronzestar {
+    border-color: #998247;
+    background: #aa984b;  
+  }
+  .rhodiumstar {
+    border-color: #743a7f;
+    background: #a0409d;
+  }
+  .platinumstar {
+    border-color: #10393b;
+    background: #2b5770;
+  }
+  
+  .guiz-awards-buttons {
+    background: #fff;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .guiz-awards-but-back {
+    display:inline-block;
+    background: none;
+    border: 1px solid #61a3e5;
+    border-radius: 21px;
+    padding: 7px 40px 7px 20px;
+    color: #61a3e5;
+    font-size: 17px;
+    cursor:pointer;
+    transition: all .3s ease;
+  }
+  
+  .guiz-awards-but-back:hover {
+    background: #61a3e5;
+    color: #fff;
+  }
+  
+  .guiz-awards-but-back i {
+    font-size: 26px;
+    line-height: 17px;
+    margin-right: 20px;
+    position: relative;
+    top: 2px;
+  }
+  .star-text{
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+    font-size: 31px;
+    color: #fff;
+    padding-right: 2px;
   }
   
   

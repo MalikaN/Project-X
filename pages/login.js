@@ -4,8 +4,6 @@ import axios from 'axios'
 import Router from 'next/router'
 import jscookie from 'js-cookie'
 import styles from './LoginStyle'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faEnvelope from '@fortawesome/fontawesome-free-solid/faEnvelope'
 
 class Login extends Component{
 
@@ -24,7 +22,6 @@ class Login extends Component{
         password: this.state.password
         })
         .then(function (response) {
-            console.log(response)
             if(response.data.status == 422){
                 let userInfo ={
                     access_token : response.data.access_token,
@@ -56,8 +53,6 @@ class Login extends Component{
                 <h1>Sign in</h1>
                 <div className="form-content">
                     <div className="inner-form-content">
-                    {/* <FontAwesomeIcon icon={ faEnvelope } className="fa-envelope"/> */}
-                        
                         <input id="txtUserName" type="text" name="email" placeholder="Email"  onChange={this.handleInputChange}/>
                         <span className="outer-focus-symbol"></span>
                         <span className="focus-symbol" >

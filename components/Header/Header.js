@@ -25,17 +25,13 @@ class Header extends Component{
     }
     
     render(){
-
         const { userToken } = this.state;
-        console.log(userToken)
         return(
             <div> 
                 <div className="menu">
                 <div className="logo">
                 <Link href="/" >
                             <a className="title">Pihitak</a>
-                           {/* <img src="http://infoprut.ro/wp-content/uploads/2013/06/Intelegere.jpg" alt="" className="title"/> */}
-                        
                     </Link>
                 </div>
 
@@ -45,7 +41,7 @@ class Header extends Component{
 
                         <React.Fragment>
                             <div className="addpost">
-                                <Link route="my-posts" >
+                                <Link route="admin" >
                                     <a>Approve Posts</a>
                                 </Link>
                             </div>

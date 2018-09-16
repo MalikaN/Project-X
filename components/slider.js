@@ -5,12 +5,12 @@ const Slider =({isLoading})=>{
     if (isLoading) {
         return(
             <div className="loader">
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
+            <ul className="ul-loader">
+              <li className="li-loader"></li>
+              <li className="li-loader"></li>
+              <li className="li-loader"></li>
+              <li className="li-loader"></li>
+              <li className="li-loader"></li>
             </ul>
             <style jsx>{styles}</style> 
             </div>

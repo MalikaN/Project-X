@@ -18,7 +18,8 @@ class editPost extends Component{
             selectedFile:'',
             accno: '',
             mobile: '',
-            city:''
+            city:'',
+            slug:''
         }
         static async getInitialProps ({query}) {
                 return query
@@ -38,7 +39,9 @@ class editPost extends Component{
                     imgSrc: Response.data.Items[0].PostSrc,
                     accno: Response.data.Items[0].AccountNo,
                     mobile: Response.data.Items[0].mobile,
-                    city: Response.data.Items[0].city
+                    city: Response.data.Items[0].city,
+                    slug: Response.data.Items[0].Slug
+
 
                 })
             })
@@ -72,6 +75,7 @@ class editPost extends Component{
             const config = {
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             };
+            const slug = this.state.slug.replace(/\s+/g, '-').toLowerCase();
             if(this.state.selectedFile!=''){
                 axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                 .then((Response)=>{
@@ -79,7 +83,11 @@ class editPost extends Component{
                     postId: this.state.id,
                     postTitle : this.state.title,
                     post: this.state.post,
-                    fileUrl: Response.data.url
+                    fileUrl: Response.data.url,
+                    accno: this.state.accno,
+                    tele: this.state.mobile,
+                    city: this.state.city,
+                    slug: slug
                 })
                     .then((Response)=>{
                     if(Response.data.StatusCode==201){
@@ -92,7 +100,8 @@ class editPost extends Component{
                             imgSrc: '',
                             accno: '',
                             mobile:'',
-                            city:''
+                            city:'',
+                            slug
                         })
                     }
                     })
@@ -112,7 +121,9 @@ class editPost extends Component{
                     fileUrl: this.state.imgSrc,
                     accno: this.state.accno,
                     tele: this.state.mobile,
-                    city: this.state.city
+                    city: this.state.city,
+                    slug: slug
+
                 })
                     .then((Response)=>{
                     if(Response.data.StatusCode==201){
@@ -125,7 +136,8 @@ class editPost extends Component{
                             imgSrc: '',
                             accno: '',
                             mobile:'',
-                            city:''
+                            city:'',
+                            slug:''
                         })
                     }
                     })
@@ -156,12 +168,30 @@ class editPost extends Component{
                     </div>
                     <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
                 </div>
-                <div className="title">
-                    <div className="inner-title">
-                    <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
-                    onChange={(event)=>this.handleInputChange(event)} />
-                    </div>                
-                </div>
+                {loggedinUser.roleId != "1" ?
+                    <div className="title">
+                        <div className="inner-title">
+                        <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
+                        onChange={(event)=>this.handleInputChange(event)} />
+                        </div>                
+                    </div>
+                :
+                    <div>
+                        <div className="title">
+                            <div className="inner-title">
+                            <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
+                            onChange={(event)=>this.handleInputChange(event)} />
+                            </div>                
+                        </div>
+                        <div className="slugdiv">
+                            <div className="inner-slugDiv">
+                            <input type="text" name="slug" value={this.state.slug} placeholder="Title" className="input-extradet" 
+                            onChange={(event)=>this.handleInputChange(event)} />
+                            </div>                
+                        </div>
+                    </div>
+                }
+                
                 <div className="post-details">
                     <div className="buttonDiv">
                         <button className="btn">

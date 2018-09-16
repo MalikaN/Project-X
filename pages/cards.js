@@ -9,21 +9,20 @@ const Card =({post,index,isLoading})=>{
         if (isLoading) {
             return ( 
             <div> 
-             <div className="placeholder-content">
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-            <div className="placeholder-content_item"></div>
-        </div>
-        
-            <style jsx>{ indexStyles }</style>
+                <div className="placeholder-content">
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                    <div className="placeholder-content_item"></div>
+                </div>      
+                <style jsx>{ indexStyles }</style>
             </div>
             )
         }
@@ -33,7 +32,7 @@ const Card =({post,index,isLoading})=>{
          index ?      
             <Link route='post' params={{slug: post.Slug,customCode: post.CustomCode}}>  
             
-                <div className="inner_cards__item">
+                <div className="inner_cards__item" key={post.id}>
                     <a className="link">
                         <div className="outerCard">
                             <div className="card">
@@ -54,7 +53,7 @@ const Card =({post,index,isLoading})=>{
             </Link>
             :
             <div>
-                <li className="mypost_cards__item" key={post.postId}>
+                <li className="mypost_cards__item" key={post.id}>
                     <div className="mypost_card">
                         <div className="mypost_imgOuterDiv">
                             <Link route='post' params={{slug: post.Slug,customCode: post.CustomCode}}>    

@@ -40,8 +40,7 @@ class Post extends Component{
                         <div className="inner-upper-div">
                             <h2>{post.postTitle}</h2>
                             <div className="created-user"> <span>By{' '}{post.createdUser}</span>
-                            </div>
-                            
+                            </div>                      
                         </div>
                     </div>
                     <div className="middle-div">

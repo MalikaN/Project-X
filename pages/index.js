@@ -5,9 +5,6 @@ import axios from 'axios'
 import Card from './cards'
 import { Link } from '../routes'
 import Slider from '../components/slider'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faChevronCircleRight from '@fortawesome/fontawesome-free-solid/faChevronCircleRight'
-import faGreaterThan from '@fortawesome/fontawesome-free-solid/faGreaterThan'
 
 class Index extends Component{
     state={
@@ -87,7 +84,7 @@ class Index extends Component{
                         <div className="cards">
                             {childrenPosts.slice(0,3).map(function(post,i){
                                     return(
-                                        <Card key={post.id} post={post} index={indexPage} isLoading={isLoading}/> 
+                                        <Card post={post} index={indexPage} isLoading={isLoading}/> 
                                     )
                                 })}  
                         </div>  
@@ -106,7 +103,7 @@ class Index extends Component{
                         <ul className="cards">
                             {adultPosts.slice(0,3).map(function(post,i){
                                 return(
-                                    <Card key={post.id} post={post} index={indexPage} isLoading={isLoading}/>
+                                    <Card post={post} index={indexPage} isLoading={isLoading}/>
                                 )
                             })}       
                         </ul>
@@ -125,7 +122,7 @@ class Index extends Component{
                     <ul className="cards">
                         {otherPosts.slice(0,3).map(function(post,i){
                             return(
-                                <Card key={post.id} post={post} index={indexPage} isLoading={isLoading}/>
+                                <Card post={post} index={indexPage} isLoading={isLoading}/>
                             )
                         })}       
                         </ul>
