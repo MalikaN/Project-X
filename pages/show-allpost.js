@@ -32,13 +32,13 @@ class ShowAllPost extends Component{
         const indexPage = true
         switch(query.category){
             case "children":
-                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((child)=>child.CatId == 1) 
+                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((child)=>(child.CatId == 1 && child.Published=='Approved')) 
                 break;
             case "adults":
-                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((child)=>child.CatId == 2)
+                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((adult)=>(adult.CatId == 2 && adult.Published=='Approved'))
                 break;
             case "others":
-                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((child)=>child.CatId == 3)
+                postFilter = isLoading ? [1,2,3,4,5,6] : post.filter((other)=>(other.CatId == 3 && other.Published=='Approved'))
                 break;
             case "featured":
                 postFilter = isLoading ? [1,2,3,4,5,6] : post

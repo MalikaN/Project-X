@@ -46,7 +46,7 @@ export default css`
     color: #FFF;
     font-weight: 600;
     text-align: center;
-    width: 4rem;
+    width: 5rem;
     cursor: pointer;
     overflow: hidden;
     float: right;

@@ -37,7 +37,7 @@ class Login extends Component{
             }
         })
         .catch(function (error) {
-            sconsole.log(error);
+            console.log(error);
         
       });
     }

@@ -16,6 +16,7 @@ class Index extends Component{
     componentDidMount(){
         axios.get('http://api.pihitak.com')
         .then((Response)=>{
+            
             this.setState({
                 posts:Response.data.Items,
                 isLoading: false
@@ -41,9 +42,9 @@ class Index extends Component{
         const { posts , category, isLoading} = this.state;
         const indexPage = true
         // Filter from Category
-        const CFilter = posts.filter((child)=>child.CatId == 1)
-        const AFilter = posts.filter((child)=>child.CatId == 2)
-        const OFilter = posts.filter((child)=>child.CatId == 3)
+        const CFilter = posts.filter((child)=>(child.CatId == 1 && child.Published=='Approved'))
+        const AFilter = posts.filter((adult)=>(adult.CatId == 2 && adult.Published=='Approved'))
+        const OFilter = posts.filter((other)=>(other.CatId == 3 && other.Published=='Approved'))
        // sort from id in decending order
         /*const childrenPosts = CFilter.sort((a, b) => Number(b.id) - Number(a.id));
         const adultPosts = AFilter.sort((a, b) => Number(b.id) - Number(a.id));
