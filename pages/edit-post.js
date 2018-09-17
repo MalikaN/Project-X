@@ -5,7 +5,7 @@ import jscookie from 'js-cookie'
 import styles from './editPostStyle'
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faCamera from '@fortawesome/fontawesome-free-solid/faCamera'
-
+import instyles from '../pages/indexStyle'
 
 class editPost extends Component{
     
@@ -19,7 +19,9 @@ class editPost extends Component{
             accno: '',
             mobile: '',
             city:'',
-            slug:''
+            slug:'',
+            published: '',
+            isLoading: true
         }
         static async getInitialProps ({query}) {
                 return query
@@ -40,9 +42,9 @@ class editPost extends Component{
                     accno: Response.data.Items[0].AccountNo,
                     mobile: Response.data.Items[0].mobile,
                     city: Response.data.Items[0].city,
-                    slug: Response.data.Items[0].Slug
-
-
+                    slug: Response.data.Items[0].Slug,
+                    published: Response.data.Items[0].Published,
+                    isLoading:false
                 })
             })
             .catch((error)=>{
@@ -69,6 +71,7 @@ class editPost extends Component{
         }
 
         handleSubmit = (event) =>{
+            const {id, title, post, accno, imgSrc, mobile, city, published } = this.state;
             const formData = new FormData()
             formData.append('file',this.state.selectedFile)
             formData.append('upload_preset', "iv3w5ot5")
@@ -76,75 +79,158 @@ class editPost extends Component{
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             };
             const slug = this.state.slug.replace(/\s+/g, '-').toLowerCase();
-            if(this.state.selectedFile!=''){
-                axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
-                .then((Response)=>{
-                    axios.post('http://api.pihitak.com/edit-post',{
-                    postId: this.state.id,
-                    postTitle : this.state.title,
-                    post: this.state.post,
-                    fileUrl: Response.data.url,
-                    accno: this.state.accno,
-                    tele: this.state.mobile,
-                    city: this.state.city,
-                    slug: slug
-                })
+
+            if(published =="Pending"){
+                if(this.state.selectedFile!=''){
+                    axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                     .then((Response)=>{
-                    if(Response.data.StatusCode==201){
-                        console.log('Post Updated Successfully')
-                        this.setState({
-                            title: '',
-                            post: '',
-                            selectedFile: '',
-                            id: '',
-                            imgSrc: '',
-                            accno: '',
-                            mobile:'',
-                            city:'',
-                            slug
+                        axios.post('http://api.pihitak.com/edit-post',{
+                        postId: id,
+                        postTitle : title,
+                        post: post,
+                        fileUrl: Response.data.url,
+                        accno: accno,
+                        tele: mobile,
+                        city: city,
+                        slug: slug,
+                        published: 'Approved'
+                    })
+                        .then((Response)=>{
+                        if(Response.data.StatusCode==201){
+                            console.log('Post Updated Successfully')
+                            this.setState({
+                                title: '',
+                                post: '',
+                                selectedFile: '',
+                                id: '',
+                                imgSrc: '',
+                                accno: '',
+                                mobile:'',
+                                city:'',
+                                slug:'',
+                                published:''
+                            })
+                        }
                         })
-                    }
+                        .catch((error)=>{
+                            console.log(error)
+                        })
                     })
                     .catch((error)=>{
                         console.log(error)
                     })
-                })
-                .catch((error)=>{
-                    console.log(error)
-                })
+                }
+                else{
+                    axios.post('http://api.pihitak.com/edit-post',{
+                        postId: id,
+                        postTitle : title,
+                        post: post,
+                        fileUrl: imgSrc,
+                        accno: accno,
+                        tele: mobile,
+                        city: city,
+                        slug: slug,
+                        published: 'Approved'
+    
+                    })
+                        .then((Response)=>{
+                        if(Response.data.StatusCode==201){
+                            console.log('Post Updated Successfully')
+                            this.setState({
+                                title: '',
+                                post: '',
+                                selectedFile: '',
+                                id: '',
+                                imgSrc: '',
+                                accno: '',
+                                mobile:'',
+                                city:'',
+                                slug:'',
+                                published: ''
+                            })
+                        }
+                        })
+                        .catch((error)=>{
+                            console.log(error)
+                        })
+                }      
             }
             else{
-                axios.post('http://api.pihitak.com/edit-post',{
-                    postId: this.state.id,
-                    postTitle : this.state.title,
-                    post: this.state.post,
-                    fileUrl: this.state.imgSrc,
-                    accno: this.state.accno,
-                    tele: this.state.mobile,
-                    city: this.state.city,
-                    slug: slug
-
-                })
+                if(this.state.selectedFile!=''){
+                    axios.post('https://api.cloudinary.com/v1_1/myprojectx/image/upload',formData,config)
                     .then((Response)=>{
-                    if(Response.data.StatusCode==201){
-                        console.log('Post Updated Successfully')
-                        this.setState({
-                            title: '',
-                            post: '',
-                            selectedFile: '',
-                            id: '',
-                            imgSrc: '',
-                            accno: '',
-                            mobile:'',
-                            city:'',
-                            slug:''
+                        axios.post('http://api.pihitak.com/edit-post',{
+                        postId: id,
+                        postTitle : title,
+                        post: post,
+                        fileUrl: Response.data.url,
+                        accno: accno,
+                        tele: mobile,
+                        city: city,
+                        slug: slug,
+                        published: 'Approved'
+                    })
+                        .then((Response)=>{
+                        if(Response.data.StatusCode==201){
+                            console.log('Post Updated Successfully')
+                            this.setState({
+                                title: '',
+                                post: '',
+                                selectedFile: '',
+                                id: '',
+                                imgSrc: '',
+                                accno: '',
+                                mobile:'',
+                                city:'',
+                                slug:'',
+                                published:''
+                            })
+                        }
                         })
-                    }
+                        .catch((error)=>{
+                            console.log(error)
+                        })
                     })
                     .catch((error)=>{
                         console.log(error)
                     })
-            }      
+                }
+                else{
+                    axios.post('http://api.pihitak.com/edit-post',{
+                        postId: id,
+                        postTitle : title,
+                        post: post,
+                        fileUrl: imgSrc,
+                        accno: accno,
+                        tele: mobile,
+                        city: city,
+                        slug: slug,
+                        published: published
+    
+                    })
+                        .then((Response)=>{
+                        if(Response.data.StatusCode==201){
+                            console.log('Post Updated Successfully')
+                            this.setState({
+                                title: '',
+                                post: '',
+                                selectedFile: '',
+                                id: '',
+                                imgSrc: '',
+                                accno: '',
+                                mobile:'',
+                                city:'',
+                                slug:'',
+                                published: published
+                            })
+                        }
+                        })
+                        .catch((error)=>{
+                            console.log(error)
+                        })
+                }      
+            }
+           
         }
 
         fileChangeHandler = (event)=>{
@@ -154,81 +240,102 @@ class editPost extends Component{
             
         }
     render(){
-        const { loggedinUser,imgSrc } = this.state;
-        return(
-            <div className="container">
-                <div className="status-bar">
-                    <div className="inner-status-bar">
-                        Tell us your Story
-                    </div>
+        const { loggedinUser,imgSrc, published, isLoading } = this.state;
+        
+        if(isLoading) {
+            return(
+                <div className="loader">
+                    <ul className="ul-loader">
+                    <li className="li-loader"></li>
+                    <li className="li-loader"></li>
+                    <li className="li-loader"></li>
+                    <li className="li-loader"></li>
+                    <li className="li-loader"></li>
+                    </ul>
+                    <style jsx>{instyles}</style> 
                 </div>
-                <div className="author-pane">
-                    <div className="inner-author-pane">
-                        By {loggedinUser.loginuser}
+                )
+            }
+        else{
+            return(
+                <div className="container">
+                    <div className="status-bar">
+                        <div className="inner-status-bar">
+                            Tell us your Story
+                        </div>
                     </div>
-                    <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
-                </div>
-                {loggedinUser.roleId != "1" ?
-                    <div className="title">
-                        <div className="inner-title">
-                        <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
-                        onChange={(event)=>this.handleInputChange(event)} />
-                        </div>                
+                    <div className="author-pane">
+                        <div className="inner-author-pane">
+                            By {loggedinUser.loginuser}
+                        </div>
+                        {loggedinUser.roleId == "1" ?
+                            published == "Pending" ?
+                            <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Approve</div>
+                            :
+                            <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
+                        :
+                        <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
+                        }
                     </div>
-                :
+                    {loggedinUser.roleId != "1" ?
+                        <div className="title">
+                            <div className="inner-title">
+                                <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
+                                onChange={(event)=>this.handleInputChange(event)} />
+                            </div>                
+                        </div>
+                    :
                     <div>
                         <div className="title">
                             <div className="inner-title">
-                            <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
-                            onChange={(event)=>this.handleInputChange(event)} />
+                                <input type="text" name="title" value={this.state.title} placeholder="Title" className="title-text" 
+                                onChange={(event)=>this.handleInputChange(event)} />
                             </div>                
                         </div>
                         <div className="slugdiv">
                             <div className="inner-slugDiv">
-                            <input type="text" name="slug" value={this.state.slug} placeholder="Title" className="input-extradet" 
-                            onChange={(event)=>this.handleInputChange(event)} />
+                                <input type="text" name="slug" value={this.state.slug} placeholder="Title" className="input-extradet" 
+                                onChange={(event)=>this.handleInputChange(event)} />
                             </div>                
                         </div>
                     </div>
-                }
-                
-                <div className="post-details">
-                    <div className="buttonDiv">
-                        <button className="btn">
-                            <FontAwesomeIcon icon={ faCamera }/>
-                        </button>
-                        <input type="file" name="myfile" className="fileupload"   title="Add an image" 
-                        onChange={(event)=>this.fileChangeHandler(event)}/>
+                    }          
+                    <div className="post-details">
+                        <div className="buttonDiv">
+                            <button className="btn">
+                                <FontAwesomeIcon icon={ faCamera }/>
+                            </button>
+                            <input type="file" name="myfile" className="fileupload"   title="Add an image" 
+                            onChange={(event)=>this.fileChangeHandler(event)}/>
+                        </div>
+                        <div className="inner-post-details">
+                            <textarea name="post" value={this.state.post} placeholder="your story..." onChange={(event)=>this.handleInputChange(event)}/>
+                        </div>
                     </div>
-                    <div className="inner-post-details">
-                        <textarea name="post" value={this.state.post} placeholder="your story..." onChange={(event)=>this.handleInputChange(event)}/>
+                    <div className="extradet">
+                        <div className="inner-extradet">
+                            <input type="text" name="accno" value={this.state.accno} placeholder="Account Number" 
+                                className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                        </div>
+                        <div className="inner-extradet">
+                            <input type="text" name="mobile" value={this.state.mobile} placeholder="Telephone Number" 
+                                className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                        </div>
+                        <div className="inner-extradet">
+                            <input type="text" name="city" value={this.state.city} placeholder="City" 
+                                className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
+                        </div>                
                     </div>
+                    <div className="imgInnerDiv">
+                        <div className="imgOuterDiv">
+                            <img src={imgSrc} alt="" className="card__image" />
+                        </div> 
+                    </div>  
+                    <style jsx>{styles}</style>
                 </div>
-                <div className="extradet">
-                    <div className="inner-extradet">
-                    <input type="text" name="accno" value={this.state.accno} placeholder="Account Number" 
-                          className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
-                    </div>
-                    <div className="inner-extradet">
-                    <input type="text" name="mobile" value={this.state.mobile} placeholder="Telephone Number" 
-                         className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
-                    </div>
-                    <div className="inner-extradet">
-                    <input type="text" name="city" value={this.state.city} placeholder="City" 
-                         className="input-extradet" onChange={(event)=>this.handleInputChange(event)} />
-                    </div>                
-                </div>
-                <div className="imgInnerDiv">
-                    <div className="imgOuterDiv">
-                        <img src={imgSrc} alt="" className="card__image" />
-                    </div> 
-                </div>
-                
-                <style jsx>{styles}</style>
-            </div>
-        )
-    }
-
+            )
+        }
+    }       
 }
 
 export default withLayout(editPost)
