@@ -12,9 +12,10 @@ export default css`
     margin-right: auto;
     margin-left: auto;
     height: 100px;
+    margin-top: 20px;
 }
 .inner-status-bar{
-    padding-top: 40px;
+    padding-top: 20px;
     font-size: 1.5rem;
     line-height: 35px!important;
     border-bottom: 1px solid!important;
@@ -60,6 +61,9 @@ input{
 }
 textarea:focus, input:focus{
     outline: none;
+}
+textarea:focus, input:focus .alert{
+    content: '';
 }
 .post-details{
     margin-top: 30px;
@@ -168,4 +172,85 @@ textarea:focus, input:focus{
 .post-label{
     padding:15px;
 }
+.alert{
+    display: flex;
+    justify-content: center;
+    color: red;
+    visible: flase;
+}
+// .popup {
+//     position: fixed;
+//     padding: 14px;
+//     max-width: 500px;
+//     border-radius: 10px;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%,-50%);
+//     background: rgba(255,255,255,.9);
+//     visibility: hidden;
+//     opacity: 0;
+//     /* "delay" the visibility transition */
+//     -webkit-transition: opacity .5s, visibility 0s linear .5s;
+//     transition: opacity .5s, visibility 0s linear .5s;
+//     z-index: 1;
+//   }
+//   .popup:target {
+//     visibility: visible;
+//     opacity: 1;
+//     /* cancel visibility transition delay */
+//     -webkit-transition-delay: 0s;
+//     transition-delay: 0s;
+//   }
+//   .popup-close {
+//     position: absolute;
+//     padding: 10px;
+//     max-width: 500px;
+//     border-radius: 10px;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%,-50%);
+//     background: rgba(255,255,255,.9);
+//   }
+//   .popup .close {
+//     position: absolute;
+//     right: 2px;
+//     top: 0px;
+//     padding: 5px;
+//     color: #000;
+//     transition: color .3s;
+//     font-size: 23px;
+//     line-height: .6em;
+//     font-weight: bold;
+//   }
+//   .popup .close:hover {
+//     color: #00E5EE;
+//   }
+//   h2 {
+//     text-align: center;
+//     white-space: nowrap;
+//     color: #2e86de;
+//     font-size:22px;
+//     margin-top: 11px;
+//   }
+//   .close-popup {
+//     background: rgba(0,0,0,.7);
+//     cursor: default;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     opacity: 0;
+//     visibility: hidden;
+//     /* "delay" the visibility transition */
+//     -webkit-transition: opacity .5s, visibility 0s linear .5s;
+//     transition: opacity .5s, visibility 0s linear .5s;
+//   }
+//   .popup:target + .close-popup{  
+//     opacity: 1;
+//     visibility: visible;
+//     /* cancel visibility transition delay */
+//     -webkit-transition-delay: 0s;
+//     transition-delay: 0s;
+//   }
 `

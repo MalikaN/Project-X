@@ -338,7 +338,7 @@ h3:hover:after {
     padding: 0 20px 0 0;
 }
 .show-all-children{
-    width: 87%;
+    width: 95%;
     height: 40px !important;
     display: flex;
     margin-bottom: 15px;

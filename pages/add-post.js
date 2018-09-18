@@ -21,7 +21,8 @@ class AddPost extends Component{
         checkedCat: '',
         accno: '',
         mobile: '',
-        city:''
+        city:'',
+        showLabel: false
 
     }
     componentWillMount(){
@@ -54,7 +55,8 @@ class AddPost extends Component{
         const value = target.value;
         const name = target.name;
         this.setState({
-            [name]:value
+            [name]:value,
+            showLabel: false
         })
     }
     createRandomString=()=>{
@@ -114,7 +116,8 @@ class AddPost extends Component{
                                 checkedCat: '',
                                 accno: '',
                                 mobile: '',
-                                city: ''                                                              
+                                city: '',
+                                showLabel: true                                                            
                             })
                         }        
                     })
@@ -136,26 +139,41 @@ class AddPost extends Component{
 
     categoryChange = (event) =>{
         this.setState({
-            checkedCat: event.target.value
+            checkedCat: event.target.value,
+            showLabel: ''
         })
        
     }
 
     render(){
-        const { loggedinUser , category, checkedCat } = this.state;
+        const { loggedinUser , category, checkedCat, showLabel } = this.state;
 
         return(
             <div className="container">
                 <div className="status-bar">
-                    <div className="inner-status-bar">
-                        Tell us your Story
+                {showLabel ? 
+                    <div className="status-bar">
+                        <label className="alert">post created and waiting for admin approval</label>
+                        <div className="inner-status-bar">Tell us your Story</div>
                     </div>
+                    :
+                    <div className="status-bar">
+                        <div className="inner-status-bar">Tell us your Story</div>
+                    </div>
+                }
+                    
                 </div>
                 <div className="author-pane">
                     <div className="inner-author-pane">
                          By {loggedinUser.loginuser}
                     </div>
-                    <div className="button" onClick ={(event)=>this.handleSubmit(event)}>Publish</div>
+                    <div className="button"  onClick ={(event)=>this.handleSubmit(event)} href="#popup1">Publish</div>
+                    {/* <div id="popup1" className="popup">
+                        <a href="#" className="close">&times;</a>
+                        <h2>your post is on the queue</h2>
+                        <p>your post is done and waiting for admin approval</p>
+                        </div>
+                        <a href="#" className="close-popup"></a> */}
                 </div>
                 <div className="post-category">
                     {category.slice(0,3).map((cat,i)=>{
